@@ -1,0 +1,109 @@
+/* Fletcher's code - Merge into styles.css when project is being polished */
+@import url('../css/switzer.css');
+
+* {
+    font-family: 'Switzer-Regular';
+}
+/* Navigation bar */
+header{
+    position:fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    border-radius: 45px;
+    margin: auto;
+}
+/* All anchor elements in the navigation bar */
+header a{
+    text-decoration: none;
+    color: #000;
+}
+/* Navigation element in the navigation bar */
+header nav{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 24px;
+}
+
+/* Navigation buttons within the navigation bar */
+.pagenav div{
+
+    margin-left: 24px;
+    display:flex;
+}
+
+/* Text within the navigation buttons */
+.pagenav div a{
+    align-self: center;
+    margin-left: 5px;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Navigation button icons */
+.pagenav div img{
+    width: 16px;
+}
+
+/* The div for the page title and company icon in the navigation bar */
+.pagelogo{
+    padding: 10px;
+    display: flex;
+    border-radius: 40px;
+    margin-left: 10px;
+}
+
+/* The page title in the navigation bar */
+.pagelogo a{
+    margin-left:10px;
+    margin-right:5px;
+    align-self: center;
+}
+
+/* The company icon in the navigation bar */
+.pagelogo img{
+    align-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+
+/* Welcome section */
+
+/* Section tag */
+#hometop{
+    background-color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+/* Home page graphic */
+#homeimage{
+    width: fit-content;
+    max-width: 90%;
+    height: 455.62px;
+    border-radius: 25px;
+    display: flex;
+    margin: auto;
+    
+}
+
+/* Home page titles and subtitles */
+.Title{
+    background: #E1E4E8;
+    display: flex;
+    border-radius: 16px;
+    text-align: center;
+    align-content: center;
+    width:fit-content;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+}
