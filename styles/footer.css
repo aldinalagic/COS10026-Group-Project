@@ -1,0 +1,103 @@
+/* This imports the stuff from switzer.css, 
+without this line we wont be able to use the font itself.
+
+Why was a custom font selected instead of a google font?
+The switzer font is specified in the design system, that was used 
+to design the website.
+
+Also because google fonts are certified ass, they're used too much.
+
+Switzer fits that paradigm of being modern and being minimal, just 
+have a look at Switzer font's numbers
+
+*/
+@import url('../css/switzer.css');
+
+* {
+    font-family: 'Switzer-Regular';
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    position: fixed;
+    transform: translateX(-50%);
+    left: 50%;
+    background-color: white;
+    border: #E1E4E8 solid 1px;
+    width: 46.67%;
+    height: 4.5em;
+    border-radius: 2.35em;
+    bottom: 10px;
+}
+
+
+#footer-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    margin-left: 24px;
+    flex: 1;
+}
+
+
+#footer-logo img {
+    position: absolute;
+}
+
+#footer-logo iframe {
+    border-radius: 100%;
+}
+
+.menu-button button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: 4px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+} 
+
+#jira-button {
+    background-color: #E1E4E8;
+    color: #6F767D;
+    height: 1.5rem;
+    width: 6rem;
+    font-size: 0.75em;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 24px;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center; 
+    gap: 4px;
+    margin-left: auto;
+    padding: 4px 12px 4px 12px;
+    width: fit-content;
+}
