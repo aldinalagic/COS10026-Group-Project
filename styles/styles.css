@@ -1,0 +1,179 @@
+
+/* 
+    These are a bunch of variables that are used throughout. 
+    Of course most wont be used, however it might be needed
+    some time in the future so best to keep it here.
+
+    Please refer to the design to find out what colours you
+    will be using.
+*/
+:root {
+    /* Background */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-card: #f2f2f2;
+    --bg-glass: #ffffff;
+    --bg-glass-blur: 20px;
+  
+    /* Grey */
+    --grey-100: #e1e4e8;
+    --grey-200: #c8ccd1;
+    --grey-300: #b0b8c0;
+    --grey-400: #9da7b1;
+    --grey-500: #8590a1;
+    --grey-600: #6e7781;
+    --grey-700: #5a6068;
+    --grey-800: #464c5f;
+    --grey-900: #323a3e;
+    --grey-1000: #1f2327;
+    --grey-1100: #14191d;
+  
+    /* Red */
+    --red-100: #ffe8e8;
+    --red-200: #ffc8c8;
+    --red-300: #f4a6a6;
+    --red-400: #eb9090;
+    --red-500: #e06565;
+    --red-600: #d55454;
+    --red-700: #b93232;
+    --red-800: #732020;
+    --red-900: #591818;
+    --red-1100: #3d1010;
+  
+    /* Amber */
+    --amber-100: #ffedd8;
+    --amber-200: #fcd8a8;
+    --amber-300: #f2b860;
+    --amber-400: #f0a048;
+    --amber-500: #e59430;
+    --amber-600: #d18c2a;
+    --amber-700: #a06c08;
+    --amber-800: #825209;
+    --amber-900: #5c3a07;
+    --amber-1000: #382305;
+    --amber-1100: #141910;
+  
+    /* Green */
+    --green-100: #f1e8e8;
+    --green-200: #acc8b1;
+    --green-300: #90c8a0;
+    --green-400: #80a047;
+    --green-500: #60c87a;
+    --green-600: #36b767;
+    --green-700: #25a652;
+    --green-800: #1a5a46;
+    --green-900: #2e6336;
+    --green-1000: #1f3a27;
+    --green-1100: #141910;
+  
+    /* Blue */
+    --blue-100: #f1f7ff;
+    --blue-200: #b0d7f4;
+    --blue-300: #8ac0e0;
+    --blue-400: #60a0c8;
+    --blue-500: #3a8a9e;
+    --blue-600: #1e7096;
+    --blue-700: #1f7099;
+    --blue-800: #165372;
+    --blue-900: #0f3f54;
+    --blue-1000: #093837;
+    --blue-1100: #061a25;
+  
+    /* Purple */
+    --purple-100: #f1e8fc;
+    --purple-200: #d0c0f7;
+    --purple-300: #c0a2ec;
+    --purple-400: #b078d0;
+    --purple-500: #9850b8;
+    --purple-600: #8120bf;
+    --purple-700: #6826a5;
+    --purple-800: #621979;
+    --purple-900: #421974;
+    --purple-1000: #291047;
+    --purple-1100: #190a25;
+  
+    /* Pink */
+    --pink-100: #ffe8f4;
+    --pink-200: #ffbed2;
+    --pink-300: #f9a0c0;
+    --pink-400: #eb88b6;
+    --pink-500: #f06aa4;
+    --pink-600: #d02c7c;
+    --pink-700: #a02467;
+    --pink-800: #713a83;
+    --pink-900: #7b137c;
+    --pink-1000: #3d0c2a;
+    --pink-1100: #29071c;
+  
+    /* Teal */
+    --teal-100: #e3f8f8;
+    --teal-200: #bce8eb;
+    --teal-300: #a1d8d8;
+    --teal-400: #70c8c8;
+    --teal-500: #50b8b8;
+    --teal-600: #22a4a4;
+    --teal-700: #297c74;
+    --teal-800: #1a5a5a;
+    --teal-900: #143030;
+    --teal-1000: #0d2828;
+    --teal-1100: #071c1b;
+  
+    /* Brown */
+    --brown-100: #f2e8e3;
+    --brown-200: #e0c8b0;
+    --brown-300: #cfa880;
+    --brown-400: #b8865e;
+    --brown-500: #a06c38;
+    --brown-600: #82572e;
+    --brown-700: #73411f;
+    --brown-800: #5f2f16;
+    --brown-900: #3d200f;
+    --brown-1000: #29150a;
+    --brown-1100: #190b06;
+  
+    /* Semantic */
+    --colour-success: #27c94a;
+    --colour-warning: #f4b916;
+    --colour-error: #d05858;
+    --colour-info: #a8a0a7;
+  
+    /* Text and Icons */
+    --colour-text-primary: #14191d;
+    --colour-icon-primary: #14191d;
+    --colour-text-secondary: #a8a8a8;
+    --colour-icon-secondary: #585c63;
+  
+    /* Borders */
+    --colour-border-primary: #e1e4e8;
+    --colour-border-hover: #c8ccd1;
+    --colour-border-active: #b0b8c0;
+  
+    /* Buttons */
+    --colour-button-primary: var(--amber-500);
+    --colour-button-primary-text: #ffffff;
+    --colour-button-plain-text: #14191d;
+  
+    /* Alpha */
+    --alpha-10: 0.1;
+    --alpha-25: 0.25;
+    --alpha-40: 0.4;
+    --alpha-60: 0.6;
+    --alpha-80: 0.8;
+    --alpha-90: 0.9;
+    --alpha-100: 1;
+
+    /* Typography */
+    --small-3: 6px;
+    --small-2: 8px;
+    --small-1: 12px;
+    --paragraph: 16px;
+    --header-6: 22px;
+    --header-5: 28px;
+    --header-4: 38px;
+    --header-3: 50px;
+    --header-2: 68px;
+    --header-1: 90px;
+    --header-L: 120px;
+    --header-XL: 160px;
+  }
+  
