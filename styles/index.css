@@ -13,7 +13,8 @@ header{
     height: 56px;
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
     align-items: center;
     border-radius: 45px;
     margin: auto;
@@ -61,10 +62,11 @@ header nav{
 
 /* The page title in the navigation bar */
 .pagelogo a{
-    margin-left:10px;
+    margin-left:8px;
     margin-right:5px;
     align-self: center;
     font-family: 'Switzer-Semibold';
+    font-size: 20px;
 }
 
 /* The company icon in the navigation bar */
