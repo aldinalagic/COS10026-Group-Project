@@ -200,9 +200,9 @@ body {
 
     /* Fancy text animation */
     animation-name: glow-fancy-write, glow-fancy-fade-out, glow-fancy-opacity;
-    animation-duration: 2500ms, 800ms, 300ms;
+    animation-duration: 2000ms, 1200ms, 300ms;
     animation-delay: 0ms, 2800ms, 3600ms;
-    animation-timing-function: linear, ease-in-out, linear;
+    animation-timing-function: linear, linear, linear;
     animation-iteration-count: 1, 1, 1;
     animation-fill-mode: forwards, forwards, forwards;
 }
@@ -225,9 +225,9 @@ body {
     }
 
     to {
-        width: 1156px;
-        height: 722.5px;
-        filter: blur(100px);
+        width: 1256px;
+        height: 785px;
+        filter: blur(200px);
     }
 }
 
@@ -252,12 +252,12 @@ body {
     to be able to make a linear transparent gradient from bottom 0% to top 100%
 */
 #discover-wrapper::after {
-    content: ""; /* */
+    content: ""; /* Use empty string to cause the linear-gradient to appear, without it will not make it appear :)  */
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
+    height: 100vh;
     pointer-events: none;
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
 }
@@ -270,12 +270,11 @@ body {
     z-index: 0;
     opacity: 0;
     
-    animation-name: glow-fancy-write, glow-fancy-fade-out, glow-fancy-opacity;
-    animation-duration: 2500ms, 800ms, 300ms;
-    animation-delay: 0ms, 2800ms, 3600ms;
-    animation-timing-function: linear, ease-in-out, linear;
-    animation-iteration-count: 1, 1, 1;
-    animation-fill-mode: forwards, forwards, forwards;
+    animation-name: jobs-effect-animate-in ;
+    animation-duration: 2200ms;
+    animation-delay: 2400ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 @keyframes jobs-effect-animate-in {
