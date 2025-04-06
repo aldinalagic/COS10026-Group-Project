@@ -1,3 +1,19 @@
+/* 
+
+    This imports the stuff from switzer.css, 
+    without this line we wont be able to use the font itself.
+
+    Why was a custom font selected instead of a google font?
+    The switzer font is specified in the design system, that was used 
+    to design the website.
+
+    Also because google fonts are certified ass, they're used too much.
+
+    Switzer fits that paradigm of being modern and being minimal, just 
+    have a look at Switzer font's numbers.
+
+*/
+@import url('../css/switzer.css');
 
 /* 
     These are a bunch of variables that are used throughout. 
@@ -7,7 +23,7 @@
     Please refer to the design to find out what colours you
     will be using.
 
-    Use 
+    Use var(--VAR-NAME-HERE) to use the variable. 
 */
 :root {
     /* Background */
@@ -183,6 +199,17 @@ body {
     margin: 0px;
 }
 
+/* Components (buttons, drop downs, input fields and so on) */
+.button-primary {
+    font-family: Switzer-Regular;
+    background-color: var(--colour-button-primary);
+    color: var(--colour-button-primary-text);
+    border-radius: 16px;
+    border: none;
+    padding: 5.5px 16px 5.5px 16px;
+    font-size: var(--paragraph);
+}
+
 #glow-fancy {
     z-index: 1;
     position: absolute;
@@ -290,3 +317,4 @@ body {
         opacity: 1;
     }
 }
+
