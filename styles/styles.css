@@ -197,6 +197,7 @@
   
 * {
     font-family: Switzer-Regular;
+    letter-spacing: 0.2px;
     color: var(--colour-text-primary);
 }
 
@@ -249,6 +250,8 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    margin-top: 128px;
 }
 
 /* 
@@ -331,7 +334,7 @@ footer a {
     /* Fancy text animation */
     animation-name: glow-fancy-write, glow-fancy-fade-out, glow-fancy-animate-out;
     animation-duration: 2000ms, 1200ms, 800ms;
-    animation-delay: 0ms, 2400ms, 2800ms;
+    animation-delay: 200ms, 2600ms, 3000ms;
     animation-timing-function: linear, linear, linear;
     animation-iteration-count: 1, 1, 1;
     animation-fill-mode: forwards, forwards, forwards;
