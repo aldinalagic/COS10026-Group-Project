@@ -217,11 +217,11 @@ body {
     border: none;
     padding: 5.5px 16px 5.5px 16px;
     font-size: var(--paragraph);
+    cursor: pointer;
 }
 
 .button-primary:hover {
-    background-color: var(--amber-400);
-    cursor: pointer;
+    animation: button-primary-on-hover 50ms linear 0ms 1 forwards;
 }
 
 .glow-fancy-text {
@@ -238,6 +238,7 @@ body {
     align-items: center;
     gap: 4px;
     font-family: Switzer-Medium;
+    cursor: pointer;
 }
 
 /* Footer */
@@ -275,6 +276,16 @@ footer::after {
     height: 4.5rem;
 }
 
+#glow-logo-footer img {
+    animation: footer-logo-animation 20000ms infinite linear;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+#glow-logo-footer img:hover {
+    animation-play-state: running;
+}
+
 #footer-menu {
     display: inline-flex;
     gap: 24px;
@@ -291,8 +302,14 @@ footer a {
     border: none;
 
     background-color: var(--grey-100);
+    color: var(--grey-600);
     border-radius: 12px;
-    color: var(--colour-text-secondary);
+    padding: 4px 16px 4px 16px;
+    cursor: pointer;
+}
+
+#jira-button:hover {
+    animation: button-shaded-on-hover 50ms linear 0ms 1 forwards;
 }
 
 /* Jobs page */
@@ -508,4 +525,33 @@ footer a {
     }
 }
 
+@keyframes button-primary-on-hover {
+    from {
+        background-color: var(--colour-button-primary);
+    }
+    
+    to {
+        background-color: var(--amber-400);
+    }
+}
 
+@keyframes button-shaded-on-hover {
+    from {
+        background-color: var(--grey-100);
+    }
+    
+    to {
+        background-color: var(--grey-200);
+    }
+}
+
+@keyframes footer-logo-animation {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+    
+}
