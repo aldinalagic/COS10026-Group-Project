@@ -1,5 +1,6 @@
-/* Index.html styling*/
-/*Merge into styles.css when project is being polished */
+/* below is all the CSS for the navigation bar */
+/* Please add this all in your personal html file */
+/* also remember, the border around the navigation bar is for visibility and will be removed when all css is merged into one files, remove it now if you don't need it */
 @import url('../css/switzer.css');
 
 * {
@@ -98,107 +99,4 @@ header nav{
     border-radius: 50px;
     background-color: #FCEED6;
     
-}
-
-
-/* Welcome section */
-
-/* Section tag */
-#welcome{
-    display: flex;
-    padding-top: 136px;
-    margin-left: 19%;
-    margin-bottom: 250px;
-    width: 1136px;
-    flex-direction: column;
-}
-
-#welcome h1{
-    font-family: 'Switzer-Regular';
-    font-size: 90px;
-    float: left;
-    width: 900px;
-    margin-bottom: 0px;
-    color: #271B03;
-}
-
-#welcome p{
-    font-family: 'Switzer-Regular';
-    font-size: 20px;
-    float: left;
-    width: 450px;
-    color: #271B03;
-    opacity: 60%;
-}
-
-#welcome img{
-    width: 480px;
-    margin-top: 70px;
-    align-self: flex-end;
-    position: absolute;
-}
-#welcome div {
-    display: inline;
-    margin-top: 37.5px;
-}
-#welcome div a {
-    text-decoration: none;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 5.5px;
-    padding-bottom: 5.5px;
-    border-radius: 16px;
-    font-size: 16px;
-}
-#start {
-    background-color: #F0A214;
-    color: #fff;
-}
-#contact {
-    background-color: #fff;
-    color: #000;
-}
-
-#promises {
-    display:flex;
-    justify-self: center;
-    justify-content: space-between;
-    width: 900px;
-    margin-left: 19%;
-
-}
-#promises div {
-    border: #E1E4E8 solid 1px;
-    width:288px;
-    height: 208px;
-    border-radius: 16px;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 1.5em 1.5em 1.5em;
-    grid-template-areas: "img head"
-                         "title title"
-                         "subtext subtext";
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-}
-
-#promises div img {
-    grid-area: img;
-    justify-self: flex-end;
-    align-self: center;
-}
-.benefithead {
-    grid-area: head;
-    align-self: center;
-    font-size: 28px;
-}
-.benefittext {
-    grid-area: title;
-}
-.benefitsubtext {
-    grid-area: subtext;
-}
-.benefittext, .benefitsubtext {
-    font-size: 20px;
 }
