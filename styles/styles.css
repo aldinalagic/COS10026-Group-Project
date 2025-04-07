@@ -195,6 +195,10 @@
     --header-XL: 160px;
 }
   
+* {
+    font-family: Switzer-Regular;
+}
+
 body {
     margin: 0px;
 }
@@ -208,6 +212,13 @@ body {
     border: none;
     padding: 5.5px 16px 5.5px 16px;
     font-size: var(--paragraph);
+}
+
+.glow-fancy-text {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--amber-500);
 }
 
 #glow-fancy {
@@ -226,14 +237,95 @@ body {
     height: 660px;
 
     /* Fancy text animation */
-    animation-name: glow-fancy-write, glow-fancy-fade-out, glow-fancy-opacity;
-    animation-duration: 2000ms, 1200ms, 300ms;
-    animation-delay: 0ms, 2800ms, 3600ms;
+    animation-name: glow-fancy-write, glow-fancy-fade-out, glow-fancy-animate-out;
+    animation-duration: 2000ms, 1200ms, 800ms;
+    animation-delay: 0ms, 2400ms, 2800ms;
     animation-timing-function: linear, linear, linear;
     animation-iteration-count: 1, 1, 1;
     animation-fill-mode: forwards, forwards, forwards;
 }
 
+#discover-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+    For some reason, I (Aldin) was only able to use a pseudo element selector 
+    to be able to make a linear transparent gradient from bottom 0% to top 100%
+*/
+#discover-wrapper::after {
+    content: ""; /* Use empty string to cause the linear-gradient to appear, without it will not make it appear :)  */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    pointer-events: none;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
+}
+
+#jobs-effect {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: relative;
+    z-index: 0;
+    opacity: 0;
+    
+    animation-name: jobs-effect-animate-in ;
+    animation-duration: 2200ms;
+    animation-delay: 2000ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#discover-contents {
+    z-index: 2;
+    position: absolute;
+    transform: translateY(0%);
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+
+    font-family: Switzer-Bold;
+
+    opacity: 0;
+    animation: discover-contents-animate-in 1800ms ease-in-out 3200ms 1 forwards;
+}
+
+#discover-contents h1 {
+    margin: auto;
+    font-size: var(--header-1);
+    color: var(--amber-1000);
+    order: 0;
+    flex-grow: 0;
+}
+
+
+#discover-contents h6 {
+    margin: auto;
+    font-size: var(--header-6);
+    color: var(--amber-1000);
+    opacity: 0.6;
+
+    padding-top: 16px;
+}
+
+
+#discover-contents a {
+    padding-top: 32px;
+}
+
+/* Animations */
 @keyframes glow-fancy-write {
     from {
         stroke-dashoffset: 5000;
@@ -258,52 +350,6 @@ body {
     }
 }
 
-@keyframes glow-fancy-opacity {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-#discover-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
-
-/* 
-    For some reason, I (Aldin) was only able to use a pseudo element selector 
-    to be able to make a linear transparent gradient from bottom 0% to top 100%
-*/
-#discover-wrapper::after {
-    content: ""; /* Use empty string to cause the linear-gradient to appear, without it will not make it appear :)  */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    pointer-events: none;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-}
-
-#jobs-effect {
-    width: 100%;
-    height: 100%;
-    border: none;
-    position: relative;
-    z-index: 0;
-    opacity: 0;
-    
-    animation-name: jobs-effect-animate-in ;
-    animation-duration: 2200ms;
-    animation-delay: 2400ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-}
-
 @keyframes jobs-effect-animate-in {
     0% {
         opacity: 0;
@@ -317,4 +363,26 @@ body {
         opacity: 1;
     }
 }
+
+@keyframes glow-fancy-animate-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes discover-contents-animate-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-30%);
+    }
+}
+
 
