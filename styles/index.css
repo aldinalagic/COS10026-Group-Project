@@ -21,6 +21,7 @@ header{
     margin: auto;
     border: #000 dashed 1px; /* Border helps make the navigation bar more visible for development, delete once no longer needed */
 }
+
 /* All anchor elements in the navigation bar */
 header a{
     text-decoration: none;
@@ -35,22 +36,21 @@ header nav{
 }
 
 /* Navigation buttons within the navigation bar */
-.pagenav div{
-
+.pagenav a{
+    text-decoration: none;
     margin-left: 24px;
     display:flex;
 }
 
 /* Text within the navigation buttons */
-.pagenav div a{
+.pagenav a p{
     align-self: center;
     margin-left: 5px;
-    text-decoration: none;
     color: #000;
 }
 
 /* Navigation button icons */
-.pagenav div img{
+.pagenav a img{
     width: 16px;
 }
 
@@ -63,7 +63,7 @@ header nav{
 }
 
 /* The page title in the navigation bar */
-.pagelogo a{
+.pagelogo p{
     margin-left:8px;
     margin-right:5px;
     align-self: center;
@@ -73,7 +73,7 @@ header nav{
 
 /* The company icon in the navigation bar */
 .pagelogo img{
-    align-content: center;
+    align-self: center;
     width: 24px;
     height: 24px;
 }
@@ -100,6 +100,8 @@ header nav{
     
 }
 
+/* main */
+
 
 /* Welcome section */
 
@@ -107,15 +109,16 @@ header nav{
 #welcome{
     display: flex;
     padding-top: 136px;
-    margin-left: 19%;
+    margin-left: 22%;
     margin-bottom: 250px;
-    width: 1136px;
+    width: 60%;
     flex-direction: column;
+
 }
 
 #welcome h1{
     font-family: 'Switzer-Regular';
-    font-size: 90px;
+    font-size: 6.2vw;
     float: left;
     width: 900px;
     margin-bottom: 0px;
@@ -124,7 +127,7 @@ header nav{
 
 #welcome p{
     font-family: 'Switzer-Regular';
-    font-size: 20px;
+    font-size: 1.4vw;
     float: left;
     width: 450px;
     color: #271B03;
@@ -132,10 +135,13 @@ header nav{
 }
 
 #welcome img{
-    width: 480px;
+    width: 25vw;
     margin-top: 70px;
-    align-self: flex-end;
+    margin-left: 34%;
+    justify-self: flex-end;
+    float: left;
     position: absolute;
+    z-index: -1;
 }
 #welcome div {
     display: inline;
@@ -159,17 +165,19 @@ header nav{
     color: #000;
 }
 
-#promises {
+#benefits {
     display:flex;
-    justify-self: center;
-    justify-content: space-between;
-    width: 900px;
+    float: center;
     margin-left: 19%;
+    margin-right: 19%;
+    justify-content: center;
+    gap: 16px;
+    width: 62%;
 
 }
-#promises div {
+#benefits div {
     border: #E1E4E8 solid 1px;
-    width:288px;
+    width:15vw;
     height: 208px;
     border-radius: 16px;
     display: grid;
@@ -183,7 +191,7 @@ header nav{
     text-align: center;
 }
 
-#promises div img {
+#benefits div img {
     grid-area: img;
     justify-self: flex-end;
     align-self: center;
@@ -191,14 +199,115 @@ header nav{
 .benefithead {
     grid-area: head;
     align-self: center;
+    margin-left: 6px;
+    justify-self: flex-start;
     font-size: 28px;
+    color: #14191D;
 }
 .benefittext {
     grid-area: title;
+    color: #14191D;
 }
 .benefitsubtext {
     grid-area: subtext;
+    color: #858C93;
 }
 .benefittext, .benefitsubtext {
     font-size: 20px;
 }
+#discover {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    margin-top: 128px;
+}
+#discover h3 {
+    font-size: 50px;
+    color: #14191D;
+    font-family: 'Switzer-semibold';
+    margin: 0;
+}
+#discover h3 span {
+    /* font family should be changed once the font file is added, current font is temporary */
+    font-family:Impact, 'Arial Narrow Bold';
+    color: #F0A210;
+}
+#discover h2 {
+    font-family: 'Switzer-Regular';
+    font-size: 20px;
+    color: #14191D;
+    margin: 0;
+    margin-top: 35px;
+}
+#discover a {
+    background-color: #F0A214;
+    color: #fff;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    margin-top: 24px;
+}
+#discover a p{
+    margin: 0;
+}
+#explore {
+    margin-left: 22%;
+    margin-right: 22%;
+}
+#explore article {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    height:500px;
+    margin-top: 24px;
+}
+#explore h3 {
+    font-size: 60px;
+    color: #14191D;
+    font-family: 'Switzer-semibold';
+    margin: 0;
+    margin-top: 128px;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+#explore article iframe {
+    width: 56%;
+    height: inherit;
+    border: 0;
+    z-index: -1;
+    position: absolute;
+    border-radius: 32px;
+}
+#explore article h4 {
+    font-size: 50px;
+    margin: 0px;
+    margin-top: 70px;
+}
+#explore article p {
+    font-size: 20px;
+    color: #14191D;
+    margin: 0;
+    margin-top: 16px;
+}
+#explore article a {
+    font-size: 20px;
+    background-color: #F0A214;
+    margin: auto;
+    color: #fff;
+    border-radius: 30px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    margin-top: 24px;
+}
+
