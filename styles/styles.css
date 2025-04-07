@@ -27,149 +27,149 @@
 */
 :root {
     /* Background */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --bg-card: #f2f2f2;
-    --bg-glass: #ffffff;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F0F0F0;
+    --bg-card: #F2F2F2;
+    --bg-glass: #FFFFFF;
     --bg-glass-blur: 20px;
 
     /* Grey */
-    --grey-100: #e1e4e8;
-    --grey-200: #c8ccd1;
-    --grey-300: #b0b8c0;
-    --grey-400: #9da7b1;
-    --grey-500: #8590a1;
-    --grey-600: #6e7781;
-    --grey-700: #5a6068;
-    --grey-800: #464c5f;
-    --grey-900: #323a3e;
-    --grey-1000: #1f2327;
-    --grey-1100: #14191d;
+    --grey-100: #E1E4E8;
+    --grey-200: #C6CBD1;
+    --grey-300: #B0B6BD;
+    --grey-400: #9AA0A7;
+    --grey-500: #858C93;
+    --grey-600: #6F767D;
+    --grey-700: #595F66;
+    --grey-800: #43484E;
+    --grey-900: #2E3338;
+    --grey-1000: #1F2327;
+    --grey-1100: #14191D;
 
     /* Red */
-    --red-100: #ffe8e8;
-    --red-200: #ffc8c8;
-    --red-300: #f4a6a6;
-    --red-400: #eb9090;
-    --red-500: #e06565;
-    --red-600: #d55454;
-    --red-700: #b93232;
+    --red-100: #FBEAEA;
+    --red-200: #F4C6C6;
+    --red-300: #EBA0A0;
+    --red-400: #E07A7A;
+    --red-500: #D65555;
+    --red-600: #BF3636;
+    --red-700: #992B2B;
     --red-800: #732020;
-    --red-900: #591818;
-    --red-1100: #3d1010;
+    --red-900: #541818;
+    --red-1100: #3D1010;
 
     /* Amber */
-    --amber-100: #ffedd8;
-    --amber-200: #fcd8a8;
-    --amber-300: #f2b860;
-    --amber-400: #f0a048;
-    --amber-500: #e59430;
-    --amber-600: #d18c2a;
-    --amber-700: #a06c08;
+    --amber-100: #FCEED6;
+    --amber-200: #FADCA6;
+    --amber-300: #F7C876;
+    --amber-400: #F4B546;
+    --amber-500: #F0A214;
+    --amber-600: #D1890E;
+    --amber-700: #A96D0B;
     --amber-800: #825209;
-    --amber-900: #5c3a07;
-    --amber-1000: #382305;
-    --amber-1100: #141910;
+    --amber-900: #5C3A07;
+    --amber-1000: #3E2805;
+    --amber-1100: #14191D;
 
     /* Green */
-    --green-100: #f1e8e8;
-    --green-200: #acc8b1;
-    --green-300: #90c8a0;
-    --green-400: #80a047;
-    --green-500: #60c87a;
-    --green-600: #36b767;
-    --green-700: #25a652;
-    --green-800: #1a5a46;
-    --green-900: #2e6336;
-    --green-1000: #1f3a27;
-    --green-1100: #141910;
+    --green-100: #E6F4EA;
+    --green-200: #BCE7C8;
+    --green-300: #92DAA6;
+    --green-400: #67CD84;
+    --green-500: #3DC063;
+    --green-600: #2E9E4E;
+    --green-700: #237C3C;
+    --green-800: #1A5A2B;
+    --green-900: #12401E;
+    --green-1000: #0B2B14;
+    --green-1100: #071C0D;
 
     /* Blue */
-    --blue-100: #f1f7ff;
-    --blue-200: #b0d7f4;
-    --blue-300: #8ac0e0;
-    --blue-400: #60a0c8;
-    --blue-500: #3a8a9e;
-    --blue-600: #1e7096;
-    --blue-700: #1f7099;
+    --blue-100: #E1F2FB;
+    --blue-200: #B6DFF4;
+    --blue-300: #8BCBEB;
+    --blue-400: #60B5E0;
+    --blue-500: #36A1D6;
+    --blue-600: #288DBF;
+    --blue-700: #1F7099;
     --blue-800: #165372;
-    --blue-900: #0f3f54;
-    --blue-1000: #093837;
-    --blue-1100: #061a25;
+    --blue-900: #0F3D54;
+    --blue-1000: #092837;
+    --blue-1100: #051A25;
 
     /* Purple */
-    --purple-100: #f1e8fc;
-    --purple-200: #d0c0f7;
-    --purple-300: #c0a2ec;
-    --purple-400: #b078d0;
-    --purple-500: #9850b8;
-    --purple-600: #8120bf;
-    --purple-700: #6826a5;
-    --purple-800: #621979;
-    --purple-900: #421974;
-    --purple-1000: #291047;
-    --purple-1100: #190a25;
+    --purple-100: #F1E8FC;
+    --purple-200: #DCC0F7;
+    --purple-300: #C698F2;
+    --purple-400: #B070ED;
+    --purple-500: #9950E0;
+    --purple-600: #7E3DBF;
+    --purple-700: #632E99;
+    --purple-800: #4A2172;
+    --purple-900: #341754;
+    --purple-1000: #231037;
+    --purple-1100: #190A25;
 
     /* Pink */
-    --pink-100: #ffe8f4;
-    --pink-200: #ffbed2;
-    --pink-300: #f9a0c0;
-    --pink-400: #eb88b6;
-    --pink-500: #f06aa4;
-    --pink-600: #d02c7c;
-    --pink-700: #a02467;
-    --pink-800: #713a83;
-    --pink-900: #7b137c;
-    --pink-1000: #3d0c2a;
-    --pink-1100: #29071c;
+    --pink-100: #FCE8F4;
+    --pink-200: #F8BDE2;
+    --pink-300: #F393D0;
+    --pink-400: #EE68BD;
+    --pink-500: #E740AA;
+    --pink-600: #C92F8C;
+    --pink-700: #A0246F;
+    --pink-800: #781A53;
+    --pink-900: #57123C;
+    --pink-1000: #3D0C2A;
+    --pink-1100: #29071C;
 
     /* Teal */
-    --teal-100: #e3f8f8;
-    --teal-200: #bce8eb;
-    --teal-300: #a1d8d8;
-    --teal-400: #70c8c8;
-    --teal-500: #50b8b8;
-    --teal-600: #22a4a4;
-    --teal-700: #297c74;
-    --teal-800: #1a5a5a;
-    --teal-900: #143030;
-    --teal-1000: #0d2828;
-    --teal-1100: #071c1b;
+    --teal-100: #E6F8F6;
+    --teal-200: #BCEBE6;
+    --teal-300: #92DCD6;
+    --teal-400: #67CDC6;
+    --teal-500: #3DC0B6;
+    --teal-600: #2E9E94;
+    --teal-700: #237C74;
+    --teal-800: #1A5A56;
+    --teal-900: #12403D;
+    --teal-1000: #0B2B29;
+    --teal-1100: #071C1B;
 
     /* Brown */
-    --brown-100: #f2e8e3;
-    --brown-200: #e0c8b0;
-    --brown-300: #cfa880;
-    --brown-400: #b8865e;
-    --brown-500: #a06c38;
-    --brown-600: #82572e;
-    --brown-700: #73411f;
-    --brown-800: #5f2f16;
-    --brown-900: #3d200f;
-    --brown-1000: #29150a;
-    --brown-1100: #190b06;
+    --brown-100: #F2E9E3;
+    --brown-200: #E0C8B6;
+    --brown-300: #CFA88A;
+    --brown-400: #BE885E;
+    --brown-500: #AD6936;
+    --brown-600: #8F5328;
+    --brown-700: #73411F;
+    --brown-800: #572F16;
+    --brown-900: #3D200F;
+    --brown-1000: #29150A;
+    --brown-1100: #1B0E06;
 
     /* Semantic */
-    --colour-success: #27c94a;
-    --colour-warning: #f4b916;
-    --colour-error: #d05858;
-    --colour-info: #a8a0a7;
+    --colour-success: var(--grey-400);
+    --colour-warning: var(--grey-400);
+    --colour-error: var(--red-500);
+    --colour-info: var(--grey-400);
 
     /* Text and Icons */
-    --colour-text-primary: #14191d;
-    --colour-icon-primary: #14191d;
-    --colour-text-secondary: #a8a8a8;
-    --colour-icon-secondary: #585c63;
+    --colour-text-primary: var(--grey-1100);
+    --colour-icon-primary: var(--grey-1100);
+    --colour-text-secondary: var(--grey-500);
+    --colour-icon-secondary: var(--grey-500);
 
     /* Borders */
-    --colour-border-primary: #e1e4e8;
-    --colour-border-hover: #c8ccd1;
-    --colour-border-active: #b0b8c0;
+    --colour-border-primary: var(--grey-100);
+    --colour-border-hover: var(--grey-200);
+    --colour-border-active: var(--grey-300);
 
     /* Buttons */
     --colour-button-primary: var(--amber-500);
     --colour-button-primary-text: #ffffff;
-    --colour-button-plain-text: #14191d;
+    --colour-button-plain-text: var(--grey-1100);
 
     /* Alpha */
     --alpha-10: 0.1;
@@ -197,6 +197,7 @@
   
 * {
     font-family: Switzer-Regular;
+    color: var(--colour-text-primary);
 }
 
 html {
@@ -207,7 +208,7 @@ body {
     margin: 0px;
 }
 
-/* Components (buttons, drop downs, input fields and so on) */
+/* Components/Classes (buttons, drop downs, input fields and so on) */
 .button-primary {
     font-family: Switzer-Regular;
     background-color: var(--colour-button-primary);
@@ -230,17 +231,35 @@ body {
     color: var(--amber-500);
 }
 
+.menu-button button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: Switzer-Medium;
+}
+
 /* Footer */
 footer {
     width: 100%;
     height: 11.25em;
     position: relative;
-
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
-  
-  footer::after { 
+
+/* 
+    Makes ALL the child elements inside of footer layered above the actual gradient itself,
+    Without this line will make all child elements appear behind the footer's gradient.
+*/
+footer * {
+    z-index: 1;
+}
+
+/* Use ::after to add a gradient to the footer */
+footer::after { 
     content: "";
     position: absolute;
     bottom: 0;
@@ -248,6 +267,32 @@ footer {
     right: 0;
     top: 0;  
     background: linear-gradient(0deg, rgb(252, 238, 214) 0%, rgba(252, 238, 214,0) 100%);
+}
+
+#glow-logo-footer {
+    position: absolute; /* Make the logo in the footer absolute to make it 'actually' appear in the center */
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+#footer-menu {
+    display: inline-flex;
+    gap: 24px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+#jira-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+
+    background-color: var(--grey-100);
+    border-radius: 12px;
+    color: var(--colour-text-secondary);
 }
 
 /* Jobs page */
@@ -307,9 +352,9 @@ footer {
     z-index: 0;
     opacity: 0;
     
-    animation-name: jobs-effect-animate-in ;
+    animation-name: jobs-effect-animate-in;
     animation-duration: 2200ms;
-    animation-delay: 2000ms;
+    animation-delay: 1600ms;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
@@ -326,7 +371,7 @@ footer {
     align-content: center;
 
     opacity: 0;
-    animation: discover-contents-animate-in 1800ms ease-in-out 3200ms 1 forwards;
+    animation: discover-contents-animate-in 1600ms ease-in-out 3200ms 1 forwards;
 }
 
 #discover-contents h1 {
