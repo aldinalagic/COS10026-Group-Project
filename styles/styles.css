@@ -266,7 +266,6 @@ body {
     left: 0;
     right: 0;
     height: 100vh;
-    pointer-events: none;
     background: linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
 }
 
@@ -296,8 +295,6 @@ body {
     align-items: center;
     align-content: center;
 
-    font-family: Switzer-Bold;
-
     opacity: 0;
     animation: discover-contents-animate-in 1800ms ease-in-out 3200ms 1 forwards;
 }
@@ -308,18 +305,19 @@ body {
     color: var(--amber-1000);
     order: 0;
     flex-grow: 0;
-}
 
+    font-family: Switzer-Regular;
+}
 
 #discover-contents h6 {
     margin: auto;
     font-size: var(--header-6);
     color: var(--amber-1000);
     opacity: 0.6;
-
     padding-top: 16px;
-}
 
+    font-family: Switzer-Regular;
+}
 
 #discover-contents a {
     padding-top: 32px;
