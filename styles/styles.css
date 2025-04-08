@@ -199,14 +199,20 @@
     font-family: Switzer-Regular;
     letter-spacing: 0.2px;
     color: var(--colour-text-primary);
+
+    /* 
+        Debug line to see all elements paddings, margins and so fourth :) 
+        uncomment it to use it!
+    */
+    /* outline: 0.1px solid var(--red-500); */
 }
 
 html {
     scroll-behavior: smooth;
-   }
+}
 
 body {
-    margin: 0px;
+    margin: 0;
 }
 
 /* Components/Classes (buttons, drop downs, input fields and so on) */
@@ -324,7 +330,7 @@ footer a {
     justify-content: center;
     transform: translateX(-50%);
     left: 50%;
-    top: 64px;
+    top: 128px;
     
     stroke-dasharray: 5000;
     stroke-dashoffset: 5000;
@@ -391,7 +397,7 @@ footer a {
     align-content: center;
 
     opacity: 0;
-    animation: discover-contents-animate-in 1600ms ease-in-out 3200ms 1 forwards;
+    animation: discover-contents-animate-in 1600ms ease-in-out 3000ms 1 forwards;
 }
 
 #discover-contents h1 {
@@ -423,11 +429,12 @@ footer a {
     padding-left: 19%;
     padding-right: 19%;
     padding-top: 56px;
+    padding-bottom: 128px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    gap: 4px;
+    gap: 32px;
 }
 
 #open-positions-header {
@@ -459,16 +466,99 @@ footer a {
     background-color: var(--bg-primary);
     border: 1px solid var(--colour-border-primary);
     width: 100%;
-    height: 12.85rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: normal;
+    gap: 16px;
+    padding: 16px 72px 16px 16px;
+    border-radius: 32px;
+
 }
 
-/* .job-position-icon {
+.job-position-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--colour-border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+.job-position-icon-wrapper img {
+    object-fit: contain;
+}
+
+.job-contents {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: normal;
+    gap: 32px;
+}
+
+.job-contents-header h5 {
+    font-family: Switzer-Semibold;
+    font-size: var(--header-5);
+    color: var(--colour-text-primary);
+    margin: auto;
+    margin-bottom: 8px;
+}
+
+.job-contents-header p {
+    font-family: Switzer-Regular;
+    font-size: var(--paragraph);
+    color: var(--colour-text-secondary);
+    margin: auto;
+}
+
+.job-contents div h6 {
+    font-family: Switzer-Semibold;
+    font-size: var(--header-6);
+    color: var(--colour-text-primary);
+    margin: auto;
+}
+
+.job-contents div p, .job-contents div ul, .job-contents div ol {
+    font-family: Switzer-Regular;
+    font-size: var(--paragraph);
+    color: var(--colour-text-primary);
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.job-position-bottom-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: normal;
+    gap: 0;
+}
+
+.job-position-bottom-wrapper p {
+    font-family: Switzer-Regular;
+    font-size: var(--paragraph);
+    color: var(--colour-text-secondary);
+}
+
+
+.job-position-icon {
     background-color: var(--bg-secondary);
     border: 1px solid var(--colour-border-primary);
     width: 40px;
-} */
+}
 
-/* Animations */                                
+/* Animations */   
 @keyframes glow-fancy-write {
     from {
         stroke-dashoffset: 5000;
@@ -487,8 +577,8 @@ footer a {
     }
 
     to {
-        width: 1256px;
-        height: 785px;
+        width: 1456px;
+        height: 910px;
         filter: blur(200px);
     }
 }

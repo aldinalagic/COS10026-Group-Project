@@ -21,6 +21,7 @@ header{
     margin: auto;
     margin-top: 8px;
     border: #000 dashed 1px; /* Border helps make the navigation bar more visible for development, delete once no longer needed */
+    z-index: 9999;
 }
 
 /* All anchor elements in the navigation bar */
@@ -68,7 +69,7 @@ header nav{
     margin-left:8px;
     margin-right:5px;
     align-self: center;
-    font-family: 'Switzer-Semibold';
+    font-family: Switzer-Semibold;
     font-size: 20px;
 }
 
