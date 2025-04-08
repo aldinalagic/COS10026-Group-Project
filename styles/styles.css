@@ -199,6 +199,12 @@
     font-family: Switzer-Regular;
     letter-spacing: 0.2px;
     color: var(--colour-text-primary);
+
+    /* 
+        Debug line to see all elements paddings, margins and so fourth :) 
+        uncomment it to use it!
+    */
+    /* outline: 0.1px solid var(--red-500); */
 }
 
 html {
@@ -423,6 +429,7 @@ footer a {
     padding-left: 19%;
     padding-right: 19%;
     padding-top: 56px;
+    padding-bottom: 128px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -459,6 +466,7 @@ footer a {
     background-color: var(--bg-primary);
     border: 1px solid var(--colour-border-primary);
     width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -474,11 +482,18 @@ footer a {
 .job-position-icon-wrapper {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
     background-color: var(--bg-secondary);
-    border: 1px solid var(--colour-border-primary);
-    border-radius: 40px;
-}
+    border: 1px solid var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
 
+.job-position-icon-wrapper img {
+    object-fit: contain;
+}
 
 .job-contents {
     display: flex;
@@ -504,12 +519,19 @@ footer a {
     margin: auto;
 }
 
-
 .job-contents div h6 {
     font-family: Switzer-Semibold;
     font-size: var(--header-6);
     color: var(--colour-text-primary);
     margin: auto;
+}
+
+.job-contents div p, .job-contents div ul, .job-contents div ol {
+    font-family: Switzer-Regular;
+    font-size: var(--paragraph);
+    color: var(--colour-text-primary);
+    margin-top: 8px;
+    margin-bottom: 0px;
 }
 
 .job-position-bottom-wrapper {
@@ -522,22 +544,18 @@ footer a {
     gap: 0;
 }
 
-.job-position-bottom-wrapper a {
-}
-
 .job-position-bottom-wrapper p {
     font-family: Switzer-Regular;
     font-size: var(--paragraph);
     color: var(--colour-text-secondary);
-
 }
 
 
-/* .job-position-icon {
+.job-position-icon {
     background-color: var(--bg-secondary);
     border: 1px solid var(--colour-border-primary);
     width: 40px;
-} */
+}
 
 /* Animations */   
 @keyframes glow-fancy-write {
