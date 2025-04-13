@@ -10,7 +10,7 @@ header{
     position:fixed;
     left: 50%;
     transform: translateX(-50%);
-    width: 58%;
+    width: 46.67%;
     height: 56px;
     display: flex;
     justify-content: center;
@@ -19,7 +19,9 @@ header{
     align-items: center;
     border-radius: 45px;
     margin: auto;
+    margin-top: 8px;
     border: #000 dashed 1px; /* Border helps make the navigation bar more visible for development, delete once no longer needed */
+    z-index: 9999;
 }
 
 /* All anchor elements in the navigation bar */
@@ -67,7 +69,7 @@ header nav{
     margin-left:8px;
     margin-right:5px;
     align-self: center;
-    font-family: 'Switzer-Semibold';
+    font-family: Switzer-Semibold;
     font-size: 20px;
 }
 
@@ -117,7 +119,7 @@ header nav{
 }
 
 #welcome h1{
-    font-family: 'Switzer-Regular';
+    font-family: Switzer-Regular;
     font-size: 6.2vw;
     float: left;
     width: 900px;
@@ -262,6 +264,7 @@ header nav{
     margin-right: 22%;
 }
 #explore article {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -279,7 +282,7 @@ header nav{
     justify-self: flex-start;
 }
 #explore article iframe {
-    width: 56%;
+    width: 100%;
     height: inherit;
     border: 0;
     z-index: -1;
@@ -290,12 +293,14 @@ header nav{
     font-size: 50px;
     margin: 0px;
     margin-top: 70px;
+    z-index: 1;
 }
 #explore article p {
     font-size: 20px;
     color: #14191D;
     margin: 0;
     margin-top: 16px;
+    z-index: 1;
 }
 #explore article a {
     font-size: 20px;
@@ -309,7 +314,9 @@ header nav{
     padding-bottom: 8px;
     text-decoration: none;
     margin-top: 24px;
+    z-index: 1;
 }
+<<<<<<< HEAD
 
 /* Footer */
 footer {
@@ -369,4 +376,16 @@ footer div img{
 }
 #footer-jobs{
     margin-right: 24px;
+=======
+#explore article .gradient {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: inherit;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
+    z-index: 0;
+    pointer-events: none; 
+>>>>>>> refs/remotes/origin/main
 }
