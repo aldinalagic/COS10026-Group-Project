@@ -20,7 +20,6 @@ header{
     border-radius: 45px;
     margin: auto;
     margin-top: 8px;
-    border: #000 dashed 1px; /* Border helps make the navigation bar more visible for development, delete once no longer needed */
     z-index: 9999;
 }
 
@@ -233,17 +232,13 @@ header nav{
     font-family: 'Switzer-semibold';
     margin: 0;
 }
-#discover h3 span {
-    /* font family should be changed once the font file is added, current font is temporary */
-    font-family:Impact, 'Arial Narrow Bold';
-    color: #F0A210;
-}
+
 #discover h2 {
     font-family: 'Switzer-Regular';
     font-size: 20px;
     color: #14191D;
     margin: 0;
-    margin-top: 35px;
+    margin-top: 24px;
 }
 #discover a {
     background-color: #F0A214;
@@ -316,6 +311,9 @@ header nav{
     margin-top: 24px;
     z-index: 1;
 }
+
+/* Footer */
+
 #explore article .gradient {
     content: "";
     position: absolute;

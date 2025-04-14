@@ -1,0 +1,760 @@
+/* ---- Contents ---- */
+
+/* 1. Universal CSS */
+/* Line 28 */
+
+/* 2. Header CSS */
+/* Line 280 */
+
+/* 3. Footer CSS */
+/* Line 377 */
+
+/* 4. Index.html CSS */
+
+
+/* 5. Jobs.html CSS */
+
+
+/* 6. Apply.html CSS */
+
+
+/* 7. About.html CSS */
+
+
+/* 8. Animations */
+
+
+
+/* Universal CSS */
+
+/* 
+
+    This imports the stuff from switzer.css, 
+    without this line we wont be able to use the font itself.
+
+    Why was a custom font selected instead of a google font?
+    The switzer font is specified in the design system, that was used 
+    to design the website.
+
+    Also because google fonts are certified ass, they're used too much.
+
+    Switzer fits that paradigm of being modern and being minimal, just 
+    have a look at Switzer font's numbers.
+
+*/
+@import url('../css/switzer.css');
+
+/* 
+    These are a bunch of variables that are used throughout. 
+    Of course most wont be used, however it might be needed
+    some time in the future so best to keep it here.
+
+    Please refer to the design to find out what colours you
+    will be using.
+
+    Use var(--VAR-NAME-HERE) to use the variable. 
+*/
+:root {
+    /* Background */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F0F0F0;
+    --bg-card: #F2F2F2;
+    --bg-glass: #FFFFFF;
+    --bg-glass-blur: 20px;
+
+    /* Grey */
+    --grey-100: #E1E4E8;
+    --grey-200: #C6CBD1;
+    --grey-300: #B0B6BD;
+    --grey-400: #9AA0A7;
+    --grey-500: #858C93;
+    --grey-600: #6F767D;
+    --grey-700: #595F66;
+    --grey-800: #43484E;
+    --grey-900: #2E3338;
+    --grey-1000: #1F2327;
+    --grey-1100: #14191D;
+
+    /* Red */
+    --red-100: #FBEAEA;
+    --red-200: #F4C6C6;
+    --red-300: #EBA0A0;
+    --red-400: #E07A7A;
+    --red-500: #D65555;
+    --red-600: #BF3636;
+    --red-700: #992B2B;
+    --red-800: #732020;
+    --red-900: #541818;
+    --red-1100: #3D1010;
+
+    /* Amber */
+    --amber-100: #FCEED6;
+    --amber-200: #FADCA6;
+    --amber-300: #F7C876;
+    --amber-400: #F4B546;
+    --amber-500: #F0A214;
+    --amber-600: #D1890E;
+    --amber-700: #A96D0B;
+    --amber-800: #825209;
+    --amber-900: #5C3A07;
+    --amber-1000: #3E2805;
+    --amber-1100: #14191D;
+
+    /* Green */
+    --green-100: #E6F4EA;
+    --green-200: #BCE7C8;
+    --green-300: #92DAA6;
+    --green-400: #67CD84;
+    --green-500: #3DC063;
+    --green-600: #2E9E4E;
+    --green-700: #237C3C;
+    --green-800: #1A5A2B;
+    --green-900: #12401E;
+    --green-1000: #0B2B14;
+    --green-1100: #071C0D;
+
+    /* Blue */
+    --blue-100: #E1F2FB;
+    --blue-200: #B6DFF4;
+    --blue-300: #8BCBEB;
+    --blue-400: #60B5E0;
+    --blue-500: #36A1D6;
+    --blue-600: #288DBF;
+    --blue-700: #1F7099;
+    --blue-800: #165372;
+    --blue-900: #0F3D54;
+    --blue-1000: #092837;
+    --blue-1100: #051A25;
+
+    /* Purple */
+    --purple-100: #F1E8FC;
+    --purple-200: #DCC0F7;
+    --purple-300: #C698F2;
+    --purple-400: #B070ED;
+    --purple-500: #9950E0;
+    --purple-600: #7E3DBF;
+    --purple-700: #632E99;
+    --purple-800: #4A2172;
+    --purple-900: #341754;
+    --purple-1000: #231037;
+    --purple-1100: #190A25;
+
+    /* Pink */
+    --pink-100: #FCE8F4;
+    --pink-200: #F8BDE2;
+    --pink-300: #F393D0;
+    --pink-400: #EE68BD;
+    --pink-500: #E740AA;
+    --pink-600: #C92F8C;
+    --pink-700: #A0246F;
+    --pink-800: #781A53;
+    --pink-900: #57123C;
+    --pink-1000: #3D0C2A;
+    --pink-1100: #29071C;
+
+    /* Teal */
+    --teal-100: #E6F8F6;
+    --teal-200: #BCEBE6;
+    --teal-300: #92DCD6;
+    --teal-400: #67CDC6;
+    --teal-500: #3DC0B6;
+    --teal-600: #2E9E94;
+    --teal-700: #237C74;
+    --teal-800: #1A5A56;
+    --teal-900: #12403D;
+    --teal-1000: #0B2B29;
+    --teal-1100: #071C1B;
+
+    /* Brown */
+    --brown-100: #F2E9E3;
+    --brown-200: #E0C8B6;
+    --brown-300: #CFA88A;
+    --brown-400: #BE885E;
+    --brown-500: #AD6936;
+    --brown-600: #8F5328;
+    --brown-700: #73411F;
+    --brown-800: #572F16;
+    --brown-900: #3D200F;
+    --brown-1000: #29150A;
+    --brown-1100: #1B0E06;
+
+    /* Semantic */
+    --colour-success: var(--grey-400);
+    --colour-warning: var(--grey-400);
+    --colour-error: var(--red-500);
+    --colour-info: var(--grey-400);
+
+    /* Text and Icons */
+    --colour-text-primary: var(--grey-1100);
+    --colour-icon-primary: var(--grey-1100);
+    --colour-text-secondary: var(--grey-500);
+    --colour-icon-secondary: var(--grey-500);
+
+    /* Borders */
+    --colour-border-primary: var(--grey-100);
+    --colour-border-hover: var(--grey-200);
+    --colour-border-active: var(--grey-300);
+
+    /* Buttons */
+    --colour-button-primary: var(--amber-500);
+    --colour-button-primary-text: #ffffff;
+    --colour-button-plain-text: var(--grey-1100);
+
+    /* Alpha */
+    --alpha-10: 0.1;
+    --alpha-25: 0.25;
+    --alpha-40: 0.4;
+    --alpha-60: 0.6;
+    --alpha-80: 0.8;
+    --alpha-90: 0.9;
+    --alpha-100: 1;
+
+    /* Typography */
+    --small-3: 6px;
+    --small-2: 8px;
+    --small-1: 12px;
+    --paragraph: 16px;
+    --header-6: 22px;
+    --header-5: 28px;
+    --header-4: 38px;
+    --header-3: 50px;
+    --header-2: 68px;
+    --header-1: 90px;
+    --header-L: 120px;
+    --header-XL: 160px;
+}
+  
+* {
+    font-family: Switzer-Regular;
+    letter-spacing: 0.2px;
+    color: var(--colour-text-primary);
+
+    /* 
+        Debug line to see all elements paddings, margins and so fourth :) 
+        uncomment it to use it!
+    */
+    /* outline: 0.1px solid var(--red-500); */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+/* Components/Classes (buttons, drop downs, input fields and so on) */
+.button-primary {
+    font-family: Switzer-Regular;
+    background-color: var(--colour-button-primary);
+    color: var(--colour-button-primary-text);
+    border-radius: 16px;
+    border: none;
+    padding: 5.5px 16px 5.5px 16px;
+    font-size: var(--paragraph);
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    animation: button-primary-on-hover 50ms linear 0ms 1 forwards;
+}
+
+.glow-fancy-text {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--amber-500);
+}
+
+.menu-button button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: Switzer-Medium;
+    cursor: pointer;
+}
+
+/* Header CSS */
+
+header{
+    position:fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46.67%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    align-items: center;
+    border-radius: 45px;
+    margin: auto;
+    margin-top: 8px;
+    z-index: 9999;
+}
+
+/* All anchor elements in the navigation bar */
+header a{
+    text-decoration: none;
+    color: var(--colour-text-primary);
+}
+/* Navigation element in the navigation bar */
+header nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-right: 24px;
+}
+
+/* Navigation buttons within the navigation bar */
+.pagenav a{
+    text-decoration: none;
+    margin-left: 24px;
+    display:flex;
+}
+
+/* Text within the navigation buttons */
+.pagenav a p{
+    align-self: center;
+    margin-left: 5px;
+    color: var(--colour-text-primary);
+}
+
+/* Navigation button icons */
+.pagenav a img{
+    width: 16px;
+}
+
+/* The div for the page title and company icon in the navigation bar */
+.pagelogo{
+    padding: 10px;
+    display: flex;
+    border-radius: 40px;
+    margin-left: 10px;
+}
+
+/* The page title in the navigation bar */
+.pagelogo p{
+    margin-left:8px;
+    margin-right:5px;
+    align-self: center;
+    font-family: Switzer-Semibold;
+    font-size: 20px;
+}
+
+/* The company icon in the navigation bar */
+.pagelogo img{
+    align-self: center;
+    width: 24px;
+    height: 24px;
+}
+
+.contact {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 24px;
+    font-size: 12px;
+    width: 150px;
+}
+
+.contact-emoji {
+    font-size: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 8px;
+    border-radius: 50px;
+    background-color: var(--amber-100);
+    
+}
+
+/* Footer CSS */
+
+footer {
+    width: 100%;
+    height: 11.25em;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 128px;
+}
+
+/* 
+    Makes ALL the child elements inside of footer layered above the actual gradient itself,
+    Without this line will make all child elements appear behind the footer's gradient.
+*/
+footer * {
+    z-index: 1;
+}
+
+/* Use ::after to add a gradient to the footer */
+footer::after { 
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;  
+    background: linear-gradient(0deg, rgb(252, 238, 214) 0%, rgba(252, 238, 214,0) 100%);
+}
+
+#glow-logo-footer {
+    position: absolute; /* Make the logo in the footer absolute to make it 'actually' appear in the center */
+    width: 4.5rem;
+    height: 4.5rem;
+}
+
+#glow-logo-footer img {
+    animation: footer-logo-animation 20000ms infinite linear;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+#glow-logo-footer img:hover {
+    animation-play-state: running;
+}
+
+#footer-menu {
+    display: inline-flex;
+    gap: 24px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+#jira-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+
+    background-color: var(--grey-100);
+    color: var(--grey-600);
+    border-radius: 12px;
+    padding: 4px 16px 4px 16px;
+    cursor: pointer;
+}
+
+#jira-button:hover {
+    animation: button-shaded-on-hover 50ms linear 0ms 1 forwards;
+}
+
+/* Index.html CSS */
+
+/* Welcome section */
+#welcome{
+    display: flex;
+    padding-top: 136px;
+    margin-left: 22%;
+    margin-bottom: 250px;
+    width: 60%;
+    flex-direction: column;
+
+}
+
+#welcome h1{
+    font-family: Switzer-Regular;
+    font-size: 6.2vw;
+    float: left;
+    width: 900px;
+    margin-bottom: 0px;
+    color: var(--colour-text-primary);
+}
+
+#welcome p{
+    font-family: 'Switzer-Regular';
+    font-size: 1.4vw;
+    float: left;
+    width: 450px;
+    color: var(--colour-text-primary);
+    opacity: 60%;
+}
+
+#welcome img{
+    width: 25vw;
+    margin-top: 70px;
+    margin-left: 34%;
+    justify-self: flex-end;
+    float: left;
+    position: absolute;
+    z-index: -1;
+}
+#welcome div {
+    display: inline;
+    margin-top: 37.5px;
+}
+#welcome div a {
+    text-decoration: none;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 5.5px;
+    padding-bottom: 5.5px;
+    border-radius: 16px;
+    font-size: 16px;
+}
+#start {
+    background-color: var(--colour-button-primary);
+    color: var(--colour-button-primary-text);
+}
+#contact {
+    color: var(--colour-button-plain-text);
+}
+
+#benefits {
+    display:flex;
+    float: center;
+    margin-left: 19%;
+    margin-right: 19%;
+    justify-content: center;
+    gap: 16px;
+    width: 62%;
+
+}
+#benefits div {
+    border: var(--colour-border-primary) solid 1px;
+    width:15vw;
+    height: 208px;
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1.5em 1.5em 1.5em;
+    grid-template-areas: "img head"
+                         "title title"
+                         "subtext subtext";
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#benefits div img {
+    grid-area: img;
+    justify-self: flex-end;
+    align-self: center;
+}
+.benefithead {
+    grid-area: head;
+    align-self: center;
+    margin-left: 6px;
+    justify-self: flex-start;
+    font-size: 28px;
+    color: var(--colour-text-primary);
+}
+.benefittext {
+    grid-area: title;
+    color: var(--colour-text-primary);
+}
+.benefitsubtext {
+    grid-area: subtext;
+    color: var(--colour-text-secondary);
+}
+.benefittext, .benefitsubtext {
+    font-size: 20px;
+}
+#discover {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-secondary);
+    justify-content: center;
+    align-items: center;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    margin-top: 128px;
+}
+#discover h3 {
+    font-size: 50px;
+    color: var(--colour-text-primary);
+    font-family: 'Switzer-semibold';
+    margin: 0;
+}
+
+#discover p {
+    font-family: 'Switzer-Regular';
+    font-size: 20px;
+    color: var(--colour-text-primary);
+    margin: 0;
+    margin-top: 24px;
+}
+#discover a {
+    background-color: var(--colour-button-primary);
+    color: var(--colour-button-primary-text);
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    margin-top: 24px;
+}
+#discover a p{
+    margin: 0;
+}
+#explore {
+    margin-left: 22%;
+    margin-right: 22%;
+}
+#explore article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    height:500px;
+    margin-top: 24px;
+}
+#explore h3 {
+    font-size: 60px;
+    color: var(--colour-text-primary);
+    font-family: 'Switzer-semibold';
+    margin: 0;
+    margin-top: 128px;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+#explore article iframe {
+    width: 100%;
+    height: inherit;
+    border: 0;
+    z-index: -1;
+    position: absolute;
+    border-radius: 32px;
+}
+#explore article h4 {
+    font-size: 50px;
+    margin: 0px;
+    margin-top: 70px;
+    z-index: 1;
+}
+#explore article p {
+    font-size: 20px;
+    color: var(--colour-text-primary);
+    margin: 0;
+    margin-top: 16px;
+    z-index: 1;
+}
+#explore article a {
+    font-size: 20px;
+    background-color: var(--colour-button-primary);
+    margin: auto;
+    color: var(--colour-button-primary-text);
+    border-radius: 30px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-decoration: none;
+    margin-top: 24px;
+    z-index: 1;
+}
+
+/* Jobs.html CSS */
+
+
+
+/* Apply.html CSS */
+
+
+
+/* About.html css */
+
+
+
+/* Animations */
+
+@keyframes glow-fancy-write {
+    from {
+        stroke-dashoffset: 5000;
+    }
+
+    to {
+        stroke-dashoffset: 1;
+    }
+}
+
+@keyframes glow-fancy-fade-out {
+    from {
+        width: 1056px;
+        height: 660px;
+        filter: blur(0px);
+    }
+
+    to {
+        width: 1456px;
+        height: 910px;
+        filter: blur(200px);
+    }
+}
+
+@keyframes jobs-effect-animate-in {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes glow-fancy-animate-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes discover-contents-animate-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-30%);
+    }
+}
+
+@keyframes button-primary-on-hover {
+    from {
+        background-color: var(--colour-button-primary);
+    }
+    
+    to {
+        background-color: var(--amber-400);
+    }
+}
+
+@keyframes button-shaded-on-hover {
+    from {
+        background-color: var(--grey-100);
+    }
+    
+    to {
+        background-color: var(--grey-200);
+    }
+}
+
+@keyframes footer-logo-animation {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+    
+}
