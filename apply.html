@@ -9,10 +9,46 @@
     <title>job application page</title>
 </head>
 <body>
-<link href="styles/project.css" rel="stylesheet">
+
+<div class="container">
+      <div class="column1">
+        <img src="images/icons/apply-graphic-wrapper.png" alt="wrapper">
+      </div>
+
+<link href="styles/apply.css" rel="stylesheet">
+
+<div class="column2">
+  <div class="topbar">
+    <header>
+    <!-- ask tutor if this is an appropriate use of div -->
+    <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
+     <div class="pagelogo">
+        <img src="images/icons/glow-logo.svg" alt="Logo">
+        <a href="">Glow</a>
+     </div>
+    <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
+    <nav class="pagenav">
+        <div>
+            <img src="images/icons/jobs.svg" alt="icon">
+            <a href="jobs.html">Jobs</a>
+        </div>
+        <div>
+            <img src="images/icons/about.svg" alt="icon">
+            <a href="about.html">About</a>
+        </div>
+        
+    </nav>
+    <a href="" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
+    </header>
+  </div>
+        <div id="vector">
+        <img src="images/icons/vector.png" alt="vector">
+      </div>
+
 <h1>Personal Information</h1>
 <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
-<h3>We need to know some stuff about you.</h3>
+
+  <h3>We need to know some stuff about you.</h3>
 <div class="name">
     <p class="name"><label for="first-name">First name</label>
         <input type="text" name="first-name" id="first-name" maxlength="20" size="10" required="required" placeholder="Enter your first name">
@@ -21,15 +57,19 @@
         <input type="text" name="last-name" id="last-name" maxlength="20" size="10" required="required" placeholder="Enter your last name">
     </p>
 </div>
+
 <p><label for="dob">Date of Birth</label>
     <input type="text" name="dob" id="dob" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" required>
 </p>
+
 <div>
     <p><label for="street">Street Address</label></p>
       <input type="text" name="street" id="street" maxlength="40" required="required" placeholder="Enter your street address">
-    <p><label for="suburb">Suburb town</label></p>
+    
+      <p><label for="suburb">Suburb town</label></p>
       <input type="text" name="suburb" id="suburb" maxlength="40" required="required" placeholder="Enter your suburb">
-    <p><label for="state">State</label></p>
+    
+      <p><label for="state">State</label></p>
       <select name="state" id="state" required>
           <option value="">Select</option>
           <option value="act">ACT</option>
@@ -53,18 +93,22 @@
               <input type="radio" id="male" name="gender" value="male" required>
               <label for="male">Male</label>
             </div>
+
             <div class="gender-option">
               <input type="radio" id="female" name="gender" value="female" required>
               <label for="female">Female</label>
             </div>
+
             <div class="gender-option">
               <input type="radio" id="nonbinary" name="gender" value="nonbinary" required>
               <label for="nonbinary">Nonbinary</label>
             </div>
+
             <div class="gender-option">
               <input type="radio" id="different-term" name="gender" value="different-term" required>
               <label for="different-term">Different term</label>
             </div>
+
             <div class="gender-option">
               <input type="radio" id="prefer" name="gender" value="prefer" required>
               <label for="prefer">Prefer not to answer</label>
@@ -72,6 +116,12 @@
         </div>
     </fieldset>
 
+
+   
+    <div class="main" id="personal">
+      <a href="#contacts1"><button type="button">Next</button></a>
+    </div>
+  
     <h1>Contact Details</h1>
     <h3>A bit of information about how we can contact you.</h3>
     <div>
@@ -79,19 +129,30 @@
          <!-- contact details -->
           <p><label for="email">Email</label></p>
           <input type="email" id="email" name="email" required placeholder="you@example.com">
+          
           <p><label for="phone">Phone number</label></p>
           <input type="text" id="'phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required placeholder="000-000-000">
       </div>
 
+      <div class="main" id="contacts1">
+        <a href="#personal"><button type="button">Back</button></a>
+      </div>
+
+      <div class="main" id="contacts2">
+        <a href="#roleinfo"><button type="button">Next</button></a>
+      </div>
+
       <h1>Role Information</h1>
       <h3>Tell us what your dream job is at Glow.</h3>
-    <label for="jobreference">Job reference number</label>
+    
+      <label for="jobreference">Job reference number</label>
       <select name="jobreference" id="jobreference" required>
     <!-- fill out properly once job.html has been developed -->
           <option value="">Please select</option>
-          <option value="12345">12345</option> 
-          <option value="67890">67890</option>
+          <option value="net01">NET01</option> 
+          <option value="mac01">MAC01</option>
       </select>
+      
       <p><label for="technical">Technical List</label></p>
       <div class="technical">
           <div class="technical-option">
@@ -110,8 +171,13 @@
       <p><label for="other">Other skills</label></p>
       <textarea id="other" name="other" rows="7" cols="70" placeholder="Feel free to include other skills you may have!"></textarea>
       
-    <p><input type="submit" value="Apply"></p>
+      <div class="main" id="contacts1">
+        <a href="#personal"><button type="button">Back</button></a>
+      </div>
 
+    <p><input type="submit" value="Apply"></p>
+  </div>
+  </div>
 </form>
 </body>
 </html>

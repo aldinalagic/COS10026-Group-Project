@@ -1,0 +1,119 @@
+/* 
+filename: [Nadine]
+author: [Nadine]
+created: [05/07/25]
+last modified: [07/03/25]
+description: apply.html
+*/
+
+@import url('../css/switzer.css');
+
+* {
+    font-family: 'Switzer-Regular';
+}
+
+/* Navigation bar */
+header{
+    position:fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    align-items: center;
+    border-radius: 45px;
+    margin: auto;
+    border: #000 dashed 1px; /* Border helps make the navigation bar more visible for development, delete once no longer needed */
+}
+/* All anchor elements in the navigation bar */
+header a{
+    text-decoration: none;
+    color: #000;
+}
+/* Navigation element in the navigation bar */
+header nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-right: 24px;
+}
+
+/* Navigation buttons within the navigation bar */
+.pagenav div{
+
+    margin-left: 24px;
+    display:flex;
+}
+
+/* Text within the navigation buttons */
+.pagenav div a{
+    align-self: center;
+    margin-left: 5px;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Navigation button icons */
+.pagenav div img{
+    width: 16px;
+}
+
+/* The div for the page title and company icon in the navigation bar */
+.pagelogo{
+    padding: 10px;
+    display: flex;
+    border-radius: 40px;
+    margin-left: 10px;
+}
+
+/* The page title in the navigation bar */
+.pagelogo a{
+    margin-left:8px;
+    margin-right:5px;
+    align-self: center;
+    font-family: 'Switzer-Semibold';
+    font-size: 20px;
+}
+
+/* The company icon in the navigation bar */
+.pagelogo img{
+    align-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.contact {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 24px;
+    font-size: 12px;
+    width: 150px;
+}
+
+.contact-emoji {
+    font-size: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 8px;
+    border-radius: 50px;
+    background-color: #FCEED6;
+    
+}
+
+
+
+.wrapper img {
+    max-width: 40%;
+    height: auto%;
+}
+
+h1 {
+    font-family: 'Switzer-Semibold';
+}
