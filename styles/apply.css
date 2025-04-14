@@ -71,6 +71,7 @@ html, body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    padding-bottom: 120px;
 }
 
 form {
