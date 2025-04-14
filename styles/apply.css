@@ -176,7 +176,6 @@ header nav {
 h1 {
     font-family: 'Switzer-Semibold';
     padding: 5px;
-    padding-top: 
 }
 
 h1, h4 {
@@ -270,7 +269,7 @@ textarea {
 .place {
     display: flex;
     gap: 20px;
-    flex-wrap; wrap;
+    flex-wrap: wrap;
 }
 
 .placedetails {
