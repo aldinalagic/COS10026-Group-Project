@@ -100,3 +100,9 @@ header nav{
     background-color: #FCEED6;
     
 }
+
+button {
+    background-color: #F0A214;
+    color: white;
+    border-radius: 40px;
+}

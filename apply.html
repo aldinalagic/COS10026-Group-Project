@@ -9,14 +9,13 @@
     <title>job application page</title>
 </head>
 <body>
-
+  <a name="personal-info"></a>
 <div class="container">
       <div class="column1">
         <img src="images/icons/apply-graphic-wrapper.png" alt="wrapper">
       </div>
 
 <link href="styles/apply.css" rel="stylesheet">
-
 <div class="column2">
   <div class="topbar">
     <header>
@@ -41,6 +40,7 @@
     <a href="" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
     </header>
   </div>
+
         <div id="vector">
         <img src="images/icons/vector.png" alt="vector">
       </div>
@@ -48,8 +48,9 @@
 <h1>Personal Information</h1>
 <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
 
-  <h3>We need to know some stuff about you.</h3>
-<div class="name">
+  <h4>We need to know some stuff about you.</h4>
+<section class="section1">
+  <div class="fullname">
     <p class="name"><label for="first-name">First name</label>
         <input type="text" name="first-name" id="first-name" maxlength="20" size="10" required="required" placeholder="Enter your first name">
     </p>
@@ -58,19 +59,24 @@
     </p>
 </div>
 
-<p><label for="dob">Date of Birth</label>
-    <input type="text" name="dob" id="dob" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" required>
-</p>
+<div class="morepersonal">
+    <p class="dobs"><label for="dob">Date of Birth</label>
+        <input type="text" name="dob" id="dob" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" required>
+    </p>
+    <p class="dobs"><label for="street">Street Address</label>
+        <input type="text" name="street" id="street" maxlength="40" required="required" placeholder="Enter your street address">
+    </p>
+</div>
 
-<div>
-    <p><label for="street">Street Address</label></p>
-      <input type="text" name="street" id="street" maxlength="40" required="required" placeholder="Enter your street address">
-    
-      <p><label for="suburb">Suburb town</label></p>
-      <input type="text" name="suburb" id="suburb" maxlength="40" required="required" placeholder="Enter your suburb">
-    
-      <p><label for="state">State</label></p>
-      <select name="state" id="state" required>
+<div class="place">
+      <div class="placedetails">
+        <label for="suburb">Suburb town</label>
+        <input type="text" name="suburb" id="suburb" maxlength="40" required="required" placeholder="Enter your suburb">
+      </div>
+
+      <div class="placedetails">
+        <label for="state">State</label>
+        <select name="state" id="state" required>
           <option value="">Select</option>
           <option value="act">ACT</option>
           <option value="nsw">NSW</option>
@@ -81,10 +87,15 @@
           <option value="vic">VIC</option>
           <option value="wa">WA</option>
       </select>
+      </div>
+
       <!-- pattern included for post code to get 0000-9999, remember to inquire about 'based on states'  -->
-    <p><label for="postcode">Postcode</label></p>
-       <input type="text" name="postcode" id="postcode" pattern="[0-9]{4}" required placeholder="Enter your postcode">
-</div>
+      <div class="placedetails">
+         <label for="postcode">Postcode</label></p>
+         <input type="text" name="postcode" id="postcode" pattern="[0-9]{4}" required placeholder="Enter your postcode">
+      </div>
+    </div>
+
     <fieldset>
         <legend>Gender</legend>
         <!-- multiple divs used to divide the options, makes it easier to style -->
@@ -115,36 +126,59 @@
             </div>
         </div>
     </fieldset>
+  </section>
 
-
-   
     <div class="main" id="personal">
-      <a href="#contacts1"><button type="button">Next</button></a>
+      <a href="#contact-details"><button type="button" class="nav-btn">Next</button></a>
+    </div>
+
+    <a name="contact-details"></a>
+
+    <div id="icon">
+      <img src="images/icons/icon.svg" alt="icon">
     </div>
   
+   
     <h1>Contact Details</h1>
-    <h3>A bit of information about how we can contact you.</h3>
-    <div>
+    <h4>A bit of information about how we can contact you.</h4>
+    
+    <section class="section2">
+    <div class="contact">
         <!-- go back to this to check if right -->
          <!-- contact details -->
-          <p><label for="email">Email</label></p>
+          <div class="contact-field">
+          <label for="email">Email</label>
           <input type="email" id="email" name="email" required placeholder="you@example.com">
-          
-          <p><label for="phone">Phone number</label></p>
+          </div>
+
+          <div class="contact-field">
+          <label for="phone">Phone number</label>
           <input type="text" id="'phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required placeholder="000-000-000">
+          </div>
       </div>
 
+      <div class="button-row">
       <div class="main" id="contacts1">
-        <a href="#personal"><button type="button">Back</button></a>
+        <a href="#personal-info"><button type="button" class="nav-btn">Back</button></a>
       </div>
+
 
       <div class="main" id="contacts2">
-        <a href="#roleinfo"><button type="button">Next</button></a>
+        <a href="#role-info"><button type="button" class="nav-btn">Next</button></a>
+      </div>
+      </div>
+</section>
+
+
+      <div id="role-info-icon">
+        <img src="images/icons/roleinfoicon.svg" alt="role-info-icon">
       </div>
 
       <h1>Role Information</h1>
-      <h3>Tell us what your dream job is at Glow.</h3>
-    
+      <h4>Tell us what your dream job is at Glow.</h4>
+   
+    <section class="section3">
+    <div class="reference">
       <label for="jobreference">Job reference number</label>
       <select name="jobreference" id="jobreference" required>
     <!-- fill out properly once job.html has been developed -->
@@ -156,26 +190,38 @@
       <p><label for="technical">Technical List</label></p>
       <div class="technical">
           <div class="technical-option">
-              <label for="what-does">What does</label>
-              <input type="checkbox" id="what-does" name="technical" value="what-does" required>
+              <label for="languages">Programming Languages </label>
+              <input type="checkbox" id="languages" name="technical" value="languages" required>
           </div>
           <div class="technical-option">
-            <label for="this-even">This even</label>
-            <input type="checkbox" id="this-even" name="technical" value="this-even" required>
+            <label for="framework">Frameworks & Libraries</label>
+            <input type="checkbox" id="framework" name="technical" value="framework" required>
         </div>
         <div class="technical-option">
-            <label for="mean">Mean??</label>
-            <input type="checkbox" id="mean" name="technical" value="mean" required>
+            <label for="devops">DevOps & Tools</label>
+            <input type="checkbox" id="devops" name="technical" value="devops" required>
         </div>
       </div>
+
       <p><label for="other">Other skills</label></p>
-      <textarea id="other" name="other" rows="7" cols="70" placeholder="Feel free to include other skills you may have!"></textarea>
-      
+      <textarea id="other" name="other" rows="7" cols="50" placeholder="Feel free to include other skills you may have!"></textarea>
+     </div> 
+    </section>
+    
+    <div class="button-row">
       <div class="main" id="contacts1">
-        <a href="#personal"><button type="button">Back</button></a>
+        <a href="#personal">
+        <button type="button"class="nav-btn" >Back</button>
+      </a>
       </div>
 
-    <p><input type="submit" value="Apply"></p>
+      <div class="main" id="apply">
+        <button type="submit" class="apply-btn">
+        <img src="images/icons/rocket.png" alt="rocket" class="rocket-icon">
+        Apply
+        </button>
+      </div>
+    </div>
   </div>
   </div>
 </form>
