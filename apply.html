@@ -1,5 +1,6 @@
 <!DOCTYPE html> 
 <html lang="en">
+<div class="topbar">
 <head>
     <meta charset="utf-8"> <!-- encodes characters-->
     <!-- names specify the represented web application of the page-->
@@ -8,15 +9,19 @@
     <meta name="author" content="group"> <!-- author of page, change to group name -->
     <title>job application page</title>
 </head>
+</div>
+
+
 <body>
-  <a name="personal-info"></a>
 <div class="container">
       <div class="column1">
         <img src="images/icons/apply-graphic-wrapper.png" alt="wrapper">
       </div>
 
 <link href="styles/apply.css" rel="stylesheet">
+
 <div class="column2">
+
   <div class="topbar">
     <header>
     <!-- ask tutor if this is an appropriate use of div -->
@@ -41,6 +46,7 @@
     </header>
   </div>
 
+  <div id="personal-information" style="padding-top: 100px; margin-top: -100px;"></div>
         <div id="vector">
         <img src="images/icons/vector.png" alt="vector">
       </div>
@@ -158,25 +164,28 @@
       </div>
 
       <div class="button-row">
-      <div class="main" id="contacts1">
-        <a href="#personal-info"><button type="button" class="nav-btn">Back</button></a>
-      </div>
+        <div class="main" id="contacts1">
+          <!-- Back button to go to Personal Info -->
+          <a href="#personal-information">
+            <button type="button" class="nav-btn">Back</button>
+          </a>
+        </div>
 
-
-      <div class="main" id="contacts2">
-        <a href="#role-info"><button type="button" class="nav-btn">Next</button></a>
-      </div>
+        <div class="main" id="contacts2">
+          <a href="#role-information">
+            <button type="button" class="nav-btn">Next</button>
+          </a>
+        </div>
       </div>
 </section>
 
-
+<div id="role-information" style="padding-top: 100px; margin-top: -100px;"></div>
       <div id="role-info-icon">
         <img src="images/icons/roleinfoicon.svg" alt="role-info-icon">
       </div>
 
       <h1>Role Information</h1>
       <h4>Tell us what your dream job is at Glow.</h4>
-   
     <section class="section3">
     <div class="reference">
       <label for="jobreference">Job reference number</label>
@@ -210,15 +219,17 @@
     
     <div class="button-row">
       <div class="main" id="contacts1">
-        <a href="#personal">
-        <button type="button"class="nav-btn" >Back</button>
-      </a>
+        <!-- Back button to go to Contact Details -->
+        <a href="#contact-details">
+          <button type="button" class="nav-btn">Back</button>
+        </a>
       </div>
-
+      
       <div class="main" id="apply">
+        <!-- Apply button (submitting form) -->
         <button type="submit" class="apply-btn">
-        <img src="images/icons/rocket.png" alt="rocket" class="rocket-icon">
-        Apply
+          <img src="images/icons/rocket.png" alt="rocket" class="rocket-icon">
+          Apply
         </button>
       </div>
     </div>

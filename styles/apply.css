@@ -16,12 +16,20 @@ description: apply.html
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
 }
+
 
 /* Layout */
 .container {
@@ -53,7 +61,7 @@ html, body {
 .column2 {
     width: 50vw;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: hidden;
     padding: 2rem 2rem 2rem 3rem;
     display: flex;
     flex-direction: column;
@@ -185,7 +193,7 @@ h4 {
     justify-content: center;
     align-items: center;
     height: 100%; 
-    padding-top: 20px;
+    padding-top: 100px;
 }
 
 #vector img {
@@ -287,6 +295,15 @@ textarea {
     font-size: 13px;
 }
 
+.section {
+    height: 100vh; /* Full viewport height */
+  scroll-snap-align: center; /* Ensure section snaps to the center of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .button-row {
     display: flex;
     justify-content: space-between;
@@ -298,7 +315,7 @@ textarea {
     flex: 1;
     display: flex;
     justify-content: center;
-    padding-bottom: 300px;
+    padding-bottom: 100px;
 }
 
 .button-row button {
@@ -379,3 +396,7 @@ select {
     font-size: 13px;
   }
   
+.topbar {
+    position: fixed;
+}
+
