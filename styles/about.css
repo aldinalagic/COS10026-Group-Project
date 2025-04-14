@@ -125,7 +125,7 @@ html, body {
     align-items: center;
     flex-wrap: wrap;
 
-    width: 100vw;     /* full width */
+    width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
     
