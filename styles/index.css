@@ -316,67 +316,9 @@ header nav{
     margin-top: 24px;
     z-index: 1;
 }
-<<<<<<< HEAD
 
 /* Footer */
-footer {
-    display: flex;
-    margin-bottom: -8px;
-    margin-left: -8px;
-    margin-right: -8px;
-    margin-top: 128px;
-    height: 180px;
-    padding-left: 25%;
-    padding-right: 25%;
-    box-sizing: border-box;
-    background-image: linear-gradient(to bottom, rgba(252,238,214,0), rgba(252,238,214,1));
-    align-items: center;
-    justify-content: space-between;
-    
-}
-footer a{
-    display: flex;
-}
-footer div{
-    display: flex;
-    justify-self: flex-start;
-}
-footer div img{
-    margin-right: 4px;
-}
-#footlogo{
-    justify-self: center;
-}
-#jira{
-    justify-self: flex-end;
-    background-color: #E1E4E8;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin: 0;
-    margin-left: 56px;
-    border-radius: 12px;
-    text-decoration: none;
-}
-#jira p{
-    margin-right: 4px;
-    font-size: 12px;
-    font-family: switzer-medium;
-    color: #6F767D;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-#jira img{
-    width: 12px;
-    height: 12px;
-    align-self: center;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-#footer-jobs{
-    margin-right: 24px;
-=======
+
 #explore article .gradient {
     content: "";
     position: absolute;
@@ -387,5 +329,4 @@ footer div img{
     background: linear-gradient(0deg, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);
     z-index: 0;
     pointer-events: none; 
->>>>>>> refs/remotes/origin/main
 }
