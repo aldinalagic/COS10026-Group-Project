@@ -454,9 +454,9 @@ footer a {
 #welcome{
     display: flex;
     padding-top: 136px;
-    margin-left: 22%;
+    align-items: center;
     margin-bottom: 250px;
-    width: 60%;
+    width: 100%;
     flex-direction: column;
 
 }
@@ -465,12 +465,14 @@ footer a {
     font-family: Switzer-Regular;
     font-size: 6.2vw;
     float: left;
-    width: 900px;
+    width: fit-content;
     margin-bottom: 0px;
     color: var(--colour-text-primary);
 }
 
 #welcome p{
+    align-self: flex-start;
+    margin-left: 21vw;
     font-family: 'Switzer-Regular';
     font-size: 1.4vw;
     float: left;
@@ -654,10 +656,347 @@ footer a {
     margin-top: 24px;
     z-index: 1;
 }
+/* Adjust styles for phones */
+@media (max-width: 768px) {
+    #welcome {
+        padding-top: 80px;
+        margin-bottom: 150px;
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #welcome h1 {
+        font-size: 8vw;
+        width: 100%;
+        text-align: center;
+    }
+
+    #welcome p {
+        font-size: 4vw;
+        width: 100%;
+        text-align: center;
+    }
+
+    #welcome img {
+        width: 50vw;
+        margin-top: 40px;
+        margin-left: 0;
+        position: relative;
+    }
+
+    #benefits {
+        flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        gap: 24px;
+        width: 90%;
+    }
+
+    #benefits div {
+        width: 90%;
+        height: auto;
+        padding: 16px;
+    }
+
+    .benefithead {
+        font-size: 20px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .benefittext, .benefitsubtext {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    #discover {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-top: 64px;
+    }
+
+    #discover h3 {
+        font-size: 6vw;
+        text-align: center;
+    }
+
+    #discover p {
+        font-size: 4vw;
+        text-align: center;
+    }
+
+    #discover a {
+        font-size: 4vw;
+        padding: 8px 12px;
+    }
+
+    #explore {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #explore h3 {
+        font-size: 8vw;
+        text-align: center;
+    }
+
+    #explore article {
+        height: auto;
+        margin-top: 16px;
+    }
+
+    #explore article iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    #explore article h4 {
+        font-size: 6vw;
+    }
+
+    #explore article p {
+        font-size: 4vw;
+    }
+
+    #explore article a {
+        font-size: 4vw;
+        padding: 8px 12px;
+    }
+}
 
 /* Jobs.html CSS */
 
+#glow-fancy {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*left: 50%;*/
+    top: 128px;
+    stroke-dasharray: 5000;
+    stroke-dashoffset: 5000;
 
+    /* Fancy text animation */
+    animation-name: glow-fancy-write, glow-fancy-fade-out, glow-fancy-animate-out;
+    animation-duration: 2000ms, 1200ms, 800ms;
+    animation-delay: 200ms, 2600ms, 3000ms;
+    animation-timing-function: linear, linear, linear;
+    animation-iteration-count: 1, 1, 1;
+    animation-fill-mode: forwards, forwards, forwards;
+}
+#discover-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+    For some reason, I (Aldin) was only able to use a pseudo element selector 
+    to be able to make a linear transparent gradient from bottom 0% to top 100%
+*/
+#discover-wrapper::after {
+    content: ""; /* Use empty string to cause the linear-gradient to appear, without it will not make it appear :)  */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%);
+}
+
+#jobs-effect {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: relative;
+    z-index: 0;
+    opacity: 0;
+    
+    animation-name: jobs-effect-animate-in;
+    animation-duration: 2200ms;
+    animation-delay: 1600ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#discover-contents {
+    z-index: 2;
+    position: absolute;
+    transform: translateY(0%);
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+
+    opacity: 0;
+    animation: discover-contents-animate-in 1600ms ease-in-out 3000ms 1 forwards;
+}
+
+#discover-contents h1 {
+    margin: auto;
+    font-size: var(--header-1);
+    color: var(--amber-1000);
+    order: 0;
+    flex-grow: 0;
+
+    font-family: Switzer-Regular;
+}
+
+#discover-contents h6 {
+    margin: auto;
+    font-size: var(--header-6);
+    color: var(--amber-1000);
+    opacity: 0.6;
+    padding-top: 16px;
+
+    font-family: Switzer-Regular;
+}
+
+#discover-contents a {
+    padding-top: 32px;
+}
+
+#open-positions-wrapper {
+    background-color: var(--bg-secondary);
+    padding-left: 19%;
+    padding-right: 19%;
+    padding-top: 56px;
+    padding-bottom: 128px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+#open-positions-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: normal;
+}
+
+#open-positions-header h3 {
+    order: 0;
+    font-size: var(--header-3);
+    color: var(--colour-text-primary);
+    font-family: Switzer-Semibold;
+    margin-top: auto;
+    margin-right: 16px;
+}
+
+#open-positions-header aside {
+    order: 1;
+    font-size: var(--header-6);
+    color: var(--colour-text-secondary);
+    font-family: Switzer-Regular;
+    margin-left: auto;
+}
+
+.job-position {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--colour-border-primary);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: normal;
+    gap: 16px;
+    padding: 16px 72px 16px 16px;
+    border-radius: 32px;
+
+}
+
+.job-position-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--colour-border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+.job-position-icon-wrapper img {
+    object-fit: contain;
+}
+
+.job-contents {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: normal;
+    gap: 32px;
+}
+
+.job-contents-header h5 {
+    font-family: Switzer-Semibold;
+    font-size: var(--header-5);
+    color: var(--colour-text-primary);
+    margin: auto;
+    margin-bottom: 8px;
+}
+
+.job-contents-header p {
+    font-family: Switzer-Regular;
+    font-size: var(--paragraph);
+    color: var(--colour-text-secondary);
+    margin: auto;
+}
+
+.job-contents div h6 {
+    font-family: Switzer-Semibold;
+    font-size: var(--header-6);
+    color: var(--colour-text-primary);
+    margin: auto;
+}
+
+.job-contents div p, .job-contents div ul, .job-contents div ol {
+    font-family: Switzer-Regular;
+    font-size: var(--paragraph);
+    color: var(--colour-text-primary);
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.job-position-bottom-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: normal;
+    gap: 0;
+}
+
+.job-position-bottom-wrapper p {
+    font-family: Switzer-Regular;
+    font-size: var(--paragraph);
+    color: var(--colour-text-secondary);
+}
+
+
+.job-position-icon {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--colour-border-primary);
+    width: 40px;
+}
 
 /* Apply.html CSS */
 

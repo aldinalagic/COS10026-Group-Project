@@ -8,11 +8,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/merged-style.css">
 </head>
 <body>
-
+    <header>
+        <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
+         <a class="pagelogo" href="index.html">
+            <img src="images/icons/glow-logo.svg" alt="Logo">
+            <p>Glow</p>
+         </a>
+        <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
+        <nav class="pagenav">
+            <a href="jobs.html">
+                <img src="images/icons/jobs.svg" alt="icon">
+                <p>Jobs</p>
+            </a>
+            <a href="apply.html">
+                <img src="images/icons/jobs.svg" alt="icon">
+                <p>Apply</p>
+            <a href="about.html">
+                <img src="images/icons/about.svg" alt="icon">
+                <p>About</p>
+            </a>
+            
+        </nav>
+        <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
+    </header>
     <section id="discover-wrapper">
         <div id="discover-contents">
             <h1>Discover <span class="glow-fancy-text">Glow</span></h1>
