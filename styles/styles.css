@@ -321,6 +321,13 @@ footer a {
     animation: button-shaded-on-hover 50ms linear 0ms 1 forwards;
 }
 
+#glow-fancy-wrapper {
+    width: 66em;
+    height: 40.625em;
+    left: 50%;
+    top: 30%;
+}
+
 /* Jobs page */
 #glow-fancy {
     z-index: 1;
@@ -328,14 +335,10 @@ footer a {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateX(-50%);
     left: 50%;
     top: 128px;
-    
     stroke-dasharray: 5000;
     stroke-dashoffset: 5000;
-    width: 1056px;
-    height: 660px;
 
     /* Fancy text animation */
     animation-name: glow-fancy-write, glow-fancy-fade-out, glow-fancy-animate-out;

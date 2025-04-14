@@ -11,7 +11,7 @@
     <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
      <div class="pagelogo">
         <img src="images/icons/glow-logo.svg" alt="Logo">
-        <a href="">Glow</a>
+        <a href="index.html">Glow</a>
      </div>
     <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
     <nav class="pagenav">
@@ -83,11 +83,12 @@
             <li>Fletcher ID: <span class = "detail">105764657</span></li>
             <li>Harry ID: <span class = "detail">105912375</span></li>
             <li>Nadine ID: <span class = "detail">105864793</span></li>
-        </div>
-        </div>
+        
 
 
-        <img src="" alt="group-image">
+        <img src="images/group-photo.png" alt="group-image">
+    </div>
+</div>
     </section>
 
     <!--Table of group members-->
@@ -103,9 +104,24 @@
                 </tr>
             </thead>
             <tbody>
-                <td>Interests</td>
-                <td>Interests</td>
-                <td>Interests</td>
+                <td>Interests
+                    <ul>
+                        <li>Programming</li>
+                        <li>Martial Arts (Taekwondo)</li>
+                    </ul>
+                </td>
+                <td>Interests
+                    <ul>
+                        <li>Piano</li>
+                        <li>Game Development</li>
+                    </ul>
+                </td>
+                <td>Interests
+                    <ul>
+                        <li>Programming</li>
+                        <li>Basketball</li>
+                    </ul>
+                </td>
                 <td>Interests</td>
             </tbody>
         </table>
@@ -115,13 +131,33 @@
     <!--Sponsor section!-->
     <section id = "sponsor">
         <h1><span class = "circle">Sponsor </span> <span class = "detail">(Tutor)</span></h1>
+        <div class id = "tutor">
+              <img src = "images/nick-avatar.png" alt = "tutor-image">  <p>Nick</p>
+        </div>
 
-        <table>
-            <tr>
-                <img src = "" alt = "tutor-image"> Nick
-            </tr>
-        </table>
     </section>
+
+
+    <footer>
+        <!-- Menu options (Jobs and about) -->
+        <div id="footer-menu">
+            <a href="jobs.html" class="menu-button">
+                <button><img src="images/icons/jobs.svg" alt="Jobs icon">Jobs</button>
+            </a>
+            <a href="about.html" class="menu-button">
+                <button><img src="images/icons/about.svg" alt="About icon">About</button>
+            </a>
+        </div>
+
+        <a href="index.html" id="glow-logo-footer">
+            <img src="images/glow-outlined-footer.svg" alt="">
+        </a>
+
+        <!-- Jira button to the jira board -->
+        <a href="https://fletcher06.atlassian.net/jira/software/projects/CGAP1/summary" target="_blank">
+            <button id="jira-button">Jira board<img src="images/icons/link-out.svg" alt="About icon"></button>
+        </a>
+    </footer>
 
 </body>
 </html>
