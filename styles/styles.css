@@ -321,12 +321,6 @@ footer a {
     animation: button-shaded-on-hover 50ms linear 0ms 1 forwards;
 }
 
-#glow-fancy-wrapper {
-    width: 66em;
-    height: 40.625em;
-    left: 50%;
-    top: 30%;
-}
 
 /* Jobs page */
 #glow-fancy {
@@ -335,8 +329,9 @@ footer a {
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 50%;
     top: 128px;
+    width: 66em;
+    height: 40.625em;
     stroke-dasharray: 5000;
     stroke-dashoffset: 5000;
 
@@ -574,14 +569,12 @@ footer a {
 
 @keyframes glow-fancy-fade-out {
     from {
-        width: 1056px;
-        height: 660px;
+        transform: scale(1);
         filter: blur(0px);
     }
 
     to {
-        width: 1456px;
-        height: 910px;
+        transform: scale(1.5);
         filter: blur(200px);
     }
 }
