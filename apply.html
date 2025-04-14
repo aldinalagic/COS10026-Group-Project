@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html lang="en">
+<html lang="en" id="apply-html">
 <head>
    <title>job application page</title>
     <meta charset="utf-8"> <!-- encodes characters-->
@@ -7,6 +7,8 @@
     <meta name="description" content="job application page"> <!-- basic description of page content-->
     <meta name="keywords" content="Website, apply"> <!-- lists related keywords-->
     <meta name="author" content="group"> <!-- author of page, change to group name -->
+
+    <link href="styles/styles.css" rel="stylesheet">
 </head>
 
 
@@ -16,31 +18,33 @@
         <img src="images/icons/apply-graphic-wrapper.png" alt="wrapper">
       </div>
 
-<link href="styles/apply.css" rel="stylesheet">
+
 
 <div class="column2">
 
   <div class="topbar">
     <header>
-      <!-- ask tutor if this is an appropriate use of div -->
       <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
-       <div class="pagelogo">
+       <a class="pagelogo" href="index.html">
           <img src="images/icons/glow-logo.svg" alt="Logo">
-          <a href="">Glow</a>
-       </div>
+          <p>Glow</p>
+       </a>
       <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
       <nav class="pagenav">
-          <div>
+          <a href="jobs.html">
               <img src="images/icons/jobs.svg" alt="icon">
-              <a href="jobs.html">Jobs</a>
-          </div>
-          <div>
+              <p>Jobs</p>
+          </a>
+          <a href="apply.html">
+              <img src="images/icons/vector.png" alt="icon">
+              <p>Apply</p>
+          <a href="about.html">
               <img src="images/icons/about.svg" alt="icon">
-              <a href="about.html">About</a>
-          </div>
+              <p>About</p>
+          </a>
           
       </nav>
-      <a href="" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
+      <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
   </header>
   </div>
 
