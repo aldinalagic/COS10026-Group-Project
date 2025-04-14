@@ -428,6 +428,10 @@ footer::after {
     display: inline-flex;
     gap: 24px;
 }
+#github
+{
+    width: 24px;
+}
 
 footer a {
     text-decoration: none;
