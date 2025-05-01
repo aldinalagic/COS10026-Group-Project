@@ -113,7 +113,15 @@
                 <div id="apply-grid-2">
                     <div class="input-field">
                         <label for="email">Enter email</label>
-                        <input type="text" name="suburb" id="phone-number" class="input" required placeholder="you@example.com">
+                        <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="input"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                        required
+                        placeholder="you@example.com"
+                      />
                     </div>
                     <div class="input-field">
                         <label for="phone-number">Phone Number</label>
