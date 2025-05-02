@@ -1,0 +1,161 @@
+:root {
+    /* Grey */
+    --color-grey-100: hsla(210, 13%, 90%, 1);
+    --color-grey-200: hsla(210, 11%, 80%, 1);
+    --color-grey-300: hsla(210, 9%, 72%, 1);
+    --color-grey-400: hsla(210, 7%, 63%, 1);
+    --color-grey-500: hsla(210, 6%, 55%, 1);
+    --color-grey-600: hsla(210, 6%, 46%, 1);
+    --color-grey-700: hsla(210, 7%, 37%, 1);
+    --color-grey-800: hsla(210, 8%, 28%, 1);
+    --color-grey-900: hsla(210, 10%, 20%, 1);
+    --color-grey-1000: hsla(210, 11%, 14%, 1);
+    --color-grey-1100: hsla(210, 18%, 10%, 1);
+  
+    /* Red */
+    --color-red-100: hsla(0, 76%, 93%, 1);
+    --color-red-200: hsla(0, 74%, 84%, 1);
+    --color-red-300: hsla(0, 71%, 73%, 1);
+    --color-red-400: hsla(0, 67%, 63%, 1);
+    --color-red-500: hsla(0, 66%, 53%, 1);
+    --color-red-600: hsla(0, 65%, 45%, 1);
+    --color-red-700: hsla(0, 66%, 36%, 1);
+    --color-red-800: hsla(0, 68%, 27%, 1);
+    --color-red-900: hsla(0, 70%, 19%, 1);
+    --color-red-1000: hsla(0, 72%, 13%, 1);
+    --color-red-1100: hsla(0, 76%, 8%, 1);
+  
+    /* Green */
+    --color-green-100: hsla(120, 76%, 93%, 1);
+    --color-green-200: hsla(120, 74%, 84%, 1);
+    --color-green-300: hsla(120, 71%, 73%, 1);
+    --color-green-400: hsla(120, 67%, 63%, 1);
+    --color-green-500: hsla(120, 66%, 53%, 1);
+    --color-green-600: hsla(120, 65%, 45%, 1);
+    --color-green-700: hsla(120, 66%, 36%, 1);
+    --color-green-800: hsla(120, 68%, 27%, 1);
+    --color-green-900: hsla(120, 70%, 19%, 1);
+    --color-green-1000: hsla(120, 72%, 13%, 1);
+    --color-green-1100: hsla(120, 76%, 8%, 1);
+  
+    /* Amber */
+    --color-amber-100: hsla(39, 94%, 93%, 1);
+    --color-amber-200: hsla(40, 93%, 84%, 1);
+    --color-amber-300: hsla(40, 91%, 73%, 1);
+    --color-amber-400: hsla(40, 87%, 63%, 1);
+    --color-amber-500: hsla(40, 86%, 53%, 1);
+    --color-amber-600: hsla(40, 85%, 45%, 1);
+    --color-amber-700: hsla(40, 86%, 36%, 1);
+    --color-amber-800: hsla(40, 88%, 27%, 1);
+    --color-amber-900: hsla(40, 90%, 19%, 1);
+    --color-amber-1000: hsla(40, 91%, 13%, 1);
+    --color-amber-1100: hsla(40, 95%, 8%, 1);
+  
+    /* Blue */
+    --color-blue-100: hsla(200, 76%, 93%, 1);
+    --color-blue-200: hsla(200, 74%, 84%, 1);
+    --color-blue-300: hsla(200, 71%, 73%, 1);
+    --color-blue-400: hsla(200, 67%, 63%, 1);
+    --color-blue-500: hsla(200, 66%, 53%, 1);
+    --color-blue-600: hsla(200, 65%, 45%, 1);
+    --color-blue-700: hsla(200, 66%, 36%, 1);
+    --color-blue-800: hsla(200, 68%, 27%, 1);
+    --color-blue-900: hsla(200, 70%, 19%, 1);
+    --color-blue-1000: hsla(200, 72%, 13%, 1);
+    --color-blue-1100: hsla(200, 76%, 8%, 1);
+  
+    /* Purple */
+    --color-purple-100: hsla(260, 76%, 93%, 1);
+    --color-purple-200: hsla(260, 74%, 84%, 1);
+    --color-purple-300: hsla(260, 71%, 73%, 1);
+    --color-purple-400: hsla(260, 67%, 63%, 1);
+    --color-purple-500: hsla(260, 66%, 53%, 1);
+    --color-purple-600: hsla(260, 65%, 45%, 1);
+    --color-purple-700: hsla(260, 66%, 36%, 1);
+    --color-purple-800: hsla(260, 68%, 27%, 1);
+    --color-purple-900: hsla(260, 70%, 19%, 1);
+    --color-purple-1000: hsla(260, 72%, 13%, 1);
+    --color-purple-1100: hsla(260, 76%, 8%, 1);
+  
+    /* Pink */
+    --color-pink-100: hsla(300, 76%, 93%, 1);
+    --color-pink-200: hsla(300, 74%, 84%, 1);
+    --color-pink-300: hsla(300, 71%, 73%, 1);
+    --color-pink-400: hsla(300, 67%, 63%, 1);
+    --color-pink-500: hsla(300, 66%, 53%, 1);
+    --color-pink-600: hsla(300, 65%, 45%, 1);
+    --color-pink-700: hsla(300, 66%, 36%, 1);
+    --color-pink-800: hsla(300, 68%, 27%, 1);
+    --color-pink-900: hsla(300, 70%, 19%, 1);
+    --color-pink-1000: hsla(300, 72%, 13%, 1);
+    --color-pink-1100: hsla(300, 76%, 8%, 1);
+  
+    /* Teal */
+    --color-teal-100: hsla(170, 76%, 93%, 1);
+    --color-teal-200: hsla(170, 74%, 84%, 1);
+    --color-teal-300: hsla(170, 71%, 73%, 1);
+    --color-teal-400: hsla(170, 67%, 63%, 1);
+    --color-teal-500: hsla(170, 66%, 53%, 1);
+    --color-teal-600: hsla(170, 65%, 45%, 1);
+    --color-teal-700: hsla(170, 66%, 36%, 1);
+    --color-teal-800: hsla(170, 68%, 27%, 1);
+    --color-teal-900: hsla(170, 70%, 19%, 1);
+    --color-teal-1000: hsla(170, 72%, 13%, 1);
+    --color-teal-1100: hsla(170, 76%, 8%, 1);
+  
+    /* Brown */
+    --color-brown-100: hsla(40, 59%, 93%, 1);
+    --color-brown-200: hsla(40, 55%, 84%, 1);
+    --color-brown-300: hsla(40, 51%, 73%, 1);
+    --color-brown-400: hsla(40, 47%, 63%, 1);
+    --color-brown-500: hsla(40, 46%, 53%, 1);
+    --color-brown-600: hsla(40, 45%, 45%, 1);
+    --color-brown-700: hsla(40, 46%, 36%, 1);
+    --color-brown-800: hsla(40, 49%, 27%, 1);
+    --color-brown-900: hsla(40, 49%, 19%, 1);
+    --color-brown-1000: hsla(40, 53%, 13%, 1);
+    --color-brown-1100: hsla(40, 57%, 8%, 1);
+  
+    /* Orange */
+    --color-orange-100: hsla(26, 86%, 93%, 1);
+    --color-orange-200: hsla(26, 84%, 84%, 1);
+    --color-orange-300: hsla(26, 81%, 73%, 1);
+    --color-orange-400: hsla(26, 77%, 63%, 1);
+    --color-orange-500: hsla(26, 76%, 53%, 1);
+    --color-orange-600: hsla(26, 75%, 45%, 1);
+    --color-orange-700: hsla(26, 76%, 36%, 1);
+    --color-orange-800: hsla(26, 78%, 27%, 1);
+    --color-orange-900: hsla(26, 80%, 19%, 1);
+    --color-orange-1000: hsla(26, 82%, 13%, 1);
+    --color-orange-1100: hsla(26, 86%, 8%, 1);
+  
+    /* Background */
+    --color-background_primary: hsla(0, 0%, 100%, 1);
+    --color-background_secondary: hsla(0, 0%, 94%, 1);
+  
+    /* Text */
+    --color-text_primary: hsla(0, 0%, 0%, 1);
+    --color-text_secondary: hsla(210, 6%, 55%, 1);
+    --color-text_disabled: hsla(212, 9%, 72%, 1);
+  
+    /* Icons */
+    --color-icon_primary: hsla(0, 0%, 0%, 1);
+    --color-icon_secondary: hsla(210, 6%, 55%, 1);
+    --color-icon_disabled: hsla(212, 9%, 72%, 1);
+  
+    /* Borders */
+    --color-border_primary: var(--color-grey-100);
+    --color-border_hover: var(--color-grey-200);
+    --color-border_active: var(--color-grey-400);
+  
+    /* Buttons */
+    --color-button_primary: var(--color-blue-500);
+    --color-button_primary_text: hsla(0, 0%, 100%, 1);
+    --color-button_active: var(--color-text_primary);
+  
+    /* Semantic */
+    --color-semantic-success: var(--color-blue-500);
+    --color-semantic-info: var(--color-grey-600);
+    --color-semantic-warning: var(--color-amber-500);
+    --color-semantic-danger: var(--color-red-500);
+}
