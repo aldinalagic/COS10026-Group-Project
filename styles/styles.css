@@ -259,6 +259,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 4px;
+    width: fit-content;
 }
 
 .button-primary:hover {
@@ -337,6 +338,16 @@ header nav{
     justify-content: center;
     width: 100%;
     margin-right: 24px;
+}
+
+@media (max-width: 1024px) {
+    header {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    .pagenav a p {
+        display: none;
+    }
 }
 
 /* Navigation buttons within the navigation bar */
@@ -487,64 +498,118 @@ footer a {
 /* Index.html CSS */
 
 /* Welcome section */
-#welcome{
+#welcome {
     display: flex;
-    padding-top: 136px;
-    align-items: center;
-    margin-bottom: 250px;
-    width: 100%;
-    flex-direction: column;
-
+    padding-top: 100px;
+    margin-bottom: 128px;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+    position: relative;
 }
 
-#welcome h1{
+#welcome-title {
+    flex: 1;
+    margin-right: 40px;
+}
+
+#welcome h1 {
     font-family: Switzer-Regular;
-    font-size: 6.2vw;
-    float: left;
-    width: fit-content;
-    margin-bottom: 0px;
-    color: var(--colour-text-primary);
+    font-size: var(--header-1);
+    color: var(--amber-1000);
+    line-height: 1.1;
+    margin-top: 0;
 }
 
-#welcome p{
-    align-self: flex-start;
-    margin-left: 21vw;
-    font-family: 'Switzer-Regular';
-    font-size: 1.4vw;
-    float: left;
-    width: 450px;
-    color: var(--colour-text-primary);
-    opacity: 60%;
+#welcome-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    position: relative;
 }
 
-#welcome img{
-    width: 25vw;
-    margin-top: 70px;
-    margin-left: 34%;
-    justify-self: flex-end;
-    float: left;
-    position: absolute;
-    z-index: -1;
+#welcome p {
+    font-family: Switzer-Regular;
+    font-size: var(--header-6);
+    color: var(--colour-text-primary);
+    opacity: 0.8;
+    line-height: 1.5;
+    margin-bottom: 24px;
 }
-#welcome div {
-    display: inline;
-    margin-top: 37.5px;
+
+#welcome-actions {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
 }
-#welcome div a {
-    text-decoration: none;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 5.5px;
-    padding-bottom: 5.5px;
-    border-radius: 16px;
-    font-size: 16px;
-}
+
 #start {
     background-color: var(--colour-button-primary);
     color: var(--colour-button-primary-text);
+    border-radius: 24px;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
 }
+
 #contact {
     color: var(--colour-button-plain-text);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 0;
+}
+
+#welcome-graphic {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    z-index: -1;
+    width: 440px;
+    height: 440px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    #welcome {
+        padding-top: 128px;
+        flex-direction: column;
+    }
+    
+    #welcome-title {
+        margin-right: 0;
+        margin-bottom: 40px;
+        padding-top: 128px;
+    }
+    
+    #welcome-graphic {
+        position: relative;
+        margin-top: 60px;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #welcome {
+        padding-top: 128px;
+    }
+    
+    #welcome h1 {
+        font-size: 42px;
+        padding-top: 32px;
+    }
+    
+    #welcome-content {
+        max-width: 100%;
+    }
 }
 
 #benefits {
@@ -647,6 +712,8 @@ footer a {
     text-align: center;
     height:500px;
     margin-top: 24px;
+    overflow: hidden;
+    border-radius: 32px;
 }
 #explore h3 {
     font-size: 60px;
@@ -657,7 +724,7 @@ footer a {
     align-self: flex-start;
     justify-self: flex-start;
 }
-#explore article iframe {
+#explore article img {
     width: 100%;
     height: inherit;
     border: 0;
@@ -670,13 +737,16 @@ footer a {
     margin: 0px;
     margin-top: 70px;
     z-index: 1;
+    color: white;
 }
 #explore article p {
     font-size: 20px;
-    color: var(--colour-text-primary);
+    color: white;
     margin: 0;
     margin-top: 16px;
     z-index: 1;
+    opacity: 0.6;
+    font-family: Switzer-Regular;
 }
 #explore article a {
     font-size: 20px;
@@ -1723,7 +1793,6 @@ td {
 .apply-body {
     display: flex;
     flex-direction: row;
-    padding: 16px;
     gap: 16px;
     height: 100vh;
     box-sizing: border-box;
@@ -1751,6 +1820,8 @@ td {
     height: 100%;
     box-sizing: border-box;
     margin-left: calc(50% + 8px);
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 .apply-graphic-container iframe {
@@ -1960,7 +2031,7 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: page-load 2s ease-in-out 0s 1 forwards;
+    animation: page-load 1.6s ease-in-out 0s 1 forwards;
     transform-origin: center;
     overflow: hidden;
     background-color: var(--amber-100);
@@ -1970,7 +2041,7 @@ textarea {
 
 .glow-loader img {
     transform: scale(0);
-    animation: glow-loader-animate 2s cubic-bezier(0.215, 0.610, 0.355, 1) 0.4s 1 forwards;
+    animation: glow-loader-animate 1.6s cubic-bezier(0.215, 0.610, 0.355, 1) 0.4s 1 forwards;
 }
 
 .glow-loader div {
@@ -1980,7 +2051,7 @@ textarea {
     opacity: 1; 
     border-radius: 9999px;   
     box-shadow: 0px 0px 0px calc(100vw + 100vh) rgba(252, 238, 214, 1) inset;
-    animation: loader-circle-animate 2s ease-in-out 0.9s 1 forwards;
+    animation: loader-circle-animate 2s ease-in-out 0.6s 1 forwards;
     overflow: hidden;
 }
 
@@ -2024,21 +2095,6 @@ textarea {
         transform: scale(1.8);
     }
 }
-
-/* @keyframes page-load {
-    0% {
-        background-color: rgba(240, 240, 240, 1);
-    }
-
-    99% {
-        background-color: rgba(240, 240, 240, 1);
-    }
-
-    100% {
-        background-color: rgba(240, 240, 240, 0)
-    }
-} */
-
 @keyframes page-load {
     0% {
         background-color: rgba(252, 238, 214, 1)
