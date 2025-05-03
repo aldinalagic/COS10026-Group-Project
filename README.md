@@ -72,8 +72,8 @@ createAvatar(AvatarSize, name, menuOptions)
  
 ```php
 array(
-    "/icons/sign-out.svg" => "Sign out"
-    "/icons/arrows.svg" => "Switch account"
+    "/icons/sign-out.svg" => "Sign out",
+    "/icons/arrows.svg" => "Switch account",
     "/icons/profile.svg" => "View profile"
     ...
 )
@@ -268,8 +268,8 @@ createTopbar(TopbarType, menuOptions)
  
 ```php
 array(
-    "/icons/jobs.svg" => "Jobs"
-    "/icons/person-run.svg" => "Apply"
+    "/icons/jobs.svg" => "Jobs",
+    "/icons/person-run.svg" => "Apply",
     "/icons/face-smile.svg" => "About"
     ...
 )

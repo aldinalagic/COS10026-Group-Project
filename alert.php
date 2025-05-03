@@ -1,5 +1,5 @@
 <?php
-// Unfortunately for some weird
+// Unfortunately for some reason we cannot delete alert element from the page when it animates out! PHP is really annoying sometimes.
 
 
 // This enum defines the types of alerts that can be created.

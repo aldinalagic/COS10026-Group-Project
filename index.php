@@ -1,5 +1,5 @@
 <?php 
-    include 'alert.php'
+    include 'avatar.php'
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <h1>ssss</h1>
-    <?php echo createAlert("Application Pending Deletion", AlertType::DANGER) ?>
+    <h1>Header</h1>
+    <?php echo createAvatar(AvatarSize::LARGE, "Aldin Alagic") ?>
 </body>
 </html>
