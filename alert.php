@@ -12,10 +12,10 @@ enum AlertType: string {
 
 
 // This function creates an alert message with a specified type and message.
-function createAlert(string $message = "Alert message!", AlertType $type = AlertType::SUCCESS) {
+function createAlert($message = "Alert message!", $type = AlertType::SUCCESS) {
     
     
-    return "<div class='alert' id='alert-{$type->value}'>$message</div>";
+    return "<div class='alert' id='alert-$type->value'>$message</div>";
 }
 
 ?>

@@ -1,5 +1,5 @@
 <?php 
-    include 'avatar.php'
+    include 'badge.php'
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +12,6 @@
 </head>
 <body>
     <h1>Header</h1>
-    <?php echo createAvatar(AvatarSize::LARGE, "Aldin Alagic") ?>
+    <?php echo createBadge(BadgeSize::NORMAL, '',Color::Amber, 'Badge') ?>
 </body>
 </html>

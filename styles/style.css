@@ -133,3 +133,42 @@
 .avatar-size-large p {
   font-size: 20px;
 }
+
+/* Badge */
+
+.badge {
+  display: inline-flex;
+  gap: 20px;
+  border-radius: 9999px;
+  text-align: center;
+}
+
+.badge p {
+  margin: 0;
+  padding: 0;
+}
+
+
+#badge-small {
+  padding: 2px 6px 2px 6px;
+}
+
+#badge-small p {
+  font-size: 8px;
+}
+
+#badge-normal {
+  padding: 2px 8px 2px 8px;
+}
+
+#badge-normal p {
+  font-size: 12px;
+}
+
+#badge-large {
+  padding: 2px 12px 2px 12px;
+}
+
+#badge-large p {
+  font-size: 16px;
+}

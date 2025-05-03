@@ -94,7 +94,7 @@ Badges are used to display statuses, notifications or other information that nee
 Include `include "badge.inc"` at the top of the php page.
 
 ```php
-createBadge(BadgeSize, icon, Colour, message)
+createBadge(BadgeSize, icon, Color, message)
 ```
 
 <br>
@@ -112,26 +112,26 @@ createBadge(BadgeSize, icon, Colour, message)
 
 <br>
 
-`BadgeColour` is an enum and can be the following:
-1. `BadgeColour::Grey`
+`BadgeColor` is an enum and can be the following:
+1. `BadgeColor::Grey`
    
-2. `BadgeColour::Red`
+2. `BadgeColor::Red`
    
-3. `BadgeColour::Green`
+3. `BadgeColor::Green`
    
-4. `BadgeColour::Amber`
+4. `BadgeColor::Amber`
    
-5. `BadgeColour::Blue`
+5. `BadgeColor::Blue`
    
-6. `BadgeColour::Purple`
+6. `BadgeColor::Purple`
    
-7. `BadgeColour::Pink`
+7. `BadgeColor::Pink`
    
-8. `BadgeColour::Teal`
+8. `BadgeColor::Teal`
    
-9.  `BadgeColour::Brown`
+9.  `BadgeColor::Brown`
     
-10. `BadgeColour::Orange`
+10. `BadgeColor::Orange`
 
 <br>
 
@@ -150,7 +150,7 @@ Buttons are graphical component that give users a clickable area.
 Include `include "badge.inc"` at the top of the php page.
 
 ```php
-createButton(ButtonSize, ButtonType, ButtonColour, icon, message)
+createButton(ButtonSize, ButtonType, ButtonColor, icon, message)
 ```
 
 <br>
@@ -177,26 +177,26 @@ createButton(ButtonSize, ButtonType, ButtonColour, icon, message)
 
 <br>
 
-`ButtonColour` is an enum and can be the following:
-1. `ButtonColour::Grey`
+`ButtonColor` is an enum and can be the following:
+1. `ButtonColor::Grey`
    
-2. `ButtonColour::Red`
+2. `ButtonColor::Red`
    
-3. `ButtonColour::Green`
+3. `ButtonColor::Green`
    
-4. `ButtonColour::Amber`
+4. `ButtonColor::Amber`
    
-5. `ButtonColour::Blue`
+5. `ButtonColor::Blue`
    
-6. `ButtonColour::Purple`
+6. `ButtonColor::Purple`
    
-7. `ButtonColour::Pink`
+7. `ButtonColor::Pink`
    
-8. `ButtonColour::Teal`
+8. `ButtonColor::Teal`
    
-9.  `ButtonColour::Brown`
+9.  `ButtonColor::Brown`
     
-10. `ButtonColour::Orange`
+10. `ButtonColor::Orange`
 
 <br>
 
