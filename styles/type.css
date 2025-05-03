@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'Switzer';
-    src: url('../src/components/fonts/Switzer-Variable.woff2') format('woff2'),
-            url('../src/components/fonts/Switzer-Variable.woff') format('woff'),
-            url('../src/components/fonts/Switzer-Variable.ttf') format('truetype');
+    src: url('./fonts/Switzer-Variable.woff2') format('woff2'),
+            url('./fonts/Switzer-Variable.woff') format('woff'),
+            url('./fonts/Switzer-Variable.ttf') format('truetype');
     font-weight: 100 900;
     font-display: swap;
     font-style: normal;
@@ -10,9 +10,9 @@
 
 @font-face {
     font-family: 'Switzer';
-    src: url('../src/components/fonts/Switzer-VariableItalic.woff2') format('woff2'),
-            url('../src/components/fonts/Switzer-VariableItalic.woff') format('woff'),
-            url('../src/components/fonts/Switzer-VariableItalic.ttf') format('truetype');
+    src: url('./fonts/Switzer-VariableItalic.woff2') format('woff2'),
+            url('./fonts/Switzer-VariableItalic.woff') format('woff'),
+            url('./fonts/Switzer-VariableItalic.ttf') format('truetype');
     font-weight: 100 900;
     font-display: swap;
     font-style: italic;
