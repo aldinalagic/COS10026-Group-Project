@@ -172,3 +172,86 @@
 #badge-large p {
   font-size: 16px;
 }
+
+/* Button */
+
+/* Button -  General Styling */
+.button {
+  border: none;
+  text-align: center;
+  border-radius: 9999px;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.small {
+    padding: 12px 4px;
+    max-height: 24px;
+    font-size: 12px;
+  }
+
+  &.normal {
+    padding: 5.33px 12px;
+    max-height: 32px;
+    font-size: 16px;
+  }
+
+  &.large {
+    padding: 6.67px 20px;
+    max-height: 40px;
+    font-size: 20px;
+  }
+
+  &.small img { margin-right: 4px; max-height: 16px; }
+  &.normal img { margin-right: 4px; max-height: 20px; }
+  &.large img { margin-right: 8px; max-height: 24px; }
+
+  &.danger {
+    background-color: var(--color-red-500);
+    color: var(--color-button_primary_text);
+
+    &:hover {
+        animation: danger-wiggle 100ms infinite;
+        animation-timing-function: linear;  
+    }
+  }
+
+}
+
+
+/* Button -  Filled */
+.button.filled { color: var(--color-button_primary_text); }
+.button.filled.grey { background-color: var(--color-grey-500); &:hover { background-color: var(--color-grey-400); }}
+.button.filled.red { background-color: var(--color-red-500); &:hover { background-color: var(--color-red-400); }}
+.button.filled.green { background-color: var(--color-green-500); &:hover { background-color: var(--color-green-400); }}
+.button.filled.amber { background-color: var(--color-amber-500); &:hover { background-color: var(--color-amber-400); }}
+.button.filled.blue { background-color: var(--color-blue-500); &:hover { background-color: var(--color-blue-400); }}
+.button.filled.purple { background-color: var(--color-purple-500); &:hover { background-color: var(--color-purple-400); }}
+.button.filled.pink { background-color: var(--color-pink-500); &:hover { background-color: var(--color-pink-400); }}
+.button.filled.teal { background-color: var(--color-teal-500); &:hover { background-color: var(--color-teal-400); }}
+.button.filled.brown { background-color: var(--color-brown-500); &:hover { background-color: var(--color-brown-400); }}
+.button.filled.orange { background-color: var(--color-orange-500); &:hover { background-color: var(--color-orange-400); }}
+
+/* Button -  Shaded */
+.button.shaded.grey { background-color: var(--color-grey-100); color: var(--color-grey-500); &:hover { background-color: var(--color-grey-200); }}
+.button.shaded.red { background-color: var(--color-red-100); color: var(--color-red-500); &:hover { background-color: var(--color-red-200); }}
+.button.shaded.green { background-color: var(--color-green-100); color: var(--color-green-500); &:hover { background-color: var(--color-green-200); }}
+.button.shaded.amber { background-color: var(--color-amber-100); color: var(--color-amber-500); &:hover { background-color: var(--color-amber-200); }}
+.button.shaded.blue { background-color: var(--color-blue-100); color: var(--color-blue-500); &:hover { background-color: var(--color-blue-200); }}
+.button.shaded.purple { background-color: var(--color-purple-100); color: var(--color-purple-500); &:hover { background-color: var(--color-purple-200); }}
+.button.shaded.pink { background-color: var(--color-pink-100); color: var(--color-pink-500); &:hover { background-color: var(--color-pink-200); }}
+.button.shaded.teal { background-color: var(--color-teal-100); color: var(--color-teal-500); &:hover { background-color: var(--color-teal-200); }}
+.button.shaded.brown { background-color: var(--color-brown-100); color: var(--color-brown-500); &:hover { background-color: var(--color-brown-200); }}
+.button.shaded.orange { background-color: var(--color-orange-100); color: var(--color-orange-500); &:hover { background-color: var(--color-orange-200); }}
+
+.button.plain { background-color: transparent; color: var(--color-text_primary); border: 1px solid transparent; box-sizing: border-box; &:hover { border-color: var(--color-grey-100); }}
+
+@keyframes danger-wiggle {
+  0% { transform: translate(0.5px, 0.2); }
+  50% { transform: translate(-1px, -0.2px); }
+  100% { transform: translate(0.5px, 0.4px); }
+}

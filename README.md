@@ -150,7 +150,7 @@ Buttons are graphical component that give users a clickable area.
 Include `include "badge.inc"` at the top of the php page.
 
 ```php
-createButton(ButtonSize, ButtonType, ButtonColor, icon, message)
+createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
 ```
 
 <br>
@@ -164,16 +164,16 @@ createButton(ButtonSize, ButtonType, ButtonColor, icon, message)
 
 <br>
 
-`ButtonType` is an enum and can be the following:
-1. `ButtonType::Filled`
+`ButtonVariety` is an enum and can be the following:
+1. `ButtonVariety::Filled`
    
-2. `ButtonType::Shaded`
+2. `ButtonVariety::Shaded`
    
-3. `ButtonType::Plain`
+3. `ButtonVariety::Plain`
    
-4. `ButtonType::Warning`
+4. `ButtonVariety::Warning`
    
-5. `ButtonType::Danger`
+5. `ButtonVariety::Danger`
 
 <br>
 
@@ -205,6 +205,10 @@ createButton(ButtonSize, ButtonType, ButtonColor, icon, message)
 <br>
 
 `message` is a string, buttons must have messages
+
+<br>
+
+`type` is a string, buttons can be `submit` or a regular `'button'`
 
 <br>
 

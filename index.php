@@ -1,5 +1,5 @@
 <?php 
-    include 'badge.php'
+    include 'button.php'
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +12,6 @@
 </head>
 <body>
     <h1>Header</h1>
-    <?php echo createBadge(BadgeSize::NORMAL, '',Color::Amber, 'Badge') ?>
+    <?php echo createButton(ButtonSize::LARGE, ButtonVariety::PLAIN, Color::Blue, 's') ?>
 </body>
 </html>
