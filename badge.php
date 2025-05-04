@@ -6,7 +6,7 @@ enum BadgeSize: string {
     case LARGE = 'large';
 }
 
-enum Color: string {
+enum BadgeColor: string {
     case Grey = 'grey';
     case Red = 'red';
     case Green = 'green';
@@ -21,15 +21,14 @@ enum Color: string {
 
 
 // This function creates a badge with a specified size, icon, color, and message.
-function createBadge($size = BadgeSize::NORMAL, $icon = 'path/to/icon', $color = Color::Green, $message = 'Badge message!') {
-    
-    // Variables are required to be able to use them in the style attribute???
+function createBadge($size = BadgeSize::NORMAL, $icon = 'path/to/icon', $color = BadgeColor::Green, $message = 'Badge message!') {
+    $sizeValue = $size->value;
     $colourValue = $color->value;
-
+    
     // Check to see if icon is empty, null, or has whitespace(s), if yes then don't display icon
     $displayIcon = ($icon == null || $icon == '' || ctype_space($icon)) ? null : "<img src='$icon'>";
 
-    return "<div class='badge' id='badge-$size->value' style='background-color: var(--color-$colourValue-100); color: var(--color-$colourValue-500)'>$displayIcon<p>$message</p></div>";
+    return "<div class='badge $sizeValue $colourValue'>$displayIcon<p>$message</p></div>";
 }
 
 ?>

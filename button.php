@@ -11,9 +11,10 @@
         case PLAIN = 'plain';
         case WARNING = 'warning';
         case DANGER = 'danger';
+        case CONFIRM = 'confirm';
     }
 
-    enum Color: string {
+    enum ButtonColor: string {
         case Grey = 'grey';
         case Red = 'red';
         case Green = 'green';
@@ -27,14 +28,14 @@
     }
     
 
-    function createButton($size = ButtonSize::NORMAL, $variety = ButtonVariety::FILLED, $color = Color::Blue, $icon = '', $message = 'Button', $type = 'button') {
+    function createButton($size = ButtonSize::NORMAL, $variety = ButtonVariety::FILLED, $color = ButtonColor::Blue, $icon = '', $message = 'Button', $type = 'button') {
         $sizeValue = $size->value;
-        $colourValue = $color->value;
         $varietyValue = $variety->value;
+        $colourValue = $variety == ButtonVariety::PLAIN ? 'transparent' : $color->value;
 
         // Check to see if icon is empty, null, or has whitespace(s), if yes then don't display icon
         $displayIcon = ($icon == null || $icon == '' || ctype_space($icon)) ? null : "<img src='$icon'>";
 
         return "<button class='button $sizeValue $colourValue $varietyValue' type='$type'>$displayIcon$message</button>";
-    }
+    } 
 ?>

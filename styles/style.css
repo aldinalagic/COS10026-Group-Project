@@ -121,7 +121,7 @@
 }
 
 .avatar-size-normal p {
-  font-size: 16px;
+  font-size: 1px;
 }
 
 #avatar-large {
@@ -135,74 +135,79 @@
 }
 
 /* Badge */
-
 .badge {
   display: inline-flex;
+  align-items: center;
   gap: 20px;
   border-radius: 9999px;
   text-align: center;
+
+  p { padding: 0; margin: 0; }
+
+  &.small {
+    padding: 2px 6px 2px 6px;
+    gap: 2px;
+    
+    p { font-size: 8px; }
+    img { height: 8px; width: 8px; }
+  }
+
+  &.normal {
+    padding: 2px 8px 2px 8px;
+    gap: 2px;
+
+    p { font-size: 12px; }
+    img { height: 12px; }
+  }
+
+  &.large {
+    gap: 4px;
+    padding: 2px 12px 2px 12px;
+    
+    p { font-size: 16px; }
+    img { height: 16px; }
+  }
 }
 
-.badge p {
-  margin: 0;
-  padding: 0;
-}
+.badge.grey { background-color: var(--color-grey-100); color: var(--color-grey-600); }
+.badge.red { background-color: var(--color-red-100); color: var(--color-red-600); }
+.badge.green { background-color: var(--color-green-100); color: var(--color-green-600); }
+.badge.mber { background-color: var(--color-amber-100); color: var(--color-amber-600); }
+.badge.blue { background-color: var(--color-blue-100); color: var(--color-blue-600); }
+.badge.purple { background-color: var(--color-purple-100); color: var(--color-purple-600); }
+.badge.pink { background-color: var(--color-pink-100); color: var(--color-pink-600); }
+.badge.teal { background-color: var(--color-teal-100); color: var(--color-teal-600); }
+.badge.brown { background-color: var(--color-brown-100); color: var(--color-brown-600); }
+.badge.orange { background-color: var(--color-orange-100); color: var(--color-orange-600); }
 
-
-#badge-small {
-  padding: 2px 6px 2px 6px;
-}
-
-#badge-small p {
-  font-size: 8px;
-}
-
-#badge-normal {
-  padding: 2px 8px 2px 8px;
-}
-
-#badge-normal p {
-  font-size: 12px;
-}
-
-#badge-large {
-  padding: 2px 12px 2px 12px;
-}
-
-#badge-large p {
-  font-size: 16px;
-}
 
 /* Button */
 
 /* Button -  General Styling */
 .button {
   border: none;
-  text-align: center;
   border-radius: 9999px;
   transition:
     background-color 200ms ease,
     border-color 200ms ease;
+
 
   &:hover {
     cursor: pointer;
   }
 
   &.small {
-    padding: 12px 4px;
-    max-height: 24px;
+    padding: 4px 12px;
     font-size: 12px;
   }
 
   &.normal {
     padding: 5.33px 12px;
-    max-height: 32px;
     font-size: 16px;
   }
 
   &.large {
     padding: 6.67px 20px;
-    max-height: 40px;
     font-size: 20px;
   }
 
@@ -213,6 +218,7 @@
   &.danger {
     background-color: var(--color-red-500);
     color: var(--color-button_primary_text);
+    transition: max-width 1s;
 
     &:hover {
         animation: danger-wiggle 100ms infinite;
@@ -220,8 +226,77 @@
     }
   }
 
+  &.confirm {
+    background-color: var(--color-green-500);
+    color: var(--color-button_primary_text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:active {
+      animation: hold-down 600ms forwards;
+      animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);  
+    }
+
+    &:not(:active) {
+      animation: hold-down-reversed 600ms forwards;
+      animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);  
+    }
+  }
 }
 
+@keyframes hold-down {
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.05);
+  }
+
+  40% {
+    background-color: var(--color-green-500);
+  }
+
+  70% {
+    transform: scale(0.80);
+    background-color: var(--color-green-400);
+  } 
+
+  100% {
+    transform: scale(0.85);
+    background-color: var(--color-green-400);
+  }
+}
+
+@keyframes hold-down-reversed {
+  0% {
+    transform: scale(0.85);
+    background-color: var(--color-green-400);
+  }
+
+  30% {
+    transform: scale(0.80);
+    background-color: var(--color-green-400);
+  }
+
+  60% {
+    transform: scale(1.05);
+    background-color: var(--color-green-500);
+  }
+
+  80% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
 
 /* Button -  Filled */
 .button.filled { color: var(--color-button_primary_text); }
@@ -254,4 +329,8 @@
   0% { transform: translate(0.5px, 0.2); }
   50% { transform: translate(-1px, -0.2px); }
   100% { transform: translate(0.5px, 0.4px); }
+}
+
+body {
+  padding: 32px;
 }
