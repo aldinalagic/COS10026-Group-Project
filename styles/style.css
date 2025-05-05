@@ -219,6 +219,7 @@
     background-color: var(--color-red-500);
     color: var(--color-button_primary_text);
     transition: max-width 1s;
+    
 
     &:hover {
         animation: danger-wiggle 100ms infinite;
@@ -227,7 +228,7 @@
   }
 
   &.confirm {
-    background-color: var(--color-green-500);
+    background-color: var(--color-blue-500);
     color: var(--color-button_primary_text);
     display: flex;
     align-items: center;
@@ -238,9 +239,18 @@
       animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);  
     }
 
+    /* FOR SOME REASON THE ANIMATION IS BEING PLAYED ON PAGE LOAD */
     &:not(:active) {
       animation: hold-down-reversed 600ms forwards;
-      animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);  
+      animation-delay: 9999s; /* Set 9999s because animations play on page LOAD */
+      animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+    
+    /* I'm losing brain cells writing css at this point. */
+    &:active,
+    &:not(:active):focus,
+    &:not(:active):hover {
+      animation-delay: 0s;
     }
   }
 }
@@ -259,34 +269,34 @@
   }
 
   40% {
-    background-color: var(--color-green-500);
+    background-color: var(--color-blue-500);
   }
 
   70% {
     transform: scale(0.80);
-    background-color: var(--color-green-400);
+    background-color: var(--color-blue-400);
   } 
 
   100% {
     transform: scale(0.85);
-    background-color: var(--color-green-400);
+    background-color: var(--color-blue-400);
   }
 }
 
 @keyframes hold-down-reversed {
   0% {
     transform: scale(0.85);
-    background-color: var(--color-green-400);
+    background-color: var(--color-blue-400);
   }
 
   30% {
     transform: scale(0.80);
-    background-color: var(--color-green-400);
+    background-color: var(--color-blue-400);
   }
 
   60% {
     transform: scale(1.05);
-    background-color: var(--color-green-500);
+    background-color: var(--color-blue-500);
   }
 
   80% {
@@ -334,3 +344,108 @@
 body {
   padding: 32px;
 }
+
+/* Input */
+
+.input {
+  display: flex;
+  flex-direction: column;
+  
+  input {
+    transition: border-color 200ms ease;
+    outline: none;
+    border: 1px solid var(--color-border_primary);
+
+    &::placeholder {
+      color: var(--color-text_secondary)
+    }
+
+    &:hover {
+      border-color: var(--color-border_hover);
+    }
+
+    &:active, &:focus {
+      border-color: var(--color-border_active);
+    }
+
+    &:disabled {
+      border-color: transparent;
+      background-color: var(--color-grey-100);
+      color: var(--color-text_secondary);
+    }
+  }
+
+  &.small {
+    max-width: 192px;
+    gap: 4px;
+
+    input { padding: 4px 8px; border-radius: 8px; }
+    label { font-size: 12px; }
+  }
+
+  &.normal {
+    max-width: 256px;
+    gap: 4px;
+
+    input { padding: 5.5px 12px; border-radius: 12px; }
+    label { font-size: 16px; }
+  }
+
+  &.large {
+    max-width: 320px;
+    gap: 8px;
+
+    input { padding: 7px 12px; border-radius: 12px; }
+    label { font-size: 20px; }
+  }
+}
+
+/* Menu Option */
+
+.menu-option {
+  text-decoration: none;
+  border: none;
+  padding: 8px 20px 8px 12px;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0px;
+  cursor: pointer;
+  border-radius: 9999px;
+  align-items: center;
+  transition: 
+    color 200ms ease,
+    background-color 200ms ease;
+
+  span {
+    margin-left: 4px;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  &.singular {  
+    color: var(--color-text_primary); 
+    
+    &:hover {
+      color: var(--color-text_secondary);
+    }
+  }
+
+  &.seperated {   
+    background-color: transparent;
+    color: var(--color-text_secondary);
+    
+    &:hover {
+      background-color: var(--color-amber-100);
+      color: var(--color-amber-500);
+    }
+  }
+}
+

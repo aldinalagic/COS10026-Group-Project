@@ -268,10 +268,11 @@ createTopbar(TopbarType, menuOptions)
 
 <br>
 
-`menuOptions` is an key-value pair array, where the key is an icon path, and the value is the text, here is an example:
+`menuOptions` is an array of MenuOption (class) instances. This means to create a new menu option within the top bar can do the following:
  
 ```php
 array(
+    
     "/icons/jobs.svg" => "Jobs",
     "/icons/person-run.svg" => "Apply",
     "/icons/face-smile.svg" => "About"
@@ -292,7 +293,7 @@ Input is a simple text box containing minimal characters.
 Include `include "input.inc"` at the top of the php page.
 
 ```php
-createInput(type, name, maxLength, size, placeholder, pattern, isRequired, disabled, maxLength)
+createInput(type, name, maxLength, size, placeholder, pattern, isRequired, disabled)
 ```
 
 <br>
