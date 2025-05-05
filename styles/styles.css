@@ -42,7 +42,7 @@
     have a look at Switzer font's numbers.
 
 */
-@import url('../css/switzer.css');
+@import url('switzer.css');
 
 /* 
     These are a bunch of variables that are used throughout. 
@@ -427,6 +427,10 @@ footer::after {
 #footer-menu {
     display: inline-flex;
     gap: 24px;
+}
+.menu-button img {
+    width: 24px;
+    height: 24px;
 }
 #github
 {
@@ -1304,7 +1308,7 @@ select {
 
 
 #about-heading{
-    background-image: url("../images/about-effect.svg");
+    background-image: url("images/about-effect.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1328,7 +1332,7 @@ select {
 }
 
 #about-heading h1{
-    background-image: url("../images/big-glow.svg");
+    background-image: url("images/big-glow.svg");
     background-position: center;
     background-repeat: no-repeat;
     
@@ -1522,15 +1526,16 @@ td {
 }
 
 .circle{
-    background-image: url('../images/text-circle.svg');
+    background-image: url('images/text-circle.png');
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    padding: 5px;
+    padding: 9px;
 }
 
 #underline{
     
-    background-image: url('../images/text-underline.svg');
+    background-image: url('images/text-underline.svg');
     background-position: bottom;
     background-repeat: no-repeat;
 }
