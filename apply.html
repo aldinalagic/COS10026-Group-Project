@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en" id="apply-html">
 <head>
    <title>job application page</title>
@@ -16,226 +16,234 @@
 <div class="container">
       <div class="column1">
         <img src="images/icons/apply-graphic-wrapper.png" alt="wrapper">
-      </div>
-
-
-
-<div class="column2">
-
-  <div class="topbar">
+    </div>
+    
     <header>
-      <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
-       <a class="pagelogo" href="index.html">
-          <img src="images/icons/glow-logo.svg" alt="Logo">
-          <p>Glow</p>
-       </a>
-      <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
-      <nav class="pagenav">
-          <a href="jobs.html">
-              <img src="images/icons/jobs.svg" alt="icon">
-              <p>Jobs</p>
-          </a>
-          <a href="apply.html">
-              <img src="images/icons/vector.png" alt="icon">
-              <p>Apply</p>
-          <a href="about.html">
-              <img src="images/icons/about.svg" alt="icon">
-              <p>About</p>
-          </a>
-          
-      </nav>
-      <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
-  </header>
-  </div>
-
-  <div id="personal-information" style="padding-top: 100px; margin-top: -100px;"></div>
-        <div id="vector">
-        <img src="images/icons/vector.png" alt="vector">
-      </div>
-
-<h1>Personal Information</h1>
-<form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
-
-  <h4>We need to know some stuff about you.</h4>
-<div class="section1">
-  <div class="fullname">
-    <p class="name"><label for="first-name">First name</label>
-        <input type="text" name="first-name" id="first-name" maxlength="20" size="10" required="required" placeholder="Enter your first name">
-    </p>
-    <p class="name"><label for="last-name">Last name</label>
-        <input type="text" name="last-name" id="last-name" maxlength="20" size="10" required="required" placeholder="Enter your last name">
-    </p>
-</div>
-
-<div class="morepersonal">
-    <p class="dobs"><label for="dob">Date of Birth</label>
-        <input type="text" name="dob" id="dob" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy" required>
-    </p>
-    <p class="dobs"><label for="street">Street Address</label>
-        <input type="text" name="street" id="street" maxlength="40" required="required" placeholder="Enter your street address">
-    </p>
-</div>
-
-<div class="place">
-      <div class="placedetails">
-        <label for="suburb">Suburb town</label>
-        <input type="text" name="suburb" id="suburb" maxlength="40" required="required" placeholder="Enter your suburb">
-      </div>
-
-      <div class="placedetails">
-        <label for="state">State</label>
-        <select name="state" id="state" required>
-          <option value="">Select</option>
-          <option value="act">ACT</option>
-          <option value="nsw">NSW</option>
-          <option value="nt">NT</option>
-          <option value="qld">QLD</option>
-          <option value="sa">SA</option>
-          <option value="tas">TAS</option>
-          <option value="vic">VIC</option>
-          <option value="wa">WA</option>
-      </select>
-      </div>
-
-      <!-- pattern included for post code to get 0000-9999, remember to inquire about 'based on states'  -->
-      <div class="placedetails">
-         <p><label for="postcode">Postcode</label></p>
-         <input type="text" name="postcode" id="postcode" pattern="[0-9]{4}" required placeholder="Enter your postcode">
-      </div>
-    </div>
-
-    <fieldset>
-        <legend>Gender</legend>
-        <!-- multiple divs used to divide the options, makes it easier to style -->
-        <div class="gender">
-            <div class="gender-option">
-              <input type="radio" id="male" name="gender" value="male" required>
-              <label for="male">Male</label>
-            </div>
-
-            <div class="gender-option">
-              <input type="radio" id="female" name="gender" value="female" required>
-              <label for="female">Female</label>
-            </div>
-
-            <div class="gender-option">
-              <input type="radio" id="nonbinary" name="gender" value="nonbinary" required>
-              <label for="nonbinary">Nonbinary</label>
-            </div>
-
-            <div class="gender-option">
-              <input type="radio" id="different-term" name="gender" value="different-term" required>
-              <label for="different-term">Different term</label>
-            </div>
-
-            <div class="gender-option">
-              <input type="radio" id="prefer" name="gender" value="prefer" required>
-              <label for="prefer">Prefer not to answer</label>
-            </div>
-        </div>
-    </fieldset>
-  </div>
-
-    <div class="main" id="personal">
-      <a href="#contact-details">
-        <button type="button" class="nav-btn">Next</button></a>
-    </div>
-
-    <div id="icon">
-      <img src="images/icons/icon.svg" alt="icon">
-    </div>
-  
-   
-    <h1>Contact Details</h1>
-    <h4>A bit of information about how we can contact you.</h4>
-    
-    <div class="section2">
-    <div class="contact">
-        <!-- go back to this to check if right -->
-         <!-- contact details -->
-          <div class="contact-field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com">
-          </div>
-
-          <div class="contact-field">
-          <label>Phone number</label>
-          <input type="text" id="'phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required placeholder="000-000-000">
-          </div>
-      </div>
-
-      <div class="button-row">
-        <div class="main" id="contacts1">
-          <!-- Back button to go to Personal Info -->
-          <a href="#personal-information">
-            <button type="button" class="nav-btn">Back</button>
-          </a>
-        </div>
-
-        <div class="main" id="contacts2">
-          <a href="#role-information">
-            <button type="button" class="nav-btn">Next</button>
-          </a>
-        </div>
-      </div>
-</div>
-
-<div id="role-information" style="padding-top: 100px; margin-top: -100px;"></div>
-      <div id="role-info-icon">
-        <img src="images/icons/roleinfoicon.svg" alt="role-info-icon">
-      </div>
-
-      <h1>Role Information</h1>
-      <h4>Tell us what your dream job is at Glow.</h4>
-    <div class="section3">
-    <div class="reference">
-      <label for="jobreference">Job reference number</label>
-      <select name="jobreference" id="jobreference" required>
-    <!-- fill out properly once job.html has been developed -->
-          <option value="">Please select</option>
-          <option value="net01">NET01</option> 
-          <option value="mac01">MAC01</option>
-      </select>
-      
-      <p><label>Technical List</label></p>
-      <div class="technical">
-          <div class="technical-option">
-              <label for="languages">Programming Languages </label>
-              <input type="checkbox" id="languages" name="technical" value="languages" required>
-          </div>
-          <div class="technical-option">
-            <label for="framework">Frameworks & Libraries</label>
-            <input type="checkbox" id="framework" name="technical" value="framework" required>
-        </div>
-        <div class="technical-option">
-            <label for="devops">DevOps & Tools</label>
-            <input type="checkbox" id="devops" name="technical" value="devops" required>
-        </div>
-      </div>
-
-      <p><label for="other">Other skills</label></p>
-      <textarea id="other" name="other" rows="7" cols="30" placeholder="Feel free to include other skills you may have!"></textarea>
-     </div> 
-    </div>
-    
-    <div class="button-row">
-      <div class="main" id="contacts3">
-        <!-- Back button to go to Contact Details -->
-        <a href="#contact-details">
-          <button type="button" class="nav-btn">Back</button>
+        <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
+        <a class="pagelogo" href="index.html">
+            <img src="images/icons/glow-logo.svg" alt="Logo">
+            <p>Glow</p>
         </a>
-      </div>
-      
-      <div class="main" id="apply">
-        <!-- Apply button (submitting form) -->
-        <button type="submit" class="apply-btn">
-          <img src="images/icons/rocket.png" alt="rocket" class="rocket-icon">
-          Apply
-        </button>
-      </div>
+        <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
+        <nav class="pagenav">
+            <a href="jobs.html">
+                <img src="images/icons/jobs.svg" alt="icon">
+                <p>Jobs</p>
+            </a>
+            <a href="apply.html">
+              <img src="images/icons/vector.png" alt="icon">
+                <p>Apply</p>
+            <a href="about.html">
+                <img src="images/icons/about.svg" alt="icon">
+                <p>About</p>
+            </a>
+            
+        </nav>
+        <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
+    </header>
+    
+    <section class="apply-graphic-container">
+        <div>
+            <h4>👋 Hellooo!</h4>
+            <p>Fill in the information on the right</p>
+        </div>
+
+        <iframe src="data:text/html;base64,PGh0bWw+CiAgICAgICAgPGhlYWQ+CiAgICAgICAgICAgIDxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MSI+CiAgICAgICAgICAgIDxzdHlsZT4KICAgICAgICAgICAgICAgIGh0bWwsIGJvZHl7CiAgICAgICAgICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgICAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEwMCU7CiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgICAgICAgICAgICAgIGJvcmRlcjogMDsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgPC9zdHlsZT4KICAgICAgICAgICAgPHNjcmlwdCB0eXBlPSJpbXBvcnRtYXAiPgp7CiAgICAiaW1wb3J0cyI6IHsKICAgICAgICAicmVhY3QiOiAiaHR0cHM6Ly9jZG4uc2t5cGFjay5kZXYvcmVhY3RAMTguMC4yIiwKICAgICAgICAicmVhY3QtZG9tIjogImh0dHBzOi8vY2RuLnNreXBhY2suZGV2L3JlYWN0LWRvbUAxOC4wLjIiLAogICAgICAgICJ0aHJlZSI6ICJodHRwczovL2Nkbi5za3lwYWNrLmRldi90aHJlZUAwLjE0OC4wIiwKICAgICAgICAicmVhY3QtdGhyZWUvZmliZXIiOiAiaHR0cHM6Ly9jZG4uc2t5cGFjay5kZXYvQHJlYWN0LXRocmVlL2ZpYmVyQDcuMC4yNCIKICAgIH0KfQo8L3NjcmlwdD4KPHN0eWxlPgogICAgaHRtbCwgYm9keXsKICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgcGFkZGluZzogMDsKICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICBoZWlnaHQ6IDEwMCU7CiAgICAgICAgYm9yZGVyOiAwOwogICAgfQogICAgLm50LWVtYmVkewogICAgICAgIHdpZHRoOiAxMDAlOwogICAgICAgIGhlaWdodDogMTAwJTsKICAgIH0KICAgIC5udC1lbWJlZCBjYW52YXN7CiAgICAgICAgd2lkdGg6IDEwMCU7CiAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgfQo8L3N0eWxlPgo8c2NyaXB0IHR5cGU9Im1vZHVsZSI+CiAgICBpbXBvcnQgUmVhY3QsIHt1c2VSZWYsdXNlTWVtb30gZnJvbSAncmVhY3QnOwogICAgaW1wb3J0IFJlYWN0RE9NIGZyb20gJ3JlYWN0LWRvbSc7CiAgICBpbXBvcnQgKiBhcyBUSFJFRSBmcm9tICd0aHJlZSc7CiAgICBpbXBvcnQge0NhbnZhcywgdXNlRnJhbWUsIHVzZVRocmVlfSBmcm9tICdyZWFjdC10aHJlZS9maWJlcic7CgogICAgbGV0IGVtYmVkUm9vdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwogICAgZW1iZWRSb290LmNsYXNzTmFtZSA9ICJudC1lbWJlZCI7CiAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGVtYmVkUm9vdCk7CgogICAgY29uc3QgVGV4dHVyZU1lc2ggPSAoKSA9PiB7CiAgICAgICAgY29uc3QgbWVzaCA9IHVzZVJlZihudWxsKQogICAgICAgIHVzZUZyYW1lKHN0YXRlID0+IHsKICAgICAgICAgICAgY29uc3QgeyBjbG9jaywgbW91c2UsIGdsLCBzY2VuZSwgY2FtZXJhIH0gPSBzdGF0ZQogICAgICAgICAgICBpZihtZXNoLmN1cnJlbnQpewogICAgICAgICAgICAgICAgbWVzaC5jdXJyZW50Lm1hdGVyaWFsLnVuaWZvcm1zLnVfbW91c2UudmFsdWUgPSBbbW91c2UueCAvIDIgKyAwLjUsIG1vdXNlLnkgLyAyICsgMC41XQogICAgICAgICAgICAgICAgbWVzaC5jdXJyZW50Lm1hdGVyaWFsLnVuaWZvcm1zLnVfdGltZS52YWx1ZSA9IGNsb2NrLmdldEVsYXBzZWRUaW1lKCkKICAgICAgICAgICAgICAgIGxldCBjID0gZ2wuZG9tRWxlbWVudC5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKQogICAgICAgICAgICAgICAgbWVzaC5jdXJyZW50Lm1hdGVyaWFsLnVuaWZvcm1zLnVfcmVzb2x1dGlvbi52YWx1ZSA9IFtjLndpZHRoLGMuaGVpZ2h0XQogICAgICAgICAgICB9CiAgICAgICAgfSkKICAgICAgICAKICAgICAgICByZXR1cm4gUmVhY3QuY3JlYXRlRWxlbWVudCgnbWVzaCcsCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIHJlZjptZXNoLAogICAgICAgICAgICAgICAgcG9zaXRpb246IFswLDAsMF0sCiAgICAgICAgICAgICAgICBzY2FsZTogMSwKICAgICAgICAgICAgICAgIHJvdGF0aW9uOiBbMCwwLDBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIFJlYWN0LmNyZWF0ZUVsZW1lbnQoJ3BsYW5lR2VvbWV0cnknLHthcmdzOlsyNDAsNTgwXX0pLCAKICAgICAgICAgICAgUmVhY3QuY3JlYXRlRWxlbWVudCgnc2hhZGVyTWF0ZXJpYWwnLHsKICAgICAgICAgICAgICAgIGZyYWdtZW50U2hhZGVyOiBgLy8gRnJhZ21lbnQgc2hhZGVyCgoKCi8vIFVuaWZvcm1zCgp1bmlmb3JtIHZlYzIgdV9yZXNvbHV0aW9uOwoKdW5pZm9ybSB2ZWMyIHVfbW91c2U7Cgp1bmlmb3JtIGZsb2F0IHVfdGltZTsKCnVuaWZvcm0gdmVjNCB1X2NvbG9yc1s0XTsKCnVuaWZvcm0gZmxvYXQgdV9ibHVyOyAKCnVuaWZvcm0gYm9vbCB1X2FuaW1hdGU7Cgp1bmlmb3JtIGZsb2F0IHVfYW5pbWF0ZV9zcGVlZDsKCnVuaWZvcm0gZmxvYXQgdV9mcmVxdWVuY3k7CgogICAgCgojZGVmaW5lIFMoYSxiLHQpIHNtb290aHN0ZXAoYSxiLHQpCgoKCgoKI2lmbmRlZiBTUkdCX0VQU0lMT04gCiNkZWZpbmUgU1JHQl9FUFNJTE9OIDAuMDAwMDAwMDEKI2VuZGlmCgojaWZuZGVmIEZOQ19TUkdCMlJHQgojZGVmaW5lIEZOQ19TUkdCMlJHQgoKCgoKZmxvYXQgc3JnYjJyZ2IoZmxvYXQgY2hhbm5lbCkgewogICAgcmV0dXJuIChjaGFubmVsIDwgMC4wNDA0NSkgPyBjaGFubmVsICogMC4wNzczOTkzODA4IDogcG93KChjaGFubmVsICsgMC4wNTUpICogMC45NDc4NjcyOTg1NzgxOTksIDIuNCk7Cn0KCnZlYzMgc3JnYjJyZ2IodmVjMyBzcmdiKSB7CiAgICByZXR1cm4gdmVjMyhzcmdiMnJnYihzcmdiLnIgKyBTUkdCX0VQU0lMT04pLCAKICAgICAgICAgICAgICAgIHNyZ2IycmdiKHNyZ2IuZyArIFNSR0JfRVBTSUxPTiksICAgICAgICAgICAgICAgICBzcmdiMnJnYihzcmdiLmIgKyBTUkdCX0VQU0lMT04pKTsKfQoKdmVjNCBzcmdiMnJnYih2ZWM0IHNyZ2IpIHsKICAgIHJldHVybiB2ZWM0KHNyZ2IycmdiKHNyZ2IucmdiKSwgc3JnYi5hKTsKfQoKI2VuZGlmCgoKI2lmICFkZWZpbmVkKEZOQ19TQVRVUkFURSkgJiYgIWRlZmluZWQoc2F0dXJhdGUpCiNkZWZpbmUgRk5DX1NBVFVSQVRFCiNkZWZpbmUgc2F0dXJhdGUoeCkgY2xhbXAoeCwgMC4wLCAxLjApCiNlbmRpZgoKCgojaWZuZGVmIFNSR0JfRVBTSUxPTiAKI2RlZmluZSBTUkdCX0VQU0lMT04gMC4wMDAwMDAwMQojZW5kaWYKCiNpZm5kZWYgRk5DX1JHQjJTUkdCCiNkZWZpbmUgRk5DX1JHQjJTUkdCCgoKZmxvYXQgcmdiMnNyZ2IoZmxvYXQgY2hhbm5lbCkgewogICAgcmV0dXJuIChjaGFubmVsIDwgMC4wMDMxMzA4KSA/IGNoYW5uZWwgKiAxMi45MiA6IDEuMDU1ICogcG93KGNoYW5uZWwsIDAuNDE2NjY2NjY2NjY2NjY2NykgLSAwLjA1NTsKfQoKdmVjMyByZ2Iyc3JnYih2ZWMzIHJnYikgewogICAgcmV0dXJuIHNhdHVyYXRlKHZlYzMocmdiMnNyZ2IocmdiLnIgLSBTUkdCX0VQU0lMT04pLCByZ2Iyc3JnYihyZ2IuZyAtIFNSR0JfRVBTSUxPTiksIHJnYjJzcmdiKHJnYi5iIC0gU1JHQl9FUFNJTE9OKSkpOwp9Cgp2ZWM0IHJnYjJzcmdiKHZlYzQgcmdiKSB7CiAgICByZXR1cm4gdmVjNChyZ2Iyc3JnYihyZ2IucmdiKSwgcmdiLmEpOwp9CgojZW5kaWYKCgoKI2lmbmRlZiBGTkNfTUlYT0tMQUIKI2RlZmluZSBGTkNfTUlYT0tMQUIKdmVjMyBtaXhPa2xhYiggdmVjMyBjb2xBLCB2ZWMzIGNvbEIsIGZsb2F0IGggKSB7CgogICAgI2lmZGVmIE1JWE9LTEFCX0NPTE9SU1BBQ0VfU1JHQgogICAgY29sQSA9IHNyZ2IycmdiKGNvbEEpOwogICAgY29sQiA9IHNyZ2IycmdiKGNvbEIpOwogICAgI2VuZGlmCgogICAgCiAgICBjb25zdCBtYXQzIGtDT05FdG9MTVMgPSBtYXQzKCAgICAgICAgICAgICAgICAKICAgICAgICAgMC40MTIxNjU2MTIwLCAgMC4yMTE4NTkxMDcwLCAgMC4wODgzMDk3OTQ3LAogICAgICAgICAwLjUzNjI3NTIwODAsICAwLjY4MDcxODk1ODQsICAwLjI4MTg0NzQxNzQsCiAgICAgICAgIDAuMDUxNDU3NTY1MywgIDAuMTA3NDA2NTc5MCwgIDAuNjMwMjYxMzYxNik7CiAgICBjb25zdCBtYXQzIGtMTVN0b0NPTkUgPSBtYXQzKAogICAgICAgICA0LjA3NjcyNDUyOTMsIC0xLjI2ODE0Mzc3MzEsIC0wLjAwNDExMTk4ODUsCiAgICAgICAgLTMuMzA3MjE2ODgyNywgIDIuNjA5MzMyMzIzMSwgLTAuNzAzNDc2MzA5OCwKICAgICAgICAgMC4yMzA3NTkwNTQ0LCAtMC4zNDExMzQ0MjkwLCAgMS43MDY4NjI1Njg5KTsKICAgICAgICAgICAgICAgICAgICAKICAgIAogICAgdmVjMyBsbXNBID0gcG93KCBrQ09ORXRvTE1TICogY29sQSwgdmVjMygxLjAvMy4wKSApOwogICAgdmVjMyBsbXNCID0gcG93KCBrQ09ORXRvTE1TICogY29sQiwgdmVjMygxLjAvMy4wKSApOwogICAgCiAgICB2ZWMzIGxtcyA9IG1peCggbG1zQSwgbG1zQiwgaCApOwogICAgCiAgICAKICAgIHZlYzMgcmdiID0ga0xNU3RvQ09ORSoobG1zKmxtcypsbXMpOwoKICAgICNpZmRlZiBNSVhPS0xBQl9DT0xPUlNQQUNFX1NSR0IKICAgIHJldHVybiByZ2Iyc3JnYihyZ2IpOwogICAgI2Vsc2UKICAgIHJldHVybiByZ2I7CiAgICAjZW5kaWYKfQoKdmVjNCBtaXhPa2xhYiggdmVjNCBjb2xBLCB2ZWM0IGNvbEIsIGZsb2F0IGggKSB7CiAgICByZXR1cm4gdmVjNCggbWl4T2tsYWIoY29sQS5yZ2IsIGNvbEIucmdiLCBoKSwgbWl4KGNvbEEuYSwgY29sQi5hLCBoKSApOwp9CiNlbmRpZgoKCgptYXQyIFJvdChmbG9hdCBhKQoKewoKICAgIGZsb2F0IHMgPSBzaW4oYSk7CgogICAgZmxvYXQgYyA9IGNvcyhhKTsKCiAgICByZXR1cm4gbWF0MihjLCAtcywgcywgYyk7Cgp9CgoKCgoKLy8gQ3JlYXRlZCBieSBpbmlnbyBxdWlsZXogLSBpcS8yMDE0CgovLyBMaWNlbnNlIENyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24tTm9uQ29tbWVyY2lhbC1TaGFyZUFsaWtlIDMuMCBVbnBvcnRlZCBMaWNlbnNlLgoKdmVjMiBoYXNoKCB2ZWMyIHAgKQoKewoKICAgIHAgPSB2ZWMyKCBkb3QocCx2ZWMyKDIxMjcuMSw4MS4xNykpLCBkb3QocCx2ZWMyKDEyNjkuNSwyODMuMzcpKSApOwoKCXJldHVybiBmcmFjdChzaW4ocCkqNDM3NTguNTQ1Myk7Cgp9CgoKCmZsb2F0IG5vaXNlKCBpbiB2ZWMyIHAgKQoKewoKICAgIHZlYzIgaSA9IGZsb29yKCBwICk7CgogICAgdmVjMiBmID0gZnJhY3QoIHAgKTsKCgkKCgl2ZWMyIHUgPSBmKmYqKDMuMC0yLjAqZik7CgoKCiAgICBmbG9hdCBuID0gbWl4KCBtaXgoIGRvdCggLTEuMCsyLjAqaGFzaCggaSArIHZlYzIoMC4wLDAuMCkgKSwgZiAtIHZlYzIoMC4wLDAuMCkgKSwgCgogICAgICAgICAgICAgICAgICAgICAgICBkb3QoIC0xLjArMi4wKmhhc2goIGkgKyB2ZWMyKDEuMCwwLjApICksIGYgLSB2ZWMyKDEuMCwwLjApICksIHUueCksCgogICAgICAgICAgICAgICAgICAgbWl4KCBkb3QoIC0xLjArMi4wKmhhc2goIGkgKyB2ZWMyKDAuMCwxLjApICksIGYgLSB2ZWMyKDAuMCwxLjApICksIAoKICAgICAgICAgICAgICAgICAgICAgICAgZG90KCAtMS4wKzIuMCpoYXNoKCBpICsgdmVjMigxLjAsMS4wKSApLCBmIC0gdmVjMigxLjAsMS4wKSApLCB1LngpLCB1LnkpOwoKCXJldHVybiAwLjUgKyAwLjUqbjsKCn0KCgoKdm9pZCBtYWluKCl7CgogIAoKICAgIHZlYzIgdXYgPSBnbF9GcmFnQ29vcmQueHkvdV9yZXNvbHV0aW9uLnh5OwoKICAgIGZsb2F0IHJhdGlvID0gdV9yZXNvbHV0aW9uLnggLyB1X3Jlc29sdXRpb24ueTsKCgoKICAgIHZlYzIgdHV2ID0gdXY7CgogICAgdHV2IC09IC41OwoKICAgIAoKICAgIC8vYW5pbWF0aW9uCgogICAgZmxvYXQgc3BlZWQgPSB1X3RpbWUgKiAxMC4gKiB1X2FuaW1hdGVfc3BlZWQ7CgogICAgaWYodV9hbmltYXRlID09IGZhbHNlKXsKCiAgICAgIHNwZWVkID0gMC4wOwoKICAgIH0KCgoKICAgIC8vIHJvdGF0ZSB3aXRoIE5vaXNlCgogICAgZmxvYXQgZGVncmVlID0gbm9pc2UodmVjMihzcGVlZC8xMDAuMCwgdHV2LngqdHV2LnkpKTsKCgoKICAgIHR1di55ICo9IDEuL3JhdGlvOwoKICAgIHR1diAqPSBSb3QocmFkaWFucygoZGVncmVlLS41KSo3MjAuKzE4MC4pKTsKCgl0dXYueSAqPSByYXRpbzsKCiAgICAKCiAgICAvLyBXYXZlIHdhcnAgd2l0aCBzaW4KCiAgICBmbG9hdCBmcmVxdWVuY3kgPSAyMC4gKiB1X2ZyZXF1ZW5jeTsKCiAgICBmbG9hdCBhbXBsaXR1ZGUgPSAzMC4gKiAoMTAuKigwLjAxK3VfYmx1cikpOwoKICAgIAoKICAgIHR1di54ICs9IHNpbih0dXYueSpmcmVxdWVuY3krc3BlZWQpL2FtcGxpdHVkZTsKCiAgIAl0dXYueSArPSBzaW4odHV2LngqZnJlcXVlbmN5KjEuNStzcGVlZCkvKGFtcGxpdHVkZSouNSk7CgogICAgCgogICAgCgogICAgLy8gZHJhdyB0aGUgaW1hZ2UKCiAgICB2ZWM0IGxheWVyMSA9IG1peE9rbGFiKHVfY29sb3JzWzBdLCB1X2NvbG9yc1sxXSwgUygtLjMsIC4yLCAodHV2KlJvdChyYWRpYW5zKC01LikpKS54KSk7CgogICAgdmVjNCBsYXllcjIgPSBtaXhPa2xhYih1X2NvbG9yc1syXSwgdV9jb2xvcnNbM10sIFMoLS4zLCAuMiwgKHR1dipSb3QocmFkaWFucygtNS4pKSkueCkpOwoKICAgIAoKICAgIHZlYzQgZmluYWxDb21wID0gbWl4T2tsYWIobGF5ZXIxLCBsYXllcjIsIFMoLjUsIC0uMywgdHV2LnkpKTsKCiAgICAKCiAgICAKCiAgICBnbF9GcmFnQ29sb3IgPSBmaW5hbENvbXA7CgogICAgCgp9CgpgLAogICAgICAgICAgICAgICAgdmVydGV4U2hhZGVyOiBgLy8gVmVydGV4IHNoYWRlcgoKdm9pZCBtYWluKCkgewogIGdsX1Bvc2l0aW9uID0gcHJvamVjdGlvbk1hdHJpeCAqIG1vZGVsVmlld01hdHJpeCAqIHZlYzQocG9zaXRpb24sIDEuMCk7Cn1gLAogICAgICAgICAgICAgICAgdW5pZm9ybXM6IHt1X2NvbG9yczoge3ZhbHVlOiBbbmV3IFRIUkVFLlZlY3RvcjQoMC45ODgyMzUyOTQxMTc2NDcxLDAuOTMzMzMzMzMzMzMzMzMzMywwLjgzOTIxNTY4NjI3NDUwOTgsMSksbmV3IFRIUkVFLlZlY3RvcjQoMC45NDExNzY0NzA1ODgyMzUzLDAuNjM1Mjk0MTE3NjQ3MDU4OCwwLjA3ODQzMTM3MjU0OTAxOTYsMSksbmV3IFRIUkVFLlZlY3RvcjQoMC45NDExNzY0NzA1ODgyMzUzLDAuNjM1Mjk0MTE3NjQ3MDU4OCwwLjA3ODQzMTM3MjU0OTAxOTYsMSksbmV3IFRIUkVFLlZlY3RvcjQoMC45ODgyMzUyOTQxMTc2NDcxLDAuOTMzMzMzMzMzMzMzMzMzMywwLjgzOTIxNTY4NjI3NDUwOTgsMSldfSx1X2JsdXI6IHt2YWx1ZTogMC41NDZ9LHVfYW5pbWF0ZToge3ZhbHVlOiB0cnVlfSx1X2FuaW1hdGVfc3BlZWQ6IHt2YWx1ZTogMC4yNTJ9LHVfZnJlcXVlbmN5OiB7dmFsdWU6IDAuNX0sdV90aW1lOiB7dmFsdWU6IDB9LHVfbW91c2U6IHt2YWx1ZTogWzAsMF19LHVfcmVzb2x1dGlvbjoge3ZhbHVlOiBbMjQwLDU4MF19fSwKICAgICAgICAgICAgICAgIHdpcmVmcmFtZTogZmFsc2UsIAogICAgICAgICAgICAgICAgd2lyZWZyYW1lTGluZXdpZHRoOiAwLAogICAgICAgICAgICAgICAgZGl0aGVyaW5nOiBmYWxzZSwKICAgICAgICAgICAgICAgIGZsYXRTaGFkaW5nOiB0cnVlLAogICAgICAgICAgICAgICAgZG91YmxlU2lkZWQ6IHRydWUsCiAgICAgICAgICAgICAgICBnbHNsVmVyc2lvbjogIjEwMCIKICAgICAgICAgICAgfSkKICAgICAgICApOyAgCiAgICB9CgogICAgUmVhY3RET00ucmVuZGVyKFJlYWN0LmNyZWF0ZUVsZW1lbnQoQ2FudmFzLHsKICAgICAgICAgICAgZ2w6IHsKICAgICAgICAgICAgICAgIHByZXNlcnZlRHJhd2luZ0J1ZmZlcjogdHJ1ZSwKICAgICAgICAgICAgICAgIHByZW11bHRpcGxpZWRBbHBoYTogZmFsc2UsCiAgICAgICAgICAgICAgICBhbHBoYTogdHJ1ZSwKICAgICAgICAgICAgICAgIHRyYW5zcGFyZW50OiB0cnVlLAogICAgICAgICAgICAgICAgYW50aWFsaWFzOiB0cnVlLAogICAgICAgICAgICAgICAgcHJlY2lzaW9uOiAiaGlnaHAiLAogICAgICAgICAgICAgICAgcG93ZXJQcmVmZXJlbmNlOiAiaGlnaC1wZXJmb3JtYW5jZSIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgcmVzaXplOnsKICAgICAgICAgICAgICAgIGRlYm91bmNlOiAwLAogICAgICAgICAgICAgICAgc2Nyb2xsOiBmYWxzZSwKICAgICAgICAgICAgICAgIG9mZnNldFNpemU6IHRydWUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZHByOiAxLAogICAgICAgICAgICBjYW1lcmE6IHsKICAgICAgICAgICAgICAgIGZvdjogNzUsCiAgICAgICAgICAgICAgICBuZWFyOiAwLjEsCiAgICAgICAgICAgICAgICBmYXI6IDEwMDAsCiAgICAgICAgICAgICAgICBwb3NpdGlvbjogWzAsMCw1XQogICAgICAgICAgICB9LAogICAgICAgICAgICBzdHlsZTp7IGhlaWdodDogIjEwMCUiLCB3aWR0aDogIjEwMCUiIH0KICAgICAgICB9LAogICAgICAgIFJlYWN0LmNyZWF0ZUVsZW1lbnQoVGV4dHVyZU1lc2gpICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICApLCBlbWJlZFJvb3QpOwo8L3NjcmlwdD4KICAgICAgICA8L2hlYWQ+CiAgICAgICAgPGJvZHk+CjwhLS0gQVNTRVQgTk9UIElOTElORUQ6IGFzc2V0cy9ib29rLjVmYjExYjhkLnN2ZyAtLT4KCjwhLS0gQVNTRVQgTk9UIElOTElORUQ6IGFzc2V0cy9seWdpYS5mNzQ5MDU5NC5zdmcgLS0+Cgo8IS0tIEFTU0VUIE5PVCBJTkxJTkVEOiBhc3NldHMvb3ZlcmZsb3cuOGQ1MDQxNWQuc3ZnIC0tPgoKPCEtLSBBU1NFVCBOT1QgSU5MSU5FRDogYXNzZXRzL3RyYXNoLjUyNGRiY2QzLnN2ZyAtLT4KCjwhLS0gQVNTRVQgTk9UIElOTElORUQ6IGFzc2V0cy92ZXJ0aWNhbC45MDYxMDg0OS5zdmcgLS0+Cgo8IS0tIEFTU0VUIE5PVCBJTkxJTkVEOiBhc3NldHMvaG9yaXpvbnRhbC40NGY3NzFmOC5zdmcgLS0+Cgo8IS0tIEFTU0VUIE5PVCBJTkxJTkVEOiBhc3NldHMvYWRkLmE1NTI0MGRkLnN2ZyAtLT4KCjwhLS0gQVNTRVQgTk9UIElOTElORUQ6IGFzc2V0cy9zaWcuODUwYTg1ZTcuc3ZnIC0tPgoKPCEtLSBBU1NFVCBOT1QgSU5MSU5FRDogYXNzZXRzL21pbnVzLjFlMWEwYWJkLnN2ZyAtLT4KCjwhLS0gQVNTRVQgTk9UIElOTElORUQ6IGFzc2V0cy9lZmZlY3QuNDU1NzI0M2Yuc3ZnIC0tPgoKPCEtLSBBU1NFVCBOT1QgSU5MSU5FRDogYXNzZXRzL3Zpc2libGUuYzZkNGUxYzAuc3ZnIC0tPgoKPCEtLSBBU1NFVCBOT1QgSU5MSU5FRDogYXNzZXRzL2hpZGRlbi41YTRmYzI1NC5zdmcgLS0+Cgo8IS0tIEFTU0VUIE5PVCBJTkxJTkVEOiBhc3NldHMvd29ya2VyLmI3NjFmYjExLmpzIC0tPgo8L2JvZHk+CiAgICAgICAgPC9odG1sPg=="></iframe>
+    </section>
+
+    
+    <div class="apply-form-container">
+        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+            <section id="personal-information">
+                <div class="apply-header">
+                    <img src="images/icons/person-run.svg" alt="Personal Information Icon">
+                    <h4>Personal Information</h4>
+                    <p>We need to know some stuff about you.</p>
+                </div>
+
+                <div class="apply-grid">
+                    <div class="input-field">
+                        <label for="first-name">First name</label>
+                        <input type="text" name="first-name" id="first-name" class="input" maxlength="20" size="10" required placeholder="Enter your first name">
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="last-name">Last name</label>
+                        <input type="text" name="last-name" id="last-name" class="input" maxlength="20" size="10" required placeholder="Enter your last name">
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="date-of-birth">Date of birth</label>
+                        <input type="text" name="date-of-birth" id="date-of-birth" class="input" pattern="\d{2}/\d{2}/\d{4}" required placeholder="dd/mm/yyyy">
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="street-address">Street address</label>
+                        <input type="text" name="street-address" id="street-address" class="input" maxlength="40" required placeholder="Enter your street address">
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="suburb">Suburb</label>
+                        <input type="text" name="suburb" id="suburb" class="input" maxlength="40" required placeholder="Enter your suburb">
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="state">State</label>
+                        <select name="state" id="state">
+                            <option value="" disabled selected>Select</option>
+                            <option value="nsw">NSW</option>
+                            <option value="vic">VIC</option>
+                            <option value="qld">QLD</option>
+                            <option value="wa">WA</option>
+                            <option value="sa">SA</option>
+                            <option value="tas">TAS</option>
+                            <option value="act">ACT</option>
+                            <option value="nt">NT</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="postcode">Postcode</label>
+                        <input type="text" name="postcode" id="postcode" class="input" pattern="[0-9]{4}" required placeholder="Enter your postcode">
+                    </div>
+                    
+                    <fieldset>
+                        <legend>Gender</legend>
+                        <div class="radio-button">
+                            <input type="radio" name="gender" id="male" value="male" checked required>
+                            <label for="male">Male</label>
+                        </div>
+                        
+                        <div class="radio-button">
+                            <input type="radio" name="gender" id="female" value="female" required>
+                            <label for="female">Female</label>
+                        </div>
+                        
+                        <div class="radio-button">
+                            <input type="radio" name="gender" id="other" value="other" required>
+                            <label for="na">Other</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <a href="#contact-details">
+                    <button class="button-primary" type="button">Next</button>
+                </a>
+            </section>
+
+
+            <section id="contact-details">
+                <div class="apply-header">
+                    <img src="images/icons/contact.svg" alt="Contact Details Icon">
+                    <h4>Contact Details</h4>
+                    <p>A bit of information about how we can contact you.</p>
+                </div>
+
+                <div id="apply-grid-2">
+                    <div class="input-field">
+                        <label for="email">Enter email</label>
+                        <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="input"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                        required
+                        placeholder="you@example.com"
+                      />
+                    </div>
+                    <div class="input-field">
+                        <label for="phone-number">Phone Number</label>
+                        <input type="text" name="phone-number" id="phone-number" class="input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required placeholder="000-000-000">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="#personal-information">
+                        <button class="button-shaded" type="button">Back</button>
+                    </a>
+    
+                    <a href="#role-information">
+                        <button class="button-primary" type="button">Next</button>
+                    </a>
+                </div>
+            </section>
+
+            <section id="role-information">
+                <div class="apply-header">
+                    <img src="images/icons/jobs.svg" alt="Contact Details Icon">
+                    <h4>Role Information</h4>
+                    <p>Tell us what your dream job is at Glow.</p>
+                </div>
+
+                <div id="apply-grid-3">
+                    <div class="input-field">
+                        <label for="jobreference">State</label>
+                        <select name="jobreference" id="jobreference" class="input">
+                            <option value="" disabled selected>Select</option>
+                            <option value="net01">NET01</option> 
+                            <option value="mac01">MAC01</option>
+                        </select>
+                    </div>
+
+                    <div id="checkbox-fieldset">
+                        <p><label>Technical List</label></p>
+
+                        <div class="checkbox-wrapper">
+                          <label for="languages">
+                            <input type="checkbox" id="languages" name="technical[]" value="languages">
+                            <span class="cbx">
+                              <svg width="12px" height="11px" viewBox="0 0 12 11">
+                                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span>Programming Languages</span>
+                          </label>
+                        </div>
+                      
+                        <div class="checkbox-wrapper">
+                          <label for="framework">
+                            <input type="checkbox" id="framework" name="technical[]" value="framework">
+                            <span class="cbx">
+                              <svg width="12px" height="11px" viewBox="0 0 12 11">
+                                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span>Frameworks & Libraries</span>
+                          </label>
+                        </div>
+                      
+                        <div class="checkbox-wrapper">
+                          <label for="devops">
+                            <input type="checkbox" id="devops" name="technical[]" value="devops">
+                            <span class="cbx">
+                              <svg width="12px" height="11px" viewBox="0 0 12 11">
+                                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span>DevOps & Tools</span>
+                          </label>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="other-skills">Other skills</label>
+                        <textarea id="other-skills" name="other-skills" rows="7" cols="30" placeholder="Enter any additional skills"></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="#contact-details">
+                        <button class="button-shaded" type="button">Back</button>
+                    </a>
+    
+                    <button class="button-primary" type="submit"><img src="images/icons/rocket.svg" alt="Submit Icon">Submit</button>
+                </div>
+            </section>
+        </form>
     </div>
-</form>
-  </div>
-  </div>
+
 </body>
 </html>
+
+  
