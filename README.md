@@ -256,7 +256,7 @@ The topbar is one of the main sources of navigation throughout interfaces.
 Include `require "topbar.inc"` at the top of the php page.
 
 ```php
-createTopbar(TopbarType, menuOptions)
+createTopbar(TopbarType, menuOptions, logo, logoText)
 ```
 
 <br>
@@ -272,13 +272,18 @@ createTopbar(TopbarType, menuOptions)
  
 ```php
 array(
-    
-    "/icons/jobs.svg" => "Jobs",
-    "/icons/person-run.svg" => "Apply",
-    "/icons/face-smile.svg" => "About"
+        new MenuOption('jobs.svg', 'Jobs', 'jobs.php'),
+        new MenuOption('apply.svg', 'Apply', 'apply.php'),
+        new MenuOption('about.svg', 'About', 'about.php'),
     ...
 )
 ```
+
+Writing `new MenuOption(icon, text, href)` creates a new menu option within the topbar.
+
+<br>
+
+`logo` is an icon path (string), and `logoText` is the text for the logo. Please note that logoText will not appear for seperated topbars.
 
 <br>
 
