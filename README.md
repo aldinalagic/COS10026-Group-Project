@@ -13,11 +13,48 @@ Here is a list below of all components, and how to use each, as well as the prop
 
 <br>
 
+## Icon
+Icons provide enhanced accessibility, act as visual cues and improve navigation throughout interfaces.
+
+### Usage 
+Include `require_once "icon.php"` at the top of the php page.
+
+```php
+createInput(path, iconSize)
+```
+
+<br>
+
+`path` is the path to your icon. `path` is of type `string`.
+
+<br>
+
+`iconSize` is an enum and can be the following:
+1. `iconSize::SMALL-4` - 8px
+   
+2. `iconSize::SMALL-2` - 12px
+
+3. `iconSize::SMALL-3` - 16px
+   
+4. `iconSize::SMALL-1` - 20px
+
+5. `iconSize::NORMAL` - 24px
+   
+6. `iconSize::LARGE` - 32px
+
+7. `iconSize::EXTRALARGE` - 40px
+
+<br>
+
+---
+
+<br>
+
 ## Alert
 Alerts provide feedback based on a previous action within an interface.
 
 ### Usage
-Include `include "alert.inc"` at the top of the php page.
+Include `include "alert.php"` at the top of the php page.
 
 ```php
 createAlert(AlertType, message)
@@ -47,7 +84,7 @@ createAlert(AlertType, message)
 An avatar is a graphical illustration of a user, or multiple users within an interface.
 
 ### Usage
-Include `include "avatar.inc"` at the top of the php page.
+Include `include "avatar.php"` at the top of the php page.
 
 ```php
 createAvatar(AvatarSize, name, menuOptions)
@@ -91,7 +128,7 @@ array(
 Badges are used to display statuses, notifications or other information that needs to stand out.
 
 ### Usage 
-Include `include "badge.inc"` at the top of the php page.
+Include `include "badge.php"` at the top of the php page.
 
 ```php
 createBadge(BadgeSize, icon, Color, message)
@@ -147,7 +184,7 @@ createBadge(BadgeSize, icon, Color, message)
 Buttons are graphical component that give users a clickable area.
 
 ### Usage 
-Include `include "badge.inc"` at the top of the php page.
+Include `include "badge.php"` at the top of the php page.
 
 ```php
 createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
@@ -220,7 +257,7 @@ createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
 DESCRIPTION
 
 ### Usage 
-Include `include "card.inc"` at the top of the php page.
+Include `include "card.php"` at the top of the php page.
 
 ```php
 createCard()
@@ -236,7 +273,7 @@ createCard()
 Buttons are graphical component that give users a clickable area.
 
 ### Usage 
-Include `require "footer.inc"` at the top of the php page.
+Include `require "footer.php"` at the top of the php page.
 
 ```php
 createFooter()
@@ -253,7 +290,7 @@ createFooter()
 The topbar is one of the main sources of navigation throughout interfaces.
 
 ### Usage 
-Include `require "topbar.inc"` at the top of the php page.
+Include `require "topbar.php"` at the top of the php page.
 
 ```php
 createTopbar(TopbarType, menuOptions, logo, logoText)
@@ -295,7 +332,7 @@ Writing `new MenuOption(icon, $iconSize, text, href)` creates a new menu option 
 Input is a simple text box containing minimal characters.
 
 ### Usage 
-Include `include "input.inc"` at the top of the php page.
+Include `include "input.php"` at the top of the php page.
 
 ```php
 createInput(type, name, maxLength, size, placeholder, pattern, isRequired, disabled)
@@ -308,38 +345,5 @@ All of these props above act the same as any regular input field prop.
 <br>
 
 ---
-
-<br>
-
-## Icon
-Input is a simple text box containing minimal characters.
-
-### Usage 
-Include `require_once "input.inc"` at the top of the php page.
-
-```php
-createInput(path, iconSize)
-```
-
-<br>
-
-`path` is the path to your icon. `path` is of type `string`.
-
-<br>
-
-`iconSize` is an enum and can be the following:
-1. `iconSize::SMALL-4` - 8px
-   
-2. `iconSize::SMALL-2` - 12px
-
-3. `iconSize::SMALL-3` - 16px
-   
-4. `iconSize::SMALL-1` - 20px
-
-5. `iconSize::NORMAL` - 24px
-   
-6. `iconSize::LARGE` - 32px
-
-7. `iconSize::EXTRALARGE` - 40px
 
 <br>
