@@ -1,5 +1,5 @@
 <?php 
-    include 'topbar.php';
+    require_once 'topbar.php';
     require_once 'icon.php';
 ?>
 

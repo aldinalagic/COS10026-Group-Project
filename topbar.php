@@ -1,5 +1,5 @@
 <?php 
-    include 'avatar.php';
+    require_once 'avatar.php';
     require_once 'icon.php';
 
     // This class store information about a menu option.

@@ -1,13 +1,13 @@
 <?php
     // This enum defines the sizes of avatars that can be created.
     enum AvatarSize: string {
-        case SMALL = 'small';
-        case NORMAL = 'normal';
-        case LARGE = 'large';
+        case Small = 'small';
+        case Normal = 'normal';
+        case Large = 'large';
     }
 
     // This function creates an alert message with a specified type and message.
-    function createAvatar($size = AvatarSize::NORMAL, $name = "Name", $menuOptions = array(
+    function createAvatar($size = AvatarSize::Normal, $name = "Name", $menuOptions = array(
         "path/to/icon1" => "Option 1",
         "path/to/icon2" => "Option 2",
         "path/to/icon3"=> "Option 3"

@@ -1,12 +1,12 @@
 <?php 
     // This enum defines the sizes of inputs that can be created.
     enum InputSize: string {
-        case SMALL = 'small';
-        case NORMAL = 'normal';
-        case LARGE = 'large';
+        case Small = 'small';
+        case Normal = 'normal';
+        case Large = 'large';
     }
 
-    function createInput($type = 'text', $name = '', $maxLength = 0, $size = InputSize::NORMAL, $placeholder = 'Description', $pattern = '', $required = true, $disabled = false, $label = 'Label') {
+    function createInput($type = 'text', $name = '', $maxLength = 0, $size = InputSize::Normal, $placeholder = 'Description', $pattern = '', $required = true, $disabled = false, $label = 'Label') {
         $sizeVaue = $size->value;
         
         $maxLength = $maxLength == 0 ? '' : "maxlength=$maxLength";

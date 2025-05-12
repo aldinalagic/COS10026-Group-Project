@@ -20,7 +20,7 @@ Icons provide enhanced accessibility, act as visual cues and improve navigation 
 Include `require_once "icon.php"` at the top of the php page.
 
 ```php
-createInput(path, iconSize)
+createInput(path, IconSize)
 ```
 
 <br>
@@ -29,20 +29,20 @@ createInput(path, iconSize)
 
 <br>
 
-`iconSize` is an enum and can be the following:
-1. `iconSize::SMALL-4` - 8px
+`IconSize` is an enum and can be the following:
+1. `IconSize::Small-4` - 8px
    
-2. `iconSize::SMALL-2` - 12px
+2. `IconSize::Small-3` - 12px
 
-3. `iconSize::SMALL-3` - 16px
+3. `IconSize::Small-2` - 16px
    
-4. `iconSize::SMALL-1` - 20px
+4. `IconSize::Small-1` - 20px
 
-5. `iconSize::NORMAL` - 24px
+5. `IconSize::Normal` - 24px
    
-6. `iconSize::LARGE` - 32px
+6. `IconSize::Large` - 32px
 
-7. `iconSize::EXTRALARGE` - 40px
+7. `IconSize::ExtraLarge` - 40px
 
 <br>
 
@@ -54,7 +54,7 @@ createInput(path, iconSize)
 Alerts provide feedback based on a previous action within an interface.
 
 ### Usage
-Include `include "alert.php"` at the top of the php page.
+Include `require_once "alert.php"` at the top of the php page.
 
 ```php
 createAlert(AlertType, message)
@@ -84,7 +84,7 @@ createAlert(AlertType, message)
 An avatar is a graphical illustration of a user, or multiple users within an interface.
 
 ### Usage
-Include `include "avatar.php"` at the top of the php page.
+Include `require_once "avatar.php"` at the top of the php page.
 
 ```php
 createAvatar(AvatarSize, name, menuOptions)
@@ -128,7 +128,7 @@ array(
 Badges are used to display statuses, notifications or other information that needs to stand out.
 
 ### Usage 
-Include `include "badge.php"` at the top of the php page.
+Include `require_once "badge.php"` at the top of the php page.
 
 ```php
 createBadge(BadgeSize, icon, Color, message)
@@ -184,7 +184,7 @@ createBadge(BadgeSize, icon, Color, message)
 Buttons are graphical component that give users a clickable area.
 
 ### Usage 
-Include `include "badge.php"` at the top of the php page.
+Include `require_once "badge.php"` at the top of the php page.
 
 ```php
 createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
@@ -257,7 +257,7 @@ createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
 DESCRIPTION
 
 ### Usage 
-Include `include "card.php"` at the top of the php page.
+Include `require_once "card.php"` at the top of the php page.
 
 ```php
 createCard()
@@ -332,7 +332,7 @@ Writing `new MenuOption(icon, $iconSize, text, href)` creates a new menu option 
 Input is a simple text box containing minimal characters.
 
 ### Usage 
-Include `include "input.php"` at the top of the php page.
+Include `require_once "input.php"` at the top of the php page.
 
 ```php
 createInput(type, name, maxLength, size, placeholder, pattern, isRequired, disabled)

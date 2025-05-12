@@ -17,17 +17,17 @@
 
     // An enum that defines the possibles sizes of an icon.
     enum IconSize : string {
-        case SMALL4 = 'small-4';
-        case SMALL3 = 'small-3';
-        case SMALL2 = 'small-2';
-        case SMALL1 = 'small-1';
-        case NORMAL = 'normal';
-        case LARGE = 'large';
-        case EXTRALARGE = 'extra-large';
+        case Small4 = 'small-4';
+        case Small3 = 'small-3';
+        case Small2 = 'small-2';
+        case Small1 = 'small-1';
+        case Normal = 'normal';
+        case Large = 'large';
+        case ExtraLarge = 'extra-large';
     }
 
     // Creates the icon
-    function createIcon($path = '', $size = IconSize::NORMAL) {
+    function createIcon($path = '', $size = IconSize::Normal) {
         return parseSVGContents($path, $size->value);
     }
 
