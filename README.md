@@ -272,14 +272,14 @@ createTopbar(TopbarType, menuOptions, logo, logoText)
  
 ```php
 array(
-        new MenuOption('jobs.svg', 'Jobs', 'jobs.php'),
-        new MenuOption('apply.svg', 'Apply', 'apply.php'),
-        new MenuOption('about.svg', 'About', 'about.php'),
+        new MenuOption('jobs.svg', IconSize::NORMAL, 'Jobs', 'jobs.php'),
+        new MenuOption('apply.svg', IconSize::NORMAL, 'Apply', 'apply.php'),
+        new MenuOption('about.svg', IconSize::NORMAL, 'About', 'about.php'),
     ...
 )
 ```
 
-Writing `new MenuOption(icon, text, href)` creates a new menu option within the topbar.
+Writing `new MenuOption(icon, $iconSize, text, href)` creates a new menu option within the topbar.
 
 <br>
 
@@ -304,5 +304,42 @@ createInput(type, name, maxLength, size, placeholder, pattern, isRequired, disab
 <br>
 
 All of these props above act the same as any regular input field prop.
+
+<br>
+
+---
+
+<br>
+
+## Icon
+Input is a simple text box containing minimal characters.
+
+### Usage 
+Include `require_once "input.inc"` at the top of the php page.
+
+```php
+createInput(path, iconSize)
+```
+
+<br>
+
+`path` is the path to your icon. `path` is of type `string`.
+
+<br>
+
+`iconSize` is an enum and can be the following:
+1. `iconSize::SMALL-4` - 8px
+   
+2. `iconSize::SMALL-2` - 12px
+
+3. `iconSize::SMALL-3` - 16px
+   
+4. `iconSize::SMALL-1` - 20px
+
+5. `iconSize::NORMAL` - 24px
+   
+6. `iconSize::LARGE` - 32px
+
+7. `iconSize::EXTRALARGE` - 40px
 
 <br>

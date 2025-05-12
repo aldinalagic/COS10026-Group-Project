@@ -6,6 +6,7 @@
 }
 
 body {
+  margin: 0;
   padding: 16px;
 }
 
@@ -444,7 +445,7 @@ body {
     width: auto;
 
     img {
-      filter: invert(60%) sepia(9%) saturate(303%) hue-rotate(169deg) brightness(91%) contrast(89%);
+      color: var(--color-grey-500);
     }
     
     span {
@@ -455,13 +456,18 @@ body {
       transition: 
         all 0.5s cubic-bezier(0.86, 0, 0.1, 1);
 
-        transform: translateX(0px);
+      transform: translateX(0px);
+      pointer-events: none; /* Without this line, span will enable the hover to occue, and we dont want that. */
       
     }
 
     &:hover {
-      background-color: var(--color-grey-100);
-      color: var(--color-grey-500);
+      background-color: var(--color-amber-100);
+      color: var(--color-amber-500);
+
+      img {
+        color: var(--color-amber-500);
+      }
 
       span {
         opacity: 1;
@@ -481,27 +487,57 @@ body {
   justify-content: space-between;
   gap: 0px;
   border-radius: 9999px;
+  margin: 0 auto; /* EASSSSY WAY TO POSITION SOMETHING IN THE CENTER OF SCREEN :DD */
+  z-index: 99999;
+
+  position: sticky;
+    /* To be able to make sticky actually work we need top, 
+      if we didn't have top present then it will be basically relative positioning.
+    */
+    top: 16px; 
 
   &.singular {
+    /* Setting max widths are basically a cheatcode in solving 90% of responsiveness issues.
+       If height and width properties were specified there will be overflow issues IF a user 
+       has a small screen resolution :)
+    */
+    max-width: 812px;
+    max-height: 56px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px 8px 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(40px);
+
+    .logo-container a {
+      display: flex;
+      flex-direction: row;
+      text-decoration: none;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-amber-1100);
+      font-size: 20px;
+      font-weight: 600;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
     
   }
   
-  img {
-    width: 24px;
-    height: 24px;
-    display: block;
-  }
-
   &.seperated {
     width: 100%;
-    height: 52px;
-
+    height: 56px;
+    
     .topbar-container:first-child img {
       border: 1px solid var(--color-grey-100);
       border-radius: 9999px;
       padding: 8px;
-      max-width: 40px;
-      max-height: 40px;
+      width: 24px;
+      height: 24px;
     }
     
     .topbar-container:last-child {
@@ -512,53 +548,40 @@ body {
       display: flex;
       flex-direction: row;
       align-items: center;
-      background-color: var(--color-background_primary);
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(40px);
       border-radius: 9999px;
       padding: 8px;
     }
   }
 }
 
-/* .topbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 0px;
-  border-radius: 9999px;
-
-  &.singular {
-    
+.icon {
+  &.small-4 {
+    width: 8px;
   }
 
-  &.seperated {
-    width: 100%;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    padding-left: 8px;
-
-    .topbar-container-left {
-      border: 1px solid var(--color-grey-100);
-      padding: 12px;
-      border-radius: 9999px;
-      img {
-          width: 24px;
-          height: 24px;
-      }
-    }
-
-    &.topbar-container-left,
-    &.topbar-container {
-    background-color: red;
-
-      display: flex;
-      align-items: center;
-      border-radius: 9999px;
-      background-color: rgba(var(--color-background_primary), 0.8);
-      border-radius: 9999px;
-      height: auto;
-
-      padding: 8px 12px 8px 12px;
-    }
+  &.small-3 {
+    width: 12px;
   }
-} */
+
+  &.small-2 {
+    width: 16px;
+  }
+
+  &.small-1 {
+    width: 20px;
+  }
+
+  &.normal {
+    width: 24px;
+  }
+
+  &.large {
+    width: 32px;
+  }
+
+  &.extra-large {
+    width: 40px;
+  }
+}

@@ -1,5 +1,6 @@
 <?php 
     include 'topbar.php';
+    require_once 'icon.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@
 <body>
     <?php 
         echo createTopbar();
+        echo createIcon('jobs.svg');
     ?>
 </body>
 </html>
