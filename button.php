@@ -7,13 +7,12 @@
         case Large = 'large';
     }
 
-    enum ButtonVarient: string {
+    enum ButtonVariant: string {
         case Filled = 'filled';
         case Shaded = 'shaded';
         case Plain = 'plain';
         case Warning = 'warning';
         case Danger = 'danger';
-        case Confirm = 'confirm';
     }
 
     enum ButtonColor: string {
@@ -30,15 +29,15 @@
     }
     
 
-    function createButton($size = ButtonSize::Normal, $varient = ButtonVarient::Filled, $color = ButtonColor::Blue, $icon = '', $message = 'Button', $type = 'button') {
+    function createButton($size = ButtonSize::Normal, $variant = ButtonVariant::Filled, $color = ButtonColor::Blue, $icon = '', $message = 'Button', $type = 'button', $href = '') {
         $sizeValue = $size->value;
-        $varientValue = $varient->value;
-        $colourValue = $varient == ButtonVarient::Plain ? 'transparent' : $color->value;
+        $variantValue = $variant->value;
+        $colourValue = $variant == ButtonVariant::Plain ? 'transparent' : $color->value;
 
         // Check to see if icon is empty, null, or has whitespace(s), if yes then don't display icon
         $displayIcon = ($icon == null || $icon == '' || ctype_space($icon)) ? null : createIcon($icon, getButtonIconSize($size));
 
-        return "<button class='button $sizeValue $colourValue $varientValue' type='$type'>$displayIcon$message</button>";
+        return "<button class='button $sizeValue $colourValue $variantValue' type='$type'><a draggable='false' href='$href'>$displayIcon$message</a></button>";
     } 
 
     function getButtonIconSize($buttonSize) {

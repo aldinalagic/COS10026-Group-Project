@@ -184,7 +184,7 @@ createBadge(BadgeSize, icon, Color, message)
 Buttons are graphical component that give users a clickable area.
 
 ### Usage 
-Include `require_once "badge.php"` at the top of the php page.
+Include `require_once "button.php"` at the top of the php page.
 
 ```php
 createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
@@ -201,16 +201,18 @@ createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
 
 <br>
 
-`ButtonVariety` is an enum and can be the following:
-1. `ButtonVariety::Filled`
+`ButtonVariant` is an enum and can be the following:
+1. `ButtonVariant::Filled`
    
-2. `ButtonVariety::Shaded`
+2. `ButtonVariant::Shaded`
    
-3. `ButtonVariety::Plain`
+3. `ButtonVariant::Plain`
    
-4. `ButtonVariety::Warning`
+4. `ButtonVariant::Warning`
    
-5. `ButtonVariety::Danger`
+5. `ButtonVariant::Danger`
+
+6. `ButtonVariant::Confirm`
 
 <br>
 
@@ -245,7 +247,7 @@ createButton(ButtonSize, ButtonVariety, ButtonColor, icon, message, type)
 
 <br>
 
-`type` is a string, buttons can be `submit` or a regular `'button'`
+`type` is a string, buttons can be `submit` or a regular `button`
 
 <br>
 
