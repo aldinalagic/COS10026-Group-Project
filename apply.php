@@ -1,3 +1,7 @@
+<?php
+    require_once 'topbar.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,42 +11,21 @@
     <meta name="description" content="Job application page"> 
     <meta name="keywords" content="Website, apply"> 
     <meta name="author" content="group">
-
     <title>Apply</title>
-
-    <link href="styles/styles.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
 </head>
 <body class="apply-body">
-
-    <div class="glow-loader">
-        <div></div>
-        <img src="images/icons/glow-footer.svg">
-    </div>
-    
-    <header>
-        <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
-        <a class="pagelogo" href="index.html">
-            <img src="images/icons/glow-logo.svg" alt="Logo">
-            <p>Glow</p>
-        </a>
-        <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
-        <nav class="pagenav">
-            <a href="jobs.html">
-                <img src="images/icons/jobs.svg" alt="icon">
-                <p>Jobs</p>
-            </a>
-            <a href="apply.html">
-                <img src="images/icons/person-run.svg" alt="icon">
-                <p>Apply</p>
-            <a href="about.html">
-                <img src="images/icons/about.svg" alt="icon">
-                <p>About</p>
-            </a>
-            
-        </nav>
-        <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
-    </header>
-    
+    <?php
+        echo createTopbar(
+            TopbarVariant::SINGULAR, 
+            array(
+                new MenuOption('./styles/images/suitcase_fill.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
+                new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
+            ), 
+            './styles/images/glow-logo.svg', 'Apply'
+            )
+    ?>
     <section class="apply-graphic-container">
         <div>
             <h4>👋 Hellooo!</h4>

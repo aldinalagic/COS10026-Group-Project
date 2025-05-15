@@ -1,44 +1,30 @@
+<?php
+    require_once 'topbar.php'
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glow | Careers</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <div class="glow-loader">
-        <div></div>
-        <img src="images/icons/glow-footer.svg">
-    </div>
+    <?php
+        echo createTopbar(
+            TopbarVariant::SINGULAR, 
+            array(
+                new MenuOption('./styles/images/suitcase_fill.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
+                new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
+            ), 
+            './styles/images/glow-logo.svg', 'Jobs'
+        )
+    ?>
 
-    <header>
-        <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
-         <a class="pagelogo" href="index.html">
-            <img src="images/icons/glow-logo.svg" alt="Logo">
-            <p>Glow</p>
-         </a>
-        <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
-        <nav class="pagenav">
-            <a href="jobs.html">
-                <img src="images/icons/jobs.svg" alt="icon">
-                <p>Jobs</p>
-            </a>
-            <a href="apply.html">
-                <img src="images/icons/person-run.svg" alt="icon">
-                <p>Apply</p>
-            <a href="about.html">
-                <img src="images/icons/about.svg" alt="icon">
-                <p>About</p>
-            </a>
-            
-        </nav>
-        <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
-    </header>
     <section id="discover-wrapper">
         <div id="discover-contents">
             <h1>Discover <span class="glow-fancy-text">Glow</span></h1>

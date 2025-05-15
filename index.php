@@ -11,21 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <!-- <div class="glow-loader">
-        <div></div>
-        <img src="images/icons/glow-footer.svg">
-    </div> -->
-
-    <!-- The entire navigation bar is contained in the header element -->
     <?php
         echo createTopbar(
             TopbarVariant::SINGULAR, 
             array(
-                new MenuOption('person-')
-        ))
+                new MenuOption('./styles/images/suitcase_fill.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
+                new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
+            ), 
+            './styles/images/glow-logo.svg', 'Glow'
+            )
     ?>
     <section id="welcome">
         <div id="welcome-contents">

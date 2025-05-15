@@ -32,6 +32,23 @@ body {
   padding: 16px;
 }
 
+body > *:not(.topbar) {
+  opacity: 0;
+  transform: translateY(2%);
+  animation: body-load-in 800ms ease-in-out 100ms 1 forwards;
+}
+
+@keyframes body-load-in {
+  from {
+    transform: translateY(2%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
 /* Alert */
 .alert {
   position: fixed;

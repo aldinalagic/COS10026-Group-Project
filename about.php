@@ -1,51 +1,35 @@
+<?php
+    require_once 'topbar.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en" id="about-html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href = "styles/styles.css">
+    <link rel="stylesheet" href = "styles/style.css">
 </head>
-<header>
-    <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
-     <a class="pagelogo" href="index.html">
-        <img src="images/icons/glow-logo.svg" alt="Logo">
-        <p>Glow</p>
-     </a>
-    <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
-    <nav class="pagenav">
-        <a href="jobs.html">
-            <img src="images/icons/jobs.svg" alt="icon">
-            <p>Jobs</p>
-        </a>
-        <a href="apply.html">
-            <img src="images/icons/person-run.svg" alt="icon">
-            <p>Apply</p>
-        <a href="about.html">
-            <img src="images/icons/about.svg" alt="icon">
-            <p>About</p>
-        </a>
-        
-    </nav>
-    <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
-</header>
 
 <!--Any text that is circled has the ID circle-->
 <!--Any text that is underlined has the ID underline-->
 <!--Any text that is has grey text has the ID detail-->
 <body>
-    <div class="glow-loader">
-        <div></div>
-        <img src="images/icons/glow-footer.svg">
-    </div>
+        <?php
+        echo createTopbar(
+            TopbarVariant::SINGULAR, 
+            array(
+                new MenuOption('./styles/images/suitcase_fill.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
+                new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
+            ), 
+            './styles/images/glow-logo.svg', 'About'
+            )
+    ?>
 
     <section id = "about-heading">
-        
         <h1>Behind Glow</h1>
-        
-        
         <p>We bring beautifully simple infrastructure powering everything you build</p>
-        
     </section>
 
     <section id = "team">
@@ -55,9 +39,6 @@
         <div id= "team-roles">
             <h2>Contributions</h2>
         <p>The following is a list of contributions made to this project</p>
-
-        
-
             <ul>
                 Aldin Alagic:
                 <ul>Project designer</ul>
