@@ -1,30 +1,7 @@
-## Using Switzer custom font.
-Use the following Rules in your CSS to specify each Font Style:
-```
-font-family: Switzer-Thin;
-font-family: Switzer-ThinItalic;
-font-family: Switzer-Extralight;
-font-family: Switzer-ExtralightItalic;
-font-family: Switzer-Light;
-font-family: Switzer-LightItalic;
-font-family: Switzer-Regular;
-font-family: Switzer-Italic;
-font-family: Switzer-Medium;
-font-family: Switzer-MediumItalic;
-font-family: Switzer-Semibold;
-font-family: Switzer-SemiboldItalic;
-font-family: Switzer-Bold;
-font-family: Switzer-BoldItalic;
-font-family: Switzer-Extrabold;
-font-family: Switzer-ExtraboldItalic;
-font-family: Switzer-Black;
-font-family: Switzer-BlackItalic;
-font-family: Switzer-Variable;
-font-family: Switzer-VariableItalic;
+# IMPORTANT: Cloning this repo:
 
-```
+1. Empty your htdocs folder completely. If you have anything in there save it somewhere else
 
-In this project, we do not use Variable fonts, only what's above.
+2. Open the terminal at `xampfiles` and type: `git clone https://github.com/aldinalagic/COS10026-Group-Project.git htdocs` You want to do this because all contents in htdocs will be overrided with this repo's files instead.
 
-
-
+3. You're all set!
