@@ -3,6 +3,7 @@
 
     require_once 'button.php';
     require_once 'popup.php';
+    require_once 'swipe-control.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,8 @@
     <?php   
         echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
         echo createPopup('popup', '🔥 Delete Application?', 'Are you sure you want to delete {fullName}’s application? <br> We cant bring it back to life if you decide to delete it!', createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', 'index.php'));
-   
-   ?>
+
+        echo createSwipeControl();
+    ?>
 </body>
 </html>

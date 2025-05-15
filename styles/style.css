@@ -1,5 +1,6 @@
 @import url('color.css');
 @import url('type.css');
+
 * {
   font-family: Switzer, sans-serif;
   font-weight: 400;
@@ -642,13 +643,13 @@ body {
   align-items: center;
   margin: 0 auto;
   width: fit-content;
-  
 
   h3 {
     text-align: center;
     font-size: 50px;
     font-weight: 500;
   }
+
   .badge {
     position: absolute;
     top: 40px;
@@ -670,4 +671,95 @@ body {
     top: 32px;
     right: -56px;
   }
+}
+
+.swipe-control {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 320px;
+  height: 52px;
+  background-color: var(--color-grey-100);
+  border-radius: 9999px;
+  padding: 2px;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 9999px;
+    background: url('./images/arrow-right.svg') no-repeat center var(--color-background_primary);
+    pointer-events: auto;
+    transition: all 0.2s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    z-index: 3;
+    box-shadow: -424px 0 0 400px var(--color-blue-500), 0 0 0 2px var(--color-blue-500);
+  }
+
+  &::-webkit-slider-thumb:active {
+    cursor: grabbing;
+  }
+
+  &::-webkit-slider-thumb:hover {
+    cursor: grabbing;
+  }
+  
+  &::-webkit-slider-runnable-track {
+    z-index: 2;
+  }
+
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 9999px;
+    background: url('./images/arrow-right.svg') no-repeat center var(--color-background_primary);
+    pointer-events: auto;
+    transition: all 0.5s ease-in-out;
+    z-index: 3;
+    box-shadow: -424px 0 0 400px var(--color-blue-500), 0 0 0 2px var(--color-blue-500);
+  }
+
+  &::-moz-range-thumb:active {
+    cursor: grabbing;
+  }
+
+  &::-moz-range-thumb:hover {
+    cursor: grabbing;
+  }
+
+  &::-moz-range-track {
+    z-index: 1;
+  }
+
+  & + label {
+    color: white;
+    font-weight: 500;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+.swipe-control-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.swipe-control:active + label + input {
+    background-color: blue;
+}
+
+.swipe-control[value='10'] {
+  width: 32px;
 }
