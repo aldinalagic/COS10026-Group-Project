@@ -28,6 +28,6 @@
         </h3>
     </div>
 
-    <img draggable="false" class="error-img" src="./styles/images/forbidden.svg" alt="">
+    <img draggable="false" class="error-img" src="./styles/images/403-forbidden.svg" alt="">
 </body>
 </html>

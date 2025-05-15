@@ -1,0 +1,44 @@
+:root {
+  --font-size-small-3: 6px;
+  --font-size-small-2: 8px;
+  --font-size-small-1: 12px;
+  --font-size-paragraph: 16px;
+  --font-size-header-6: 20px;
+  --font-size-header-5: 28px;
+  --font-size-header-4: 38px;
+  --font-size-header-3: 50px;
+  --font-size-header-2: 68px;
+  --font-size-header-1: 90px;
+  --font-size-large-header: 120px;
+  --font-size-extra-large-header: 160px;
+
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('./fonts/Switzer-Variable.woff2') format('woff2'),
+            url('./fonts/Switzer-Variable.woff') format('woff'),
+            url('./fonts/Switzer-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Switzer';
+    src: url('./fonts/Switzer-VariableItalic.woff2') format('woff2'),
+            url('./fonts/Switzer-VariableItalic.woff') format('woff'),
+            url('./fonts/Switzer-VariableItalic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: italic;
+}
