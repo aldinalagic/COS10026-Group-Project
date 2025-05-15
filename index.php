@@ -1,3 +1,7 @@
+<?php
+    require_once 'topbar.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,29 +20,13 @@
     </div> -->
 
     <!-- The entire navigation bar is contained in the header element -->
-    <header>
-        <!-- div element is used here so that the margins of the img and anchor element can be set to remain the same -->
-         <a class="pagelogo" href="index.html">
-            <img src="images/icons/glow-logo.svg" alt="Logo">
-            <p>Glow</p>
-         </a>
-        <!-- nav element contains the navigation buttons. I.E. buttons that lead to the other pages -->
-        <nav class="pagenav">
-            <a href="jobs.html">
-                <img src="images/icons/jobs.svg" alt="icon">
-                <p>Jobs</p>
-            </a>
-            <a href="apply.html">
-                <img src="images/icons/person-run.svg" alt="icon">
-                <p>Apply</p>
-            <a href="about.html">
-                <img src="images/icons/about.svg" alt="icon">
-                <p>About</p>
-            </a>
-            
-        </nav>
-        <a href="mailto:info@glow.com.au" class="contact"><p>Contact us</p> <p class="contact-emoji">😎</p></a>
-    </header>
+    <?php
+        echo createTopbar(
+            TopbarVariant::SINGULAR, 
+            array(
+                new MenuOption('person-')
+        ))
+    ?>
     <section id="welcome">
         <div id="welcome-contents">
             <h1>Cloud infrastructure <br>for everyone</h1>
@@ -115,9 +103,3 @@
     </footer>
 </body>
 </html>
-<!--<<<<<<< HEAD
->>>>>>> 69369c9363f3330c379c183cb9f1215aa42d0be3
->>>>>>> 150d8f27de7fa63044cc558bb1e126aa5774cc7f
-=======
- >>>>>>> 69369c9363f3330c379c183cb9f1215aa42d0be3 
->>>>>>> 89ffac59b369b1119f039cc0889054880d9a372d -->
