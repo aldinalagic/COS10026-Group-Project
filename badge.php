@@ -25,7 +25,6 @@
     function createBadge($size = BadgeSize::Normal, $icon = 'path/to/icon', $color = BadgeColor::Green, $message = 'Badge message!') {
         $sizeValue = $size->value;
         $colourValue = $color->value;
-        
         // Check to see if icon is empty, null, or has whitespace(s), if yes then don't display icon
         $displayIcon = ($icon == null || $icon == '' || ctype_space($icon)) ? null : getBadgeIconSize($size);
 

@@ -547,18 +547,20 @@ body {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
   z-index:auto;
   pointer-events: none;
+  overflow-y: scroll;
 
   .popup-content-wrapper {
     transform: scale(0.8);
-    transition: transform 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
     padding: 32px 64px;
     border-radius: 32px;
     background-color: white;
     max-width: 512px;
     z-index: 1000;
+    margin: 0px 16px;
     
     h5 {
       text-align: center;
@@ -593,5 +595,79 @@ body {
     align-items: center;
     gap: 24px;
     margin-top: 64px;
+  }
+}
+
+/* Error Page */
+.error-body {
+  padding: 0;
+  margin: 16px 0px 0px 0px;
+}
+
+.logo-error {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-red-1100);
+  font-weight: 600;
+  gap: 4px;
+  padding: 8px 16px;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 9999px;
+
+  .icon {
+    color: var(--color-red-500)
+  }
+
+}
+
+.error-img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: -1;
+}
+
+.error-contents {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: fit-content;
+  
+
+  h3 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 500;
+  }
+  .badge {
+    position: absolute;
+    top: 40px;
+    right: -96px;
+    transform: rotate(15deg);
+    animation: tilt-shake 9s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+  }
+
+}
+
+@keyframes tilt-shake {
+  0% { transform: rotate(20deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(20deg); }
+}
+
+#forbidden-contents {
+  .badge {
+    top: 32px;
+    right: -56px;
   }
 }
