@@ -37,7 +37,7 @@
         // Check to see if icon is empty, null, or has whitespace(s), if yes then don't display icon
         $displayIcon = ($icon == null || $icon == '' || ctype_space($icon)) ? null : createIcon($icon, getButtonIconSize($size));
 
-        return "<button class='button $sizeValue $colourValue $variantValue' type='$type'><a draggable='false' href='$href'>$displayIcon$message</a></button>";
+        return "<button class='button $sizeValue $colourValue $variantValue' type='$type'><a draggable='false' href='$href'>$displayIcon<span>$message</span></a></button>";
     } 
 
     function getButtonIconSize($buttonSize) {

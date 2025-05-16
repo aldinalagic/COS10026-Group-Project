@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
+<body id="body-index">
     <?php
         echo createTopbar(
             TopbarVariant::SINGULAR, 
@@ -28,7 +28,7 @@
         )
     ?>
     <section id="welcome">
-        <div id="welcome-contents">
+        <div id="welcome-content">
             <h1>Cloud infrastructure <br>for everyone</h1>
             <p>Glow is for everyone. You, a startup, or an enterprise, Glow provides scalable cloud infrastructure that glows with you</p>
         

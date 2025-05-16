@@ -33,11 +33,11 @@
     </section>
 
     <section id = "team">
-        <h1>The <span id = "underline">team</span></h1>
+        <h3>The <span id = "underline">team</span></h3>
 
         <div id = "team-lists">
         <div id= "team-roles">
-            <h2>Contributions</h2>
+            <h5>Contributions</h5>
         <p>The following is a list of contributions made to this project</p>
             <ul>
                 Aldin Alagic:
@@ -72,8 +72,6 @@
             <li>Harry ID: <span class = "detail">105912375</span></li>
             <li>Nadine ID: <span class = "detail">105864793</span></li>
         
-
-
         <img src="images/group-photo.png" alt="group-image">
     </div>
 </div>
@@ -85,7 +83,7 @@
             <caption>The team</caption>
             <thead>
                 <tr>
-                    <th>Aladin Alagic</th>
+                    <th>Aldin Alagic</th>
                     <th>Fletcher Bishop</th>
                     <th>Harry Clarke</th>
                     <th>Nadine David</th>
@@ -123,7 +121,7 @@
 
     <!--Sponsor section!-->
     <section id = "sponsor">
-        <h1><span class = "circle">Sponsor </span> <span class = "detail">(Tutor)</span></h1>
+        <h3><span class = "circle">Sponsor </span> <span class = "detail">(Tutor)</span></h3>
         <div class id = "tutor">
               <img src = "images/nick-avatar.png" alt = "tutor-image">  <p>Nick</p>
         </div>

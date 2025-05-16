@@ -1,5 +1,6 @@
 <?php
-    require_once 'topbar.php'
+    require_once 'topbar.php';
+    require_once 'button.php';
 ?>
 
 <html lang="en">
@@ -24,14 +25,12 @@
             './styles/images/glow-logo.svg', 'Jobs'
         )
     ?>
-
     <section id="discover-wrapper">
         <div id="discover-contents">
             <h1>Discover <span class="glow-fancy-text">Glow</span></h1>
             <h6>Leave your impact on the world</h6>
-            <a href="#open-positions-wrapper">
-                <button class="button-primary">Open roles</button>
-            </a>
+             <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Start now', 'button', '#open-positions-wrapper') ?>
+
         </div>
         <div id="glow-fancy-wrapper">
             <svg id="glow-fancy" viewBox="0 0 1069 665" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,9 +93,7 @@
                 </div>
                 <div class="job-position-bottom-wrapper">
                     <p>NET01</p>
-                    <a href="apply.html">
-                        <button class="button-primary">Apply</button>
-                    </a>
+                    <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Apply', 'button', 'apply.php') ?>
                 </div>
             </div>
         </div>
@@ -149,9 +146,7 @@
                 </div>
                 <div class="job-position-bottom-wrapper">
                     <p>MAC01</p>
-                    <a href="apply.html">
-                        <button class="button-primary">Apply</button>
-                    </a>
+                    <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Apply', 'button', 'apply.php') ?>
                 </div>
             </div>
         </div>

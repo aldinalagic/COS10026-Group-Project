@@ -23,6 +23,34 @@
   --font-weight-black: 900;
 }
 
+p {
+  font-size: var(--font-size-paragraph) !important
+}
+
+h6 {
+  font-size: var(--font-size-header-6) !important
+}
+
+h5 {
+  font-size: var(--font-size-header-5) !important
+}
+
+h4 {
+  font-size: var(--font-size-header-4) !important
+}
+
+h3 {
+  font-size: var(--font-size-header-3) !important
+}
+
+h2 {
+  font-size: var(--font-size-header-2) !important
+}
+
+h1 {
+  font-size: var(--font-size-header-1) !important
+}
+
 @font-face {
     font-family: 'Switzer';
     src: url('./fonts/Switzer-Variable.woff2') format('woff2'),
