@@ -1,5 +1,7 @@
 <?php
-    require_once 'topbar.php'
+    require_once 'topbar.php';
+    require_once 'icon.php';
+    require_once 'button.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@
                 new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
             ), 
             './styles/images/glow-logo.svg', 'Glow'
-            )
+        )
     ?>
     <section id="welcome">
         <div id="welcome-contents">
@@ -31,8 +33,8 @@
             <p>Glow is for everyone. You, a startup, or an enterprise, Glow provides scalable cloud infrastructure that glows with you</p>
         
         <div id="welcome-actions">
-            <a href="jobs.html" class="button-primary">Start now</a>
-            <a href="" id="contact">Contact us</a>
+            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Start now', 'button', 'jobs.php') ?>
+            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Amber, '', 'Contact sales', 'button', 'mailto') ?>
         </div>
         </div>
         <img src="images/big-glow.svg" alt="Glow logo">
@@ -40,19 +42,19 @@
     </section>
     <section id="benefits">
         <div>
-            <img src="images/icons/repeatarrows.svg" alt="cycle">
+            <?php echo createIcon('./styles/images/repeat_fill.svg', IconSize::Normal) ?>
             <p class="benefithead">100%</p>
             <p class="benefittext">Uptime guarentee
             <br><span class="benefitsubtext">for all services</span></p>
         </div>
         <div>
-            <img src="images/icons/greenglow.svg" alt="green glow">
+            <?php echo createIcon('./styles/images/glow-eco.svg', IconSize::Normal) ?>
             <p class="benefithead">70%</p>
             <p class="benefittext">less carbon emissions
             <br><span class="benefitsubtext">than other cloud services</span></p>
         </div>
         <div>
-            <img src="images/icons/clock.svg" alt="clock">
+            <?php echo createIcon('./styles/images/time_duration_fill.svg', IconSize::Normal) ?>
             <p class="benefithead">1 min</p>
             <p class="benefittext">Average time to
             <br><span class="benefitsubtext">get setup</span></p>
@@ -61,7 +63,7 @@
     <section id="discover">
         <h3>Discover <span class="glow-fancy-text">Glow</span></h3>
         <p>Join us, and leave your impact on the world.</p>
-        <a href="jobs.html" class="button-primary"><p>Careers</p></a>
+        <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Careers', 'button', 'jobs.php') ?>
     </section>
     <section id="explore">
         <h3>Explore</h3>
@@ -69,7 +71,7 @@
             <img src="/images/about-effect.svg" alt="">
             <h4>Meet the people <br>behind Glow</h4>
             <p>Learn more about how Glow was made</p>
-            <a href="about.html" class="button-primary">Explore</a>
+            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Explore', 'button', 'about.php') ?>
         </article>
     </section>
     <footer>

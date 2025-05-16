@@ -15,7 +15,7 @@
 <!--Any text that is underlined has the ID underline-->
 <!--Any text that is has grey text has the ID detail-->
 <body>
-        <?php
+    <?php
         echo createTopbar(
             TopbarVariant::SINGULAR, 
             array(
@@ -24,7 +24,7 @@
                 new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
             ), 
             './styles/images/glow-logo.svg', 'About'
-            )
+        )
     ?>
 
     <section id = "about-heading">

@@ -24,7 +24,7 @@
                 new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
             ), 
             './styles/images/glow-logo.svg', 'Apply'
-            )
+        )
     ?>
     <section class="apply-graphic-container">
         <div>
