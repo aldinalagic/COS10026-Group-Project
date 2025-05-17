@@ -20,7 +20,6 @@
         public function createMenuOption($variantValue) {
             $this->variant = $variantValue;
 
-            // Conditionally add a class if isChecked is true
             $checked = $this->isChecked ? ' checked' : '';
 
             return "<a class='menu-option $this->variant $checked' href='$this->href'>$this->icon<span>$this->text</span></a>";

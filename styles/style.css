@@ -10,7 +10,6 @@
 
 body {
   margin: 0;
-  padding: 16px;
 }
 
 /* Alert */
@@ -669,5 +668,38 @@ body {
   .badge {
     top: 32px;
     right: -56px;
+  }
+}
+
+.tab {
+  position: fixed;
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--color-background_secondary);
+  border-radius: 9999px;
+  align-self: center;
+  top: 50%;
+  left: 16px;
+  gap: 8px;
+  padding: 8px;
+
+  a {
+    padding: 0;
+    margin: 0;
+  }
+
+  .icon {
+    padding: 8px;
+    background-color: transparent;
+    border-radius: 9999px;
+    color: var(--color-grey-500);
+    transition: all linear 0.1s;
+
+    &:hover {
+      background-color: var(--color-grey-100);
+      cursor: pointer;
+    }
   }
 }
