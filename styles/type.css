@@ -1,16 +1,16 @@
 :root {
-  --font-size-small-3: 6px;
-  --font-size-small-2: 8px;
-  --font-size-small-1: 12px;
-  --font-size-paragraph: 16px;
-  --font-size-header-6: 20px;
-  --font-size-header-5: 28px;
-  --font-size-header-4: 38px;
-  --font-size-header-3: 50px;
-  --font-size-header-2: 68px;
-  --font-size-header-1: 90px;
-  --font-size-large-header: 120px;
-  --font-size-extra-large-header: 160px;
+  --font-size-small-3: 0.375em;
+  --font-size-small-2: 0.5em;
+  --font-size-small-1: 0.75em;
+  --font-size-paragraph: 1em;
+  --font-size-header-6: 1.25em;
+  --font-size-header-5: 1.75em;
+  --font-size-header-4: 2.375em;
+  --font-size-header-3: 3.125em;
+  --font-size-header-2: 4.25em;
+  --font-size-header-1: 5.625em;
+  --font-size-large-header: 7.5em;
+  --font-size-extra-large-header: 10em;
 
   --font-weight-thin: 100;
   --font-weight-extralight: 200;
