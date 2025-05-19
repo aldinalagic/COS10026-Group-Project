@@ -87,6 +87,8 @@
 .avatar-wrapper {
   display: flex;
   align-items: center;
+  width: fit-content;
+  height: fit-content;
 }
 
 .avatar-wrapper p {
@@ -138,44 +140,47 @@
   gap: 20px;
   border-radius: var(--border-radius-full);
   text-align: center;
+  width: fit-content;
+  height: fit-content;
 
-  p { padding: 0; margin: 0; }
+  p { padding: 0; margin: 0 !important; opacity: 1 !important; }
 
   &.small {
     padding: 2px 6px 2px 6px;
     gap: 2px;
     
-    p { font-size: var(--font-size-small-2); }
-    img { height: 8px; width: 8px; }
+    p { font-size: var(--font-size-small-2) !important; }
+    .icon { height: 8px; width: 8px; }
   }
 
   &.normal {
     padding: 2px 8px 2px 8px;
     gap: 2px;
 
-    p { font-size: var(--font-size-small-1); }
-    img { height: 12px; }
+    p { font-size: var(--font-size-small-1) !important; }
+    .icon { height: 12px; }
   }
 
   &.large {
     gap: 4px;
     padding: 2px 12px 2px 12px;
     
-    p { font-size: var(--font-size-paragraph); }
-    img { height: 16px; }
+    p { font-size: var(--font-size-paragraph) !important; }
+    .icon { height: 16px; }
   }
 }
 
-.badge.grey { background-color: var(--color-grey-100); color: var(--color-grey-600); }
-.badge.red { background-color: var(--color-red-100); color: var(--color-red-600); }
-.badge.green { background-color: var(--color-green-100); color: var(--color-green-600); }
-.badge.mber { background-color: var(--color-amber-100); color: var(--color-amber-600); }
-.badge.blue { background-color: var(--color-blue-100); color: var(--color-blue-600); }
-.badge.purple { background-color: var(--color-purple-100); color: var(--color-purple-600); }
-.badge.pink { background-color: var(--color-pink-100); color: var(--color-pink-600); }
-.badge.teal { background-color: var(--color-teal-100); color: var(--color-teal-600); }
-.badge.brown { background-color: var(--color-brown-100); color: var(--color-brown-600); }
-.badge.orange { background-color: var(--color-orange-100); color: var(--color-orange-600); }
+.badge.grey { background-color: var(--color-grey-100); color: var(--color-grey-600); p, .icon { color: var(--color-grey-600) !important; } }
+.badge.red { background-color: var(--color-red-100); color: var(--color-red-600); p, .icon { color: var(--color-red-600) !important; } }
+.badge.green { background-color: var(--color-green-100); color: var(--color-green-600); p, .icon { color: var(--color-green-600) !important; } }
+.badge.amber { background-color: var(--color-amber-100); p, .icon { color: var(--color-amber-600) !important; } }
+.badge.blue { background-color: var(--color-blue-100); color: var(--color-blue-600); p, .icon { color: var(--color-blue-600) !important; } }
+.badge.purple { background-color: var(--color-purple-100); color: var(--color-purple-600); p, .icon { color: var(--color-purple-600) !important; } }
+.badge.pink { background-color: var(--color-pink-100); color: var(--color-pink-600); p, .icon { color: var(--color-pink-600) !important; } }
+.badge.teal { background-color: var(--color-teal-100); color: var(--color-teal-600); p, .icon { color: var(--color-teal-600) !important; } }
+.badge.brown { background-color: var(--color-brown-100); color: var(--color-brown-600); p, .icon { color: var(--color-brown-600) !important; } }
+.badge.orange { background-color: var(--color-orange-100); color: var(--color-orange-600); p, .icon { color: var(--color-orange-600) !important; } }
+
 
 @keyframes badge-shake {
   0% { transform: rotate(20deg); }
@@ -199,6 +204,9 @@
   transition:
     background-color 200ms ease,
     border-color 200ms ease;
+
+  width: fit-content;
+  height: fit-content;
   
   a {
     display: flex;

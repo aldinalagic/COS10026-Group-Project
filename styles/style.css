@@ -119,11 +119,11 @@ body > *:not(.topbar) {
 /* //////////////////////// index.php //////////////////////// */
 #welcome {
     display: flex;
-    padding-top: 100px;
+    padding-top: 72px;
     margin-bottom: 128px;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 1024px;
+    max-width: 844px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 32px;
@@ -131,10 +131,9 @@ body > *:not(.topbar) {
     position: relative;
 }
 
-#welcome h1 {
-    font-weight: var(--font-weight-regular);
+#welcome h2 {
+    font-weight: var(--font-weight-medium);
     color: var(--color-amber-1100);
-    line-height: 1.1;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -146,13 +145,56 @@ body > *:not(.topbar) {
     position: relative;
 }
 
-#welcome p {
+#welcome h6 {
     font-weight: var(--font-weight-regular);
     color: var(--color-amber-1100);
     opacity: 0.6;
-    max-width: 448px;
+    max-width: 512px;
     margin-bottom: 24px;
+    margin-top: 0;
+    margin-bottom: 16px;
 }
+
+#welcome-img {
+    position: absolute;
+    right: 0px;
+    top: 512px;
+    z-index: -1;
+    max-width: 1080px;
+    max-height: 1080px;
+    backdrop-filter: blur(10px);
+}
+
+
+#glow-illustration-3-wrapper {
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 72px;
+    pointer-events: none;
+    opacity: 1;
+    z-index: -2;
+}
+
+#glow-illustration-3 {
+    z-index: -2;
+    animation: infinite-spin 50s linear infinite forwards;
+    overflow: hidden;
+    max-width: 1080px;
+    max-height: 1080px;
+    pointer-events: none;
+    opacity: 1;
+}
+
+@keyframes infinite-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 #welcome-actions {
     display: flex;
@@ -166,89 +208,36 @@ body > *:not(.topbar) {
     padding: 8px 0;
 }
 
-#welcome-graphic {
-    position: absolute;
-    right: 0;
-    top: 40px;
-    z-index: -1;
-    width: 440px;
-    height: 440px;
-}
-
-#benefits {
-    display:flex;
-    float: center;
-    margin-left: 19%;
-    margin-right: 19%;
-    justify-content: center;
-    gap: 16px;
-    width: 62%;
-
-}
-
-#benefits div {
-    border: var(--color-border_primary) solid 1px;
-    width:15vw;
-    height: 208px;
-    border-radius: 16px;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 1.5em 1.5em 1.5em;
-    grid-template-areas: "img head"
-                         "title title"
-                         "subtext subtext";
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-}
-
-#benefits div img {
-    grid-area: img;
-    justify-self: flex-end;
-    align-self: center;
-}
-
-.benefithead {
-    grid-area: head;
-    align-self: center;
-    margin-left: 6px;
-    justify-self: flex-start;
-    color: var(--color-text_primary);
-}
-
-.benefittext {
-    grid-area: title;
-    color: var(--color-text_primary);
-}
-
-.benefitsubtext {
-    grid-area: subtext;
-    color: var(--color-text_secondary);
-}
-
-
 #discover {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-background_secondary);
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
     justify-content: center;
     align-items: center;
-    padding-top: 56px;
-    padding-bottom: 56px;
-    margin-top: 128px;
+    padding-top: 128px;
+    padding-bottom: 128px;
+    margin-top: 620px;
+    border-top: 1px solid var(--color-border_primary);
 }
 
-#discover h3 {
-    color: var(--color-text_primary);
+#discover h2 {
+    color: var(--color-amber-1100);
     font-weight: var(--font-weight-semibold);
     margin: 0;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
-#discover p {
+#discover h6 {
     font-weight: var(--font-weight-regular);
-    color: var(--color-text_primary);
+    color: var(--color-amber-1100);
+    opacity: 0.6;
     margin: 0;
-    margin-top: 24px;
+    margin-top: 16px;
+    margin-bottom: 64px;
+    max-width: 512px;
 }
 
 #explore {
