@@ -1,30 +1,8 @@
 <?php 
     require_once 'avatar.php';
     require_once 'icon.php';
+    require_once 'menu-option.php';
 
-    // This class store information about a menu option.
-    class MenuOption {
-        private $variant = '';
-        private $icon = '';
-        private $text = '';
-        private $href = '';
-        private $isChecked = false; // Default to false
-
-        public function __construct($icon, $iconSize = IconSize::Normal, $text, $href, $isChecked = false) {
-            $this->icon = createIcon($icon, $iconSize);
-            $this->text = $text;
-            $this->href = $href;
-            $this->isChecked = $isChecked;
-        }
-
-        public function createMenuOption($variantValue) {
-            $this->variant = $variantValue;
-
-            $checked = $this->isChecked ? ' checked' : '';
-
-            return "<a class='menu-option $this->variant $checked' href='$this->href'>$this->icon<span>$this->text</span></a>";
-        }
-    }
 
     enum TopbarVariant: string {
         case SINGULAR = 'singular';
@@ -39,7 +17,7 @@
     ), $logo = 'jobs.svg', $logoText = 'Glow') {
         $variantValue = $variant->value;
         $topbar = "<header class='topbar $variantValue'>";
-        $menuOptionsContainer = createTopbarMenuOptions($variantValue, $menuOptions);
+        $menuOptionsContainer = createMenuOptionsContainer('topbar-container', $variantValue, $menuOptions);
         
         // When a topbar is seperated, the width of the topbar will be 100%,
         // And what we do is create 2 more extra divs, one for the logo (left-side), and one for the avatar (right-side)
@@ -50,16 +28,5 @@
         }
 
         return $topbar .= "</header>";
-    }
-
-    // Creates all the menu options within a container.
-    function createTopbarMenuOptions($variantValue, $menuOptions) {
-        $menuOptionsContainer = "<div class='topbar-container menu-options-container'>";
-
-        for ($i = 0; $i < count($menuOptions); $i++) { 
-            $menuOptionsContainer .= $menuOptions[$i]->createMenuOption($variantValue);
-        }
-
-        return $menuOptionsContainer .= "</div>";
     }
 ?>
