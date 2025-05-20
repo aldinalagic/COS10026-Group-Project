@@ -170,7 +170,7 @@ body > *:not(.topbar) {
     overflow: hidden;
     position: absolute;
     right: 0;
-    top: 72px;
+    top: 128px;
     pointer-events: none;
     opacity: 1;
     z-index: -2;
@@ -241,8 +241,9 @@ body > *:not(.topbar) {
 }
 
 #explore {
-    margin-left: 22%;
-    margin-right: 22%;
+    max-width: 844px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #explore article {
@@ -251,10 +252,21 @@ body > *:not(.topbar) {
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
-    height:500px;
+    height: 406px;
     margin-top: 24px;
     overflow: hidden;
-    border-radius: 32px;
+    transform: scale(1.06);
+    transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform-origin: top;
+    border-radius: 0px;
+    &:hover {
+        transform: scale(1);
+        border-radius: 40px;
+        transform-origin: bottom;
+    }
+
+    background-image: url('/styles/images/about-effect.png');
+    background-size: cover;
 }
 
 #explore h3 {
@@ -266,14 +278,6 @@ body > *:not(.topbar) {
     justify-self: flex-start;
 }
 
-#explore article img {
-    width: 100%;
-    height: inherit;
-    border: 0;
-    z-index: -1;
-    position: absolute;
-    border-radius: 32px;
-}
 
 #explore article h4 {
     margin: 0px;
@@ -290,9 +294,25 @@ body > *:not(.topbar) {
     opacity: 0.6;
     font-weight: var(--font-weight-regular);
 }
+
+#explore article .button {
+    margin-top: 32px;
+    align-self: center;
+}
 /* //////////////////////// End index.php //////////////////////// */
 
 /* //////////////////////// jobs.php //////////////////////// */
+#jobs-body {
+    .topbar {
+        opacity: 0;
+        animation-name:  topbar-animate-in;
+        animation-duration: 1400ms;
+        animation-delay: 3000ms;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+    }
+}
+
 #glow-fancy {
     z-index: 1;
     position: absolute;
@@ -550,6 +570,16 @@ body > *:not(.topbar) {
 
     50% {
         opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes topbar-animate-in {
+    0% {
+        opacity: 0;
     }
 
     100% {

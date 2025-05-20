@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body id="jobs-body">
     <?php
         echo createTopbar(
             TopbarVariant::SINGULAR, 
