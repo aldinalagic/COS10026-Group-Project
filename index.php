@@ -2,7 +2,7 @@
     require_once 'topbar.php';
     require_once 'icon.php';
     require_once 'button.php';
-    require_once 'badge.php';
+    require_once 'footer.php';
 ?>
 
 <!DOCTYPE html>
@@ -61,5 +61,8 @@
             <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Explore', 'button', 'about.php') ?>
         </article>
     </section>
+    <?php 
+        echo createFooter();
+    ?>
 </body>
 </html>
