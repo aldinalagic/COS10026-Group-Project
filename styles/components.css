@@ -1,0 +1,689 @@
+@import url('color.css');
+@import url('type.css');
+
+/* //////////////////////// Alert //////////////////////// */
+.alert {
+  position: fixed;
+  left: 50%;
+  bottom: -8px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  max-width: fit-content;
+  padding: 16px 32px 16px 32px;
+  border-radius: var(--border-radius-full);
+  opacity: 0;
+
+  animation-name: alert-animate-in, alert-animate-out;
+  animation-duration: 0.5s, 0.5s;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-delay: 1s, 6s;
+  animation-fill-mode: forwards, forwards;
+  animation-iteration-count: 1, 1;
+}
+
+#alert-success {
+  background-color: var(--color-blue-100);
+  color: var(--color-semantic-success);
+}
+
+#alert-info {
+  background-color: var(--color-grey-100);
+  color: var(--color-semantic-info);
+
+}
+
+#alert-warning {
+  background-color: var(--color-amber-100);
+  color: var(--color-semantic-warning);
+}
+
+#alert-danger {
+  background-color: var(--color-red-100);
+  color: var(--color-semantic-danger);
+}
+
+@keyframes alert-animate-in {
+  0% {
+    bottom: -64px;
+    opacity: 0;
+  }
+  50% {
+    bottom: 4px;
+    opacity: 1;
+  }
+  90% {
+    bottom: -6px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: -8px;
+    opacity: 1;
+  }
+}
+
+@keyframes alert-animate-out {
+  0% {
+    bottom: -8px;
+    opacity: 1;
+  }
+  50% {
+    bottom: 4px;
+    opacity: 1;
+  }
+  90% {
+    bottom: -64px;
+    opacity: 0;
+  }
+
+  100% {
+    bottom: -64px;
+    opacity: 0;
+  }
+}
+/* //////////////////////// End Alert //////////////////////// */
+
+/* //////////////////////// Avatar //////////////////////// */
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+.avatar-wrapper p {
+  margin: 0;
+  padding: 0;
+}
+
+.avatar {
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-grey-100);
+}
+
+#avatar-small {
+  width: 24px;
+  height: 24px;
+  font-size: var(--font-size-small-1);
+  margin-right: 4px;
+}
+
+.avatar-size-small p {
+  font-size: var(--font-size-small-1);
+}
+
+#avatar-normal {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.avatar-size-normal p {
+  font-size: var(--font-size-paragraph);
+}
+
+#avatar-large {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.avatar-size-large p {
+  font-size: var(--font-size-header-6);
+}
+/* //////////////////////// End Avatar //////////////////////// */
+
+/* //////////////////////// Badge //////////////////////// */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: var(--border-radius-full);
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+
+  p { padding: 0; margin: 0 !important; opacity: 1 !important; }
+
+  &.small {
+    padding: 2px 6px 2px 6px;
+    gap: 2px;
+    
+    p { font-size: var(--font-size-small-2) !important; }
+    .icon { height: 8px; width: 8px; }
+  }
+
+  &.normal {
+    padding: 2px 8px 2px 8px;
+    gap: 2px;
+
+    p { font-size: var(--font-size-small-1) !important; }
+    .icon { height: 12px; }
+  }
+
+  &.large {
+    gap: 4px;
+    padding: 2px 12px 2px 12px;
+    
+    p { font-size: var(--font-size-paragraph) !important; }
+    .icon { height: 16px; }
+  }
+}
+
+.badge.grey { background-color: var(--color-grey-100); color: var(--color-grey-600); p, .icon { color: var(--color-grey-600) !important; } }
+.badge.red { background-color: var(--color-red-100); color: var(--color-red-600); p, .icon { color: var(--color-red-600) !important; } }
+.badge.green { background-color: var(--color-green-100); color: var(--color-green-600); p, .icon { color: var(--color-green-600) !important; } }
+.badge.amber { background-color: var(--color-amber-100); p, .icon { color: var(--color-amber-600) !important; } }
+.badge.blue { background-color: var(--color-blue-100); color: var(--color-blue-600); p, .icon { color: var(--color-blue-600) !important; } }
+.badge.purple { background-color: var(--color-purple-100); color: var(--color-purple-600); p, .icon { color: var(--color-purple-600) !important; } }
+.badge.pink { background-color: var(--color-pink-100); color: var(--color-pink-600); p, .icon { color: var(--color-pink-600) !important; } }
+.badge.teal { background-color: var(--color-teal-100); color: var(--color-teal-600); p, .icon { color: var(--color-teal-600) !important; } }
+.badge.brown { background-color: var(--color-brown-100); color: var(--color-brown-600); p, .icon { color: var(--color-brown-600) !important; } }
+.badge.orange { background-color: var(--color-orange-100); color: var(--color-orange-600); p, .icon { color: var(--color-orange-600) !important; } }
+
+
+@keyframes badge-shake {
+  0% { transform: rotate(20deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(20deg); }
+}
+
+#forbidden-contents {
+  .badge {
+    top: 32px;
+    right: -56px;
+  }
+}
+/* //////////////////////// End Badge //////////////////////// */
+
+
+/* //////////////////////// Button //////////////////////// */
+.button {
+  border: none;
+  border-radius: var(--border-radius-full);
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
+
+  width: fit-content;
+  height: fit-content;
+  
+  a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.small {
+    padding: 4px 12px;
+    font-size: var(--font-size-small-1);
+
+    & a {
+      gap: 4px;
+    }
+  }
+
+  &.normal {
+    padding: 5.33px 12px;
+    font-size: var(--font-size-paragraph);
+
+    & a {
+      gap: 4px;
+    }
+  }
+
+  &.large {
+    padding: 6.67px 20px;
+    font-size: var(--font-size-header-6);
+
+    & a {
+      gap: 8px;
+    }
+  }
+
+  &.small img { margin-right: 4px; max-height: 16px; }
+  &.normal img { margin-right: 4px; max-height: 20px; }
+  &.large img { margin-right: 8px; max-height: 24px; }
+
+  &.danger {
+    background-color: var(--color-red-500);
+    color: var(--color-button_primary_text);
+    transition: max-width 1s;
+    
+
+    &:hover {
+        animation: danger-wiggle 100ms infinite;
+        animation-timing-function: linear;  
+    }
+  }
+}
+
+.button.filled { color: var(--color-button_primary_text); }
+.button.filled.grey { background-color: var(--color-grey-500); &:hover { background-color: var(--color-grey-400); }}
+.button.filled.red { background-color: var(--color-red-500); &:hover { background-color: var(--color-red-400); }}
+.button.filled.green { background-color: var(--color-green-500); &:hover { background-color: var(--color-green-400); }}
+.button.filled.amber { background-color: var(--color-amber-500); &:hover { background-color: var(--color-amber-400); }}
+.button.filled.blue { background-color: var(--color-blue-500); &:hover { background-color: var(--color-blue-400); }}
+.button.filled.purple { background-color: var(--color-purple-500); &:hover { background-color: var(--color-purple-400); }}
+.button.filled.pink { background-color: var(--color-pink-500); &:hover { background-color: var(--color-pink-400); }}
+.button.filled.teal { background-color: var(--color-teal-500); &:hover { background-color: var(--color-teal-400); }}
+.button.filled.brown { background-color: var(--color-brown-500); &:hover { background-color: var(--color-brown-400); }}
+.button.filled.orange { background-color: var(--color-orange-500); &:hover { background-color: var(--color-orange-400); }}
+
+.button.shaded.grey { background-color: var(--color-grey-100); color: var(--color-grey-500); &:hover { background-color: var(--color-grey-200); }}
+.button.shaded.red { background-color: var(--color-red-100); color: var(--color-red-500); &:hover { background-color: var(--color-red-200); }}
+.button.shaded.green { background-color: var(--color-green-100); color: var(--color-green-500); &:hover { background-color: var(--color-green-200); }}
+.button.shaded.amber { background-color: var(--color-amber-100); color: var(--color-amber-500); &:hover { background-color: var(--color-amber-200); }}
+.button.shaded.blue { background-color: var(--color-blue-100); color: var(--color-blue-500); &:hover { background-color: var(--color-blue-200); }}
+.button.shaded.purple { background-color: var(--color-purple-100); color: var(--color-purple-500); &:hover { background-color: var(--color-purple-200); }}
+.button.shaded.pink { background-color: var(--color-pink-100); color: var(--color-pink-500); &:hover { background-color: var(--color-pink-200); }}
+.button.shaded.teal { background-color: var(--color-teal-100); color: var(--color-teal-500); &:hover { background-color: var(--color-teal-200); }}
+.button.shaded.brown { background-color: var(--color-brown-100); color: var(--color-brown-500); &:hover { background-color: var(--color-brown-200); }}
+.button.shaded.orange { background-color: var(--color-orange-100); color: var(--color-orange-500); &:hover { background-color: var(--color-orange-200); }}
+
+.button.plain { background-color: transparent; color: var(--color-text_primary); border: 1px solid transparent; box-sizing: border-box; &:hover { border-color: var(--color-grey-100); }}
+
+@keyframes danger-wiggle {
+  0% { transform: translate(0.5px, 0.2); }
+  50% { transform: translate(-1px, -0.2px); }
+  100% { transform: translate(0.5px, 0.4px); }
+}
+/* //////////////////////// End Button //////////////////////// */
+
+/* //////////////////////// Input //////////////////////// */
+.input {
+  display: flex;
+  flex-direction: column;
+  
+  input {
+    transition: border-color 200ms ease;
+    outline: none;
+    border: 1px solid var(--color-border_primary);
+
+    &::placeholder {
+      color: var(--color-text_secondary)
+    }
+
+    &:hover {
+      border-color: var(--color-border_hover);
+    }
+
+    &:active, &:focus {
+      border-color: var(--color-border_active);
+    }
+
+    &:disabled {
+      border-color: transparent;
+      background-color: var(--color-grey-100);
+      color: var(--color-text_secondary);
+    }
+  }
+
+  &.small {
+    max-width: 192px;
+    gap: 4px;
+
+    input { padding: 4px 8px; border-radius: var(--border-radius-8); }
+    label { font-size: var(--font-size-small-1); }
+  }
+
+  &.normal {
+    max-width: 256px;
+    gap: 4px;
+
+    input { padding: 5.5px 12px; border-radius: var(--border-radius-12); }
+    label { font-size: var(--font-size-paragraph); }
+  }
+
+  &.large {
+    max-width: 320px;
+    gap: 8px;
+
+    input { padding: 7px 12px; border-radius: var(--border-radius-12); }
+    label { font-size: var(--font-size-header-6); }
+  }
+}
+/* //////////////////////// End Input //////////////////////// */
+
+
+/* //////////////////////// Menu Option //////////////////////// */
+.menu-option {
+  text-decoration: none;
+  border: none;
+  padding: 8px 20px 8px 12px;
+  margin-right: 4px;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0px;
+  cursor: pointer;
+  border-radius: var(--border-radius-full);
+  align-items: center;
+  transition: 
+    color 400ms ease,
+    background-color 200ms ease;
+
+  span {
+    margin-left: 4px;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  &.singular {  
+    color: var(--color-text_primary); 
+    
+    &:hover {
+      color: var(--color-text_secondary);
+    }
+  }
+
+  &.seperated {   
+    color: var(--color-text_secondary);
+    padding-right: 8px;
+    width: auto;
+
+    span {
+      display: inline-block;
+      position: relative;
+      opacity: 0;
+      max-width: 0;
+      transition: 
+        all 0.5s cubic-bezier(0.86, 0, 0.1, 1);
+
+      transform: translateX(0px);
+      pointer-events: none; /* Without this line, span will enable the hover to occur, and we dont want that. */
+      
+    }
+
+    &.checked {
+      background-color: var(--color-amber-100);
+      color: var(--color-amber-500);
+
+      span {
+        opacity: 1;
+        max-width: 200px;
+        padding-right: 12px;
+        transform: translateX(0px);
+
+      }
+    }
+
+    &:not(.checked):hover {
+      background-color: var(--color-grey-100);
+      color: var(--color-grey-500);
+
+      span {
+        color: var(--color-grey-500);
+        opacity: 1;
+        max-width: 200px;
+        padding-right: 12px;
+        transform: translateX(0px);
+
+      }
+    }
+  }
+}
+/* //////////////////////// End Menu Option //////////////////////// */
+
+
+/* //////////////////////// Topbar //////////////////////// */
+.topbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0px;
+  border-radius: var(--border-radius-full);
+  margin: 0 auto; /* EASSSSY WAY TO POSITION SOMETHING IN THE CENTER OF SCREEN :DD */
+  z-index: 99999;
+
+  position: sticky;
+    /* To be able to make sticky actually work we need top, 
+      if we didn't have top present then it will be basically relative positioning.
+    */
+    top: 16px; 
+
+  &.singular {
+    /* Setting max widths are basically a cheatcode in solving 90% of responsiveness issues.
+       If height and width properties were specified there will be overflow issues IF a user 
+       has a small screen resolution :)
+    */
+    max-width: 812px;
+    max-height: 56px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px 8px 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(40px);
+
+    .logo-container a {
+      display: flex;
+      flex-direction: row;
+      text-decoration: none;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-amber-1100);
+      font-size: var(--font-size-header-6);
+      font-weight: var(--font-weight-semibold);
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    
+  }
+  
+  &.seperated {
+    width: 100%;
+    height: 56px;
+    position: relative;
+    
+    .topbar-container:first-child img {
+      border: 1px solid var(--color-grey-100);
+      border-radius: var(--border-radius-full);
+      padding: 8px;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .topbar-container:last-child {
+      padding-right: 20px;
+    }
+
+    .topbar-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(40px);
+      border-radius: var(--border-radius-full);
+      padding: 8px;
+    }
+  }
+}
+/* //////////////////////// End Topbar //////////////////////// */
+
+/* //////////////////////// Icon //////////////////////// */
+.icon {
+  &.small-4 {
+    width: 8px;
+    height: 8px;
+  }
+
+  &.small-3 {
+    width: 12px;
+    height: 12px;
+  }
+
+  &.small-2 {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.small-1 {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.normal {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.large {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.extra-large {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* //////////////////////// End Icon //////////////////////// */
+
+/* //////////////////////// Popup //////////////////////// */
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(240, 240, 240, 0.6);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  z-index:auto;
+  pointer-events: none;
+  overflow-y: scroll;
+
+  .popup-content-wrapper {
+    transform: scale(0.8);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    padding: 32px 64px;
+    border-radius: var(--border-radius-32);
+    background-color: white;
+    max-width: 512px;
+    z-index: 1000;
+    margin: 0px 16px;
+    
+    h5 {
+      text-align: center;
+      font-weight: var(--font-weight-medium);
+      align-self: center;
+      font-size: var(--font-size-header-4);
+      margin: 0;
+    }
+
+    p {
+      font-weight: var(--font-weight-regular);
+      text-align: center;
+      align-self: center;
+      color: var(--color-text_secondary);
+      margin: 16px 0 0 0;
+    }
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    visibility: visible;
+
+    .popup-content-wrapper {
+      transform: scale(1);
+    }
+  }
+
+  .popup-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 64px;
+  }
+}
+/* //////////////////////// End Popup //////////////////////// */
+
+/* //////////////////////// Footer //////////////////////// */
+footer {
+  width: 100%;
+  height: 11.25em;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 128px;
+}
+
+/* 
+    Makes ALL the child elements inside of footer layered above the actual gradient itself,
+    Without this line will make all child elements appear behind the footer's gradient.
+*/
+footer * {
+  z-index: 1;
+}
+
+/* Use ::after to add a gradient to the footer */
+footer::after { 
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;  
+  background: linear-gradient(0deg, rgb(252, 238, 214) 0%, rgba(252, 238, 214,0) 100%);
+}
+
+#glow-logo-footer {
+  position: absolute; /* Make the logo in the footer absolute to make it 'actually' appear in the center */
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+#glow-logo-footer img {
+  animation: footer-logo-animation 20000ms infinite linear;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+#glow-logo-footer img:hover {
+  cursor: pointer;
+  animation-play-state: running;
+}
+
+#footer-menu {
+  display: inline-flex;
+  gap: 24px;
+}
+
+@keyframes footer-logo-animation {
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+    
+}
+/* //////////////////////// End Footer //////////////////////// */
