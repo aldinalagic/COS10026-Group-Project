@@ -306,14 +306,26 @@ body > *:not(.topbar) {
 
 /* //////////////////////// jobs.php //////////////////////// */
 #jobs-body {
+    overflow-x: hidden;
     .topbar {
         opacity: 0;
-        animation-name:  topbar-animate-in;
+        animation-name: topbar-animate-in;
         animation-duration: 1400ms;
         animation-delay: 3000ms;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
     }
+}
+
+#jobs-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    transition: all ease-in-out 1s;
+}
+
+#jobs-wrapper > * {
+    flex: 0 0 auto;
 }
 
 #glow-fancy {
@@ -415,25 +427,32 @@ body > *:not(.topbar) {
 }
 
 #open-positions-wrapper {
-    background-color: var(--color-background_secondary);
-    padding-left: 19%;
-    padding-right: 19%;
-    padding-top: 56px;
+    background-color: var(--color-background_primary);
+    border-top: 1px solid var(--color-border_primary);
+    padding-top: 128px;
     padding-bottom: 128px;
+    margin-bottom: 256px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     gap: 32px;
+    max-width: 100%;
+}
+
+#open-positions {
+    width: 892px;
 }
 
 #open-positions-header {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: normal;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 896px;
 }
+
 
 #open-positions-header h3 {
     order: 0;
@@ -441,6 +460,7 @@ body > *:not(.topbar) {
     font-weight: var(--font-weight-600);
     margin-top: auto;
     margin-right: 16px;
+    align-self: flex-start;
 }
 
 #open-positions-header aside {
@@ -449,97 +469,65 @@ body > *:not(.topbar) {
     color: var(--color-text_secondary);
     font-weight: var(--font-weight-400);
     margin-left: auto;
+    text-align: right;
 }
 
 .job-position {
-    background-color: var(--color-background_primary);
-    width: 100%;
-    box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: normal;
-    gap: 16px;
-    padding: 16px 72px 16px 16px;
-    border-radius: 32px;
-
+    gap: 32px;
+    height: fit-content;
+    justify-content: space-between;
+    padding: 32px;
+    background-color: var(--color-blue-100);
+    border-radius: var(--border-radius-full);
 }
 
-.job-position-icon-wrapper {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--color-background_secondary);
-    display: flex;
+.job-position-left {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 24px;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-  }
-
-.job-position-icon-wrapper img {
-    object-fit: contain;
+    color: var(--color-blue-500);
 }
 
-.job-contents {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: normal;
-    gap: 32px;
+.job-position-left .icon {
+    padding: 12px;
+    background-color: var(--color-blue-200);
+    border-radius: var(--border-radius-full);
 }
 
-.job-contents-header h5 {
-    font-weight: var(--font-weight-600);
-    color: var(--colour-text-primary);
-    margin: auto;
-    margin-bottom: 8px;
+.job-position-left h5 {
+    margin: 0;
 }
 
-.job-contents-header p {
-    font-weight: var(--font-weight-400);
-    color: var(--color-text_secondary);
-    margin: auto;
-}
-
-.job-contents div h6 {
-    font-weight: var(--font-weight-600);
-    color: var(--colour-text-primary);
-    margin: auto;
-}
-
-.job-contents div p, .job-contents div ul, .job-contents div ol {
-    font-weight: var(--font-weight-400);
-    font-size: var(--font-size-paragraph);
-    color: var(--colour-text-primary);
-    font-weight: var(--font-weight-400);
-    margin-top: 8px;
-    margin-bottom: 0px;
-}
-
-.job-position-bottom-wrapper {
-    display: flex;
+.job-position-right {
+    display: inline-flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    gap: 16px;
     align-items: center;
-    align-content: normal;
-    gap: 0;
+    justify-content: center;
 }
 
-.job-position-bottom-wrapper p {
-    font-weight: var(--font-weight-400);
+.job-position-right p {
     color: var(--color-text_secondary);
 }
 
+#jobs-toggle:checked ~ #jobs-wrapper #jobs-page {
+    transform: translateX(-100%);
+    opacity: 0;
+}
 
-.job-position-icon {
-    background-color: var(--color-background_secondary);
-    border: 1px solid var(--color-border_primary);
-    width: 40px;
+#jobs-toggle:checked ~ #jobs-wrapper #overview-page {
+    transform: translateX(-100%);
+    z-index: 2;
+}
+
+label[for="jobs-toggle"] button,
+label[for="jobs-toggle"] .button {
+    pointer-events: none;
+    cursor: pointer;
 }
 
 @keyframes glow-fancy-write {
@@ -611,6 +599,11 @@ body > *:not(.topbar) {
     }
 }
 
+#jobs-page {
+    width: 100vw;
+    height: 100vh;
+}
+
 .topbar-go-back {
     position: absolute;
     margin-top: 16px;
@@ -623,6 +616,11 @@ body > *:not(.topbar) {
     -webkit-backdrop-filter: blur(20px);
 
     border-radius: var(--border-radius-full);
+}
+
+#overview-page {
+    width: 100vw;
+    height: 100vh;
 }
 
 #overview-header-wrapper {
@@ -734,17 +732,11 @@ body > *:not(.topbar) {
 }
 
 #overview-bottom {
-    padding-top: 128px;
-    padding-bottom: 128px;
-    width: 100%;
-    max-width: 896px;
-    max-height: 256px;
-    margin-top: 64px;
+    position: relative;
     background-color: var(--color-amber-100);
     border-radius: var(--border-radius-40);
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 128px;
+    padding-top: 128px;
+    padding-bottom: 128px;
 }
 
 #overview-bottom > div:nth-of-type(1) {
@@ -768,13 +760,11 @@ body > *:not(.topbar) {
     margin-right: auto;
 }
 
-#overview-bottom > div:nth-of-type(2) {
-    overflow: hidden;
-    left: 0;
-    bottom: 0;
+#jobs-page,
+#overview-page {
+  transition: 
+    all 1s cubic-bezier(0.23, 1, 0.320, 1);
 }
-
-
 
 /* //////////////////////// End jobs.php //////////////////////// */
 
