@@ -1318,3 +1318,97 @@ td {
 }
 
 /* //////////////////////// End about.php //////////////////////// */
+
+/* //////////////////////// manage-header.inc //////////////////////// */
+
+#manage-header {
+    display: flex;
+    width: 100vw;
+
+    justify-content: space-between;
+    padding: 16px 32px;
+    background-color: var(--color-background_primary);
+    border-bottom: 1px solid var(--color-border_primary);
+}
+
+/* //////////////////////// End manage-header.inc //////////////////////// */
+
+/* //////////////////////// applications.php //////////////////////// */
+
+#app-grid {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 32px;
+    flex-direction: row;
+    margin: 16px;
+}
+
+.app-card {
+    display: grid;
+    grid-template-areas:
+        "id status"
+        "name name"
+        "button button";
+    grid-template-columns: min-content auto;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid #E1E4E8;
+    border-radius: 32px;
+    width: 310px;
+    min-width: 200px;
+    height: 200px;
+    margin-bottom: 32px;
+}
+#appid {
+    grid-area: id;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    background-color: #E1FBE1;
+    color: #36D635;
+    margin: 0;
+    margin-top: 24px;
+    margin-left: 24px;
+    width: 26px;
+    height: 26px;
+    padding: 6px;
+    border-radius: 32px;
+}
+#appid p {
+    margin: 0;
+    padding: 0;
+}
+#appstatus {
+    grid-area: status;
+    background-color: #E1FBE1;
+    color: #36D635;
+    height: fit-content;
+    padding: 0.1em 0.5em;
+    border-radius: 0.7em;
+    float: right;
+    margin-left: auto;
+    margin-right: 24px;
+    font-size: 10px;
+}
+#appname {
+    grid-area: name;
+    font-size: 16px;
+    margin: 0;
+    margin-left: 24px;
+    margin-top: 8px;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border-radius: 32px;
+}
+
+.app-card div {
+    grid-area: button;
+    width:fit-content;
+    height:fit-content;
+    margin-left: auto;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+/* //////////////////////// End applications.php //////////////////////// */
