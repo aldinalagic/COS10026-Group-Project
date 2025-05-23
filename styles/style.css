@@ -306,7 +306,8 @@ body > *:not(.topbar) {
 
 /* //////////////////////// jobs.php //////////////////////// */
 #jobs-body {
-    overflow-x: hidden;
+    overflow: hidden;
+
     .topbar {
         opacity: 0;
         animation-name: topbar-animate-in;
@@ -380,7 +381,8 @@ body > *:not(.topbar) {
     width: 100%;
     height: 100%;
     border: none;
-    position: relative;
+    position: absolute;
+    top: -56px;
     z-index: 0;
     opacity: 0;
     
@@ -515,6 +517,7 @@ body > *:not(.topbar) {
 }
 
 #jobs-toggle:checked ~ #jobs-wrapper #jobs-page {
+    overflow: hidden;
     transform: translateX(-100%);
     opacity: 0;
 }
@@ -600,9 +603,16 @@ label[for="jobs-toggle"] .button {
 }
 
 #jobs-page {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .topbar {
+    position: sticky;
+    top: 16px;
+  }
 }
+
 
 .topbar-go-back {
     position: absolute;
@@ -762,8 +772,18 @@ label[for="jobs-toggle"] .button {
 
 #jobs-page,
 #overview-page {
-  transition: 
-    all 1s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: scroll;
+  transition: transform 1s cubic-bezier(0.23, 1, 0.320, 1), opacity 1s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#jobs-toggle:not(:checked) ~ #jobs-wrapper #jobs-page {
+  animation: enable-scroll 2s forwards;
+}
+
+@keyframes enable-scroll {
+  to {
+      overflow: auto;
+  }
 }
 
 /* //////////////////////// End jobs.php //////////////////////// */
