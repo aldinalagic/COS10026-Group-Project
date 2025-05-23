@@ -1,7 +1,8 @@
 <?php 
     require_once 'button.php';
     require_once 'popup.php';
-    require_once 'tab.php'
+    require_once 'tab.php';
+    require_once 'avatar.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,21 +16,9 @@
 
 
 <body>
-    <?php  echo createTab() ?>
-
     <?php   
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', '#popup');
-        echo createPopup('popup', '🔥 Delete Application?', 'Are you sure you want to delete {fullName}’s application? <br> We cant bring it back to life if you decide to delete it!', createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Pink, '', "Delete", 'button', 'index.php'));
+        echo createAvatar(AvatarSize::Normal, '{fullName}', true)
     ?>
-
 
 </body>
 </html>

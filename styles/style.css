@@ -3,9 +3,6 @@
 * {
   font-family: Switzer, sans-serif;
   font-weight: 400;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 body {
@@ -103,6 +100,10 @@ body {
 .avatar-wrapper p {
   margin: 0;
   padding: 0;
+
+  + .icon {
+    transition: all 0.1s ease-in-out;
+  }
 }
 
 .avatar {
@@ -119,6 +120,7 @@ body {
 
 .avatar-size-small p {
   font-size: 12px;
+  margin-right: 12px;
 }
 
 #avatar-normal {
@@ -129,6 +131,7 @@ body {
 
 .avatar-size-normal p {
   font-size: 16px;
+  margin-right: 16px;
 }
 
 #avatar-large {
@@ -139,6 +142,52 @@ body {
 
 .avatar-size-large p {
   font-size: 20px;
+  margin-right: 20px;
+}
+
+.avatar-pulldown-menu {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    padding: 16px;
+    border-radius: 24px;
+    outline: 1px solid var(--color-border_primary);
+    display: flex;
+    flex-direction: row;
+    gap: 72px;
+    width: fit-content;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+
+    .avatar-wrapper {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 16px;
+    }
+}
+
+/* Only display cursor as pointer if their is a label (avatar) next to input*/
+input[type='checkbox'] + label {
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked + label {
+  & + .avatar-pulldown-menu {
+    visibility: visible;
+    opacity: 1;
+
+  }
+
+  & p + .icon {
+    transform: rotate(180deg);
+  }
+}
+
+input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Badge */
@@ -198,6 +247,8 @@ body {
     background-color 200ms ease,
     border-color 200ms ease;
 
+    width: fit-content;
+    height: fit-content;
 
   &:hover {
     cursor: pointer;
