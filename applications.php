@@ -40,9 +40,8 @@
         echo createTopbar(
             TopbarVariant::SEPERATED, 
             array(
-                new MenuOption('./styles/images/suitcase_fill.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
-                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
-                new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
+                new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Applications', 'applications.php', true),
             ), 
             './styles/images/glow-logo.svg', 'Glow'
         );
@@ -50,13 +49,14 @@
     <div id="app-search">
     <form method="get" action="">
         <br>
+        <img src="/images/icons/searchicon.svg" alt="search" id="search-icon">
         <input 
             type="text" 
             name="search" 
-            placeholder="Search applications..." 
+            placeholder="Search" 
+            size="16"
             value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
         >
-        <button type="submit">Search</button>
     </form>
     </div>
     <?php
@@ -78,7 +78,7 @@
             else if ($app['status'] == 'Accepted') {
                 $BadgeColor = BadgeColor::Blue;
             }
-            if ($app['name'] == $searchString || $searchString == '') {
+            if (stripos($app['name'], $searchString) !== false || $searchString == '') {
                 echo "<div class='app-card'>",
                 "<div id='appid'><p>{$app['id']}</p></div>",
                 "<div id='appstatus'>" . createBadge(BadgeSize::Normal, '', $BadgeColor, $app['status']) . "</div>",
