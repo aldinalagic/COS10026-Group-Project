@@ -1,8 +1,5 @@
 <?php 
-    require_once 'button.php';
-    require_once 'popup.php';
-    require_once 'tab.php';
-    require_once 'avatar.php';
+    require_once 'checkbox.php'
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +13,10 @@
 
 
 <body>
+
+
     <?php   
-        echo createAvatar(AvatarSize::Normal, '{fullName}', true)
+        echo createCheckbox('languages', 'technical', 'langs', 'Progreamming lanuages')
     ?>
 
 </body>
