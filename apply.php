@@ -98,7 +98,7 @@
                 <div id="apply-grid-2">
                     <?php
                         echo createInput('email', 'email', 0, InputSize::Normal, 'you@example.com', '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', true, false, 'Enter email');
-                        echo createInput('text', 'phone-number', 0, InputSize::Normal, '000-000-000', '[0-9]{3}-[0-9]{3}-[0-9]{3}', true, false, 'Phone Number');
+                        echo createInput('text', 'phone-number', 0, InputSize::Normal, '0000-000-000', '[0-9]{4}-[0-9]{3}-[0-9]{3}', true, false, 'Phone Number');
                     ?>
                 </div>
 
@@ -118,7 +118,7 @@
 
                 <div id="apply-grid-3">
                     <div class="input-field">
-                        <label for="jobreference">State</label>
+                        <label for="jobreference">Job Reference ID</label>
                         <select name="jobreference" id="jobreference" class="input">
                             <option value="" disabled selected>Select</option>
                             <option value="net01">NET01</option> 
