@@ -12,7 +12,8 @@
         $maxLength = $maxLength == 0 ? '' : "maxlength=$maxLength";
         $required = $required == true ? 'required' : '';
         $disabled = $disabled == true ? 'disabled' : '';
-        $attributes = "type='$type' name='$name' $maxLength placeholder='$placeholder' pattern='$pattern' $required $disabled";
+        $hasPattern = ctype_space($pattern) || strlen($pattern) == 0 ? '' : "pattern='$pattern'";
+        $attributes = "type='$type' name='$name' $maxLength placeholder='$placeholder' $hasPattern $required $disabled";
         
         return "<div class='input $sizeVaue'><label for=$name>$label</label><input $attributes></input></div>";
     }

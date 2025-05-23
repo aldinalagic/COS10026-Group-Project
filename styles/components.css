@@ -761,7 +761,7 @@ footer::after {
   border: 1px solid var(--color-border_primary);
   border-radius: 6px;
   vertical-align: middle;
-  transition: var(--color-background_primary) 0.1s ease;
+  transition: all 0.1s ease;
   cursor: pointer;
   transition: all 0.1s ease;
 }
@@ -790,20 +790,24 @@ footer::after {
   transition: all 0.3s ease;
   transition-delay: 0.15s;
 }
+
 .checkbox-wrapper .lbl {
   margin-left: 5px;
   vertical-align: middle;
   cursor: pointer;
 }
+
 .checkbox-wrapper input[type="checkbox"]:checked ~ .cbx {
   border-color: transparent;
-  background: var(--color-blue-500);
+  background: var(--color-amber-500);
   animation: jelly 0.6s ease;
 }
+
 .checkbox-wrapper input[type="checkbox"]:checked ~ .cbx:after {
   opacity: 1;
   transform: rotate(45deg) scale(1);
 }
+
 .checkbox-wrapper .cntr {
   position: absolute;
   top: 50%;
@@ -811,6 +815,7 @@ footer::after {
   width: 100%;
   text-align: center;
 }
+
 @-moz-keyframes jelly {
   from {
     transform: scale(1, 1);
@@ -904,3 +909,73 @@ footer::after {
   }
 }
 /* //////////////////////// End Checkbox //////////////////////// */
+
+/* //////////////////////// Radio //////////////////////// */
+label.radio-wrapper {
+  display: block;
+  cursor: pointer;
+}
+
+label.radio-wrapper input {
+  display: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+label.radio-wrapper input + span {
+  line-height: 22px;
+  height: 22px;
+  padding-left: 22px;
+  display: block;
+  position: relative;
+}
+
+label.radio-wrapper input + span:not(:empty) {
+  padding-left: 30px;
+}
+
+label.radio-wrapper input + span:before, label.radio-wrapper input + span:after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  display: block;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+label.radio-wrapper input + span:before {
+  background: var(--color-grey-100);
+  transition: all 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+}
+
+label.radio-wrapper input + span:after {
+  background: #fff;
+  transform: scale(0.78);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+}
+
+label.radio-wrapper input:checked + span:before {
+  transform: scale(1.04);
+  background: var(--color-amber-500);
+}
+
+label.radio-wrapper input:checked + span:after {
+  transform: scale(0.4);
+  transition: transform 0.3s ease;
+}
+
+label.radio-wrapper:hover input + span:before {
+  transform: scale(0.92);
+}
+
+label.radio-wrapper:hover input + span:after {
+  transform: scale(0.74);
+}
+
+label.radio-wrapper:hover input:checked + span:after {
+  transform: scale(0.4);
+}
+/* //////////////////////// End Radio //////////////////////// */

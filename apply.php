@@ -2,7 +2,10 @@
     require_once 'topbar.php';
     require_once 'input.php';
     require_once 'button.php';
+    require_once 'checkbox.php';
+    require_once 'radio.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,20 +75,12 @@
                     ?>
                     <fieldset>
                         <legend>Gender</legend>
-                        <div class="radio-button">
-                            <input type="radio" name="gender" id="male" value="male" checked required>
-                            <label for="male">Male</label>
-                        </div>
-                        
-                        <div class="radio-button">
-                            <input type="radio" name="gender" id="female" value="female" required>
-                            <label for="female">Female</label>
-                        </div>
-                        
-                        <div class="radio-button">
-                            <input type="radio" name="gender" id="other" value="other" required>
-                            <label for="na">Other</label>
-                        </div>
+
+                        <?php
+                            echo createRadio('male', 'gender', 'male', 'Male', true);
+                            echo createRadio('female', 'gender', 'female', 'Female');
+                            echo createRadio('other', 'gender', 'other', 'Other');
+                        ?>
                     </fieldset>
                 </div>
 
@@ -133,42 +128,11 @@
 
                     <div id="checkbox-fieldset">
                         <p><label>Technical List</label></p>
-
-                        <div class="checkbox-wrapper">
-                          <label for="languages">
-                            <input type="checkbox" id="languages" name="technical[]" value="languages">
-                            <span class="cbx">
-                              <svg width="12px" height="11px" viewBox="0 0 12 11">
-                                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
-                              </svg>
-                            </span>
-                            <span>Programming Languages</span>
-                          </label>
-                        </div>
-                      
-                        <div class="checkbox-wrapper">
-                          <label for="framework">
-                            <input type="checkbox" id="framework" name="technical[]" value="framework">
-                            <span class="cbx">
-                              <svg width="12px" height="11px" viewBox="0 0 12 11">
-                                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
-                              </svg>
-                            </span>
-                            <span>Frameworks & Libraries</span>
-                          </label>
-                        </div>
-                      
-                        <div class="checkbox-wrapper">
-                          <label for="devops">
-                            <input type="checkbox" id="devops" name="technical[]" value="devops">
-                            <span class="cbx">
-                              <svg width="12px" height="11px" viewBox="0 0 12 11">
-                                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
-                              </svg>
-                            </span>
-                            <span>DevOps & Tools</span>
-                          </label>
-                        </div>
+                        <?php
+                            echo createCheckbox('languages', 'technical[]', 'languages', 'Programming Languages');
+                            echo createCheckbox('framework', 'technical[]', 'framework', 'Frameworks & Libraries');
+                            echo createCheckbox('devops', 'technical[]', 'devops', 'DevOps & Tools');
+                        ?>
                     </div>
 
                     <div class="input-field">
