@@ -37,7 +37,7 @@
                         new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
                         new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
                     ), 
-                    './styles/images/glow-logo.svg', 'Glow'
+                    './styles/images/glow-logo.svg', 'Careers'
                 )
             ?>
             <section id="discover-wrapper">
