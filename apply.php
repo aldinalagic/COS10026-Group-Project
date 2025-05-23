@@ -15,7 +15,7 @@
     <meta name="description" content="Job application page"> 
     <meta name="keywords" content="Website, apply"> 
     <meta name="author" content="group">
-    <title>Apply</title>
+    <title>Glow | Apply</title>
     <link href="styles/style.css" rel="stylesheet">
 </head>
 <body class="apply-body">

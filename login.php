@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Login</title>
+    <title>Glow | Manager Login</title>
 </head>
 <body id="login-body">
     <img src="images/login-graphic.png" alt="login-graphic" id="login-graphic">
