@@ -1,6 +1,15 @@
 <?php
     require_once 'button.php';
     require_once 'popup.php';
+    require_once 'settings.php';
+    session_start();
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
+    // Get the first name from the database
+    $email = $_SESSION['email'];
+    $result = mysqli_query($conn, "SELECT FirstName FROM managers WHERE Email='$email'");
+    $row = mysqli_fetch_assoc($result);
+    $FirstName = $row ? $row['FirstName'] : '';
 ?>
 
 <html lang="en">
@@ -12,15 +21,17 @@
     <style>
         .button {
             width: fit-content;
-            height: fit-content`;
+            height: fit-content;
         }
     </style>
 </head>
-<body>
+<body id="home-body">
+    <div>
     <?php
-        echo createButton(variant: ButtonVariant::Danger, href: '#popup');
-        echo createPopup('#popup', 'Popup', 'This is a popup', createButton(variant: ButtonVariant::Danger, href: 'index.php'));
+        //echo createButton(variant: ButtonVariant::Danger, href: '#popup');
+        //echo createPopup('#popup', 'Popup', 'This is a popup', createButton(variant: ButtonVariant::Danger, href: 'index.php'));
+        echo "<h1>👋 Welcome back " . $FirstName . "!</h1>";
     ?>
-
+    </div>
 </body>
 </html>

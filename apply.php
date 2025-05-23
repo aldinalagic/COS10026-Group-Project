@@ -37,7 +37,7 @@
     </section>
 
     <div class="apply-form-container">
-        <form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+        <form method="post" action="process-eoi.php">
             <section id="personal-information">
                 <div class="apply-header">
                     <img src="images/icons/person-run.svg" alt="Personal Information Icon">
