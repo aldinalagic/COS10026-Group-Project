@@ -153,7 +153,7 @@
     top: 56px;
     right: 16px;
     
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     .avatar-wrapper {
       align-items: flex-start;
@@ -456,7 +456,7 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
       opacity: 0;
       max-width: 0;
       transition: 
-        all 0.5s cubic-bezier(0.86, 0, 0.1, 1);
+        all 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
       transform: translateX(0px);
       pointer-events: none; /* Without this line, span will enable the hover to occur, and we dont want that. */

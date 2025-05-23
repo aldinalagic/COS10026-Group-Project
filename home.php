@@ -34,14 +34,11 @@
          echo createTopbar(
             TopbarVariant::SEPERATED, 
             array(
-                new MenuOption('./styles/images/suitcase_fill.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
-                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
-                new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
+                new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php', true),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Applications', 'applications.php'),
             ), 
             './styles/images/glow-logo.svg', 'Glow'
         );
-        echo createButton(variant: ButtonVariant::Danger, href: '#popup');
-        echo createPopup('#popup', 'Popup', 'This is a popup', createButton(variant: ButtonVariant::Danger, href: 'index.php'));
         echo "<h1>👋 Welcome back " . $FirstName . "!</h1>";
     ?>
     </div>
