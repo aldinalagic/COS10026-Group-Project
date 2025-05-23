@@ -534,11 +534,6 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
       color: var(--color-amber-1100);
       font-size: var(--font-size-header-6);
       font-weight: var(--font-weight-semibold);
-
-      img {
-        width: 24px;
-        height: 24px;
-      }
     }
     
   }
