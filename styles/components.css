@@ -152,9 +152,9 @@
     position: absolute;
     top: 56px;
     right: 16px;
-    
-    transition: all 0.3s ease-in-out;
-
+    transform: translateY(-8px) scale(0.96);
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: top right;
     .avatar-wrapper {
       align-items: flex-start;
       flex-direction: column;
@@ -171,6 +171,7 @@ input[type='checkbox']:checked + label {
   & + .avatar-pulldown-menu {
     visibility: visible;
     opacity: 1;
+    transform: translateY(0px) scale(1);
 
   }
 
@@ -550,6 +551,7 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
 
     .topbar-container:last-child {
       padding-right: 20px;
+      margin-right: 16px;
     }
 
     .topbar-container {
