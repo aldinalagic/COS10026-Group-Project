@@ -32,7 +32,7 @@ CREATE TABLE eoi (
     Skill2 VARCHAR(100),
     Skill3 VARCHAR(100),
     OtherSkills TEXT,
-    STATUS VARCHAR(20);
+    STATUS VARCHAR(20)
 );
 CREATE TABLE jobs (
     JobReferenceNumber VARCHAR(50) PRIMARY KEY NOT NULL,

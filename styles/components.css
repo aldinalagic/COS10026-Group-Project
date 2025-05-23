@@ -152,9 +152,9 @@
     position: absolute;
     top: 56px;
     right: 16px;
-    
-    transition: all 0.5s ease-in-out;
-
+    transform: translateY(-8px) scale(0.96);
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: top right;
     .avatar-wrapper {
       align-items: flex-start;
       flex-direction: column;
@@ -171,6 +171,7 @@ input[type='checkbox']:checked + label {
   & + .avatar-pulldown-menu {
     visibility: visible;
     opacity: 1;
+    transform: translateY(0px) scale(1);
 
   }
 
@@ -456,7 +457,7 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
       opacity: 0;
       max-width: 0;
       transition: 
-        all 0.5s cubic-bezier(0.86, 0, 0.1, 1);
+        all 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
       transform: translateX(0px);
       pointer-events: none; /* Without this line, span will enable the hover to occur, and we dont want that. */
@@ -501,27 +502,25 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
   justify-content: space-between;
   gap: 0px;
   border-radius: var(--border-radius-full);
-  margin: 0 auto; /* EASSSSY WAY TO POSITION SOMETHING IN THE CENTER OF SCREEN :DD */
+  margin: 0 auto;
   z-index: 99999;
 
-  position: sticky;
-  
-  /* To be able to make sticky actually work we need top, 
-    if we didn't have top present then it will be basically relative positioning.
-  */
-  top: 16px; 
+  position: fixed;
+  top: 16px;
+  left: 0;
+  right: 0;
+  pointer-events: auto;
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
 
   &.singular {
-    /* Setting max widths are basically a cheatcode in solving 90% of responsiveness issues.
-       If height and width properties were specified there will be overflow issues IF a user 
-       has a small screen resolution :)
-    */
     max-width: 812px;
     max-height: 56px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 16px 8px 16px;
+    padding: 8px 16px;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(40px);
 
@@ -535,14 +534,13 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
       font-size: var(--font-size-header-6);
       font-weight: var(--font-weight-semibold);
     }
-    
   }
-  
+
   &.seperated {
     width: 100%;
     height: 56px;
     position: relative;
-    
+
     .topbar-container:first-child img {
       border: 1px solid var(--color-grey-100);
       border-radius: var(--border-radius-full);
@@ -550,9 +548,10 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
       width: 24px;
       height: 24px;
     }
-    
+
     .topbar-container:last-child {
       padding-right: 20px;
+      margin-right: 16px;
     }
 
     .topbar-container {
