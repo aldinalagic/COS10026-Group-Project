@@ -29,7 +29,7 @@ $query = "INSERT INTO eoi (JobReferenceNumber, FirstName, LastName, StreetAddres
 $result = mysqli_query($conn, $query);
 
 if ($result) {
-    echo "✅ Application submitted successfully.";
+    echo "<h3>✅ Application submitted successfully.</h3>";
 } else {
     echo "❌ Error: " . mysqli_error($conn);
 }

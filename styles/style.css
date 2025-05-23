@@ -1266,6 +1266,20 @@ td {
 
 /* //////////////////////// applications.php //////////////////////// */
 
+#app-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-start;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#app-search input {
+    border: 0;
+    box-shadow: none;
+}
+
 #app-grid {
     justify-self: center;
     align-self: center;
