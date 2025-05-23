@@ -87,29 +87,32 @@
 .avatar-wrapper {
   display: flex;
   align-items: center;
-  width: fit-content;
-  height: fit-content;
 }
 
 .avatar-wrapper p {
   margin: 0;
   padding: 0;
+
+  + .icon {
+    transition: all 0.1s ease-in-out;
+  }
 }
 
 .avatar {
-  border-radius: var(--border-radius-full);
+  border-radius: 9999px;
   background-color: var(--color-grey-100);
 }
 
 #avatar-small {
   width: 24px;
   height: 24px;
-  font-size: var(--font-size-small-1);
+  font-size: 12px;
   margin-right: 4px;
 }
 
 .avatar-size-small p {
-  font-size: var(--font-size-small-1);
+  font-size: 12px;
+  margin-right: 12px;
 }
 
 #avatar-normal {
@@ -119,7 +122,8 @@
 }
 
 .avatar-size-normal p {
-  font-size: var(--font-size-paragraph);
+  font-size: 16px;
+  margin-right: 16px;
 }
 
 #avatar-large {
@@ -129,7 +133,56 @@
 }
 
 .avatar-size-large p {
-  font-size: var(--font-size-header-6);
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.avatar-pulldown-menu {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    padding: 16px;
+    border-radius: 24px;
+    outline: 1px solid var(--color-border_primary);
+    display: flex;
+    flex-direction: row;
+    gap: 72px;
+    width: fit-content;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 56px;
+    right: 16px;
+    
+    transition: all 0.5s ease-in-out;
+
+    .avatar-wrapper {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 16px;
+    }
+}
+
+/* Only display cursor as pointer if their is a label (avatar) next to input*/
+input[type='checkbox'] + label {
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked + label {
+  & + .avatar-pulldown-menu {
+    visibility: visible;
+    opacity: 1;
+
+  }
+
+  & p + .icon {
+    transform: rotate(180deg);
+  }
+}
+
+input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 /* //////////////////////// End Avatar //////////////////////// */
 
@@ -215,6 +268,7 @@
     height: 100%;
     text-decoration: none;
     color: inherit;
+    white-space: nowrap;
   }
 
   &:hover {
@@ -451,10 +505,11 @@
   z-index: 99999;
 
   position: sticky;
-    /* To be able to make sticky actually work we need top, 
-      if we didn't have top present then it will be basically relative positioning.
-    */
-    top: 16px; 
+  
+  /* To be able to make sticky actually work we need top, 
+    if we didn't have top present then it will be basically relative positioning.
+  */
+  top: 16px; 
 
   &.singular {
     /* Setting max widths are basically a cheatcode in solving 90% of responsiveness issues.

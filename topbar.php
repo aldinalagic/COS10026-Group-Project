@@ -22,7 +22,7 @@
         // When a topbar is seperated, the width of the topbar will be 100%,
         // And what we do is create 2 more extra divs, one for the logo (left-side), and one for the avatar (right-side)
         if($variant == TopbarVariant::SEPERATED) {
-            $topbar .= "<div class='topbar-container'><a href='index.php'><img src='$logo'></a></div>" . $menuOptionsContainer . "<div class='topbar-container'>" . createAvatar(AvatarSize::Normal, 'Name') . "</div>";
+            $topbar .= "<div class='topbar-container'><a href='index.php'><img src='$logo'></a></div>" . $menuOptionsContainer . "<div class='topbar-container'>" . createAvatar(AvatarSize::Normal, 'Name', true) . "</div>";
         } else {
             $topbar .= "<div class='logo-container'><a href='index.php'><img src='$logo'>$logoText</a></div>" . $menuOptionsContainer . createAvatar(AvatarSize::Normal, '');
         }

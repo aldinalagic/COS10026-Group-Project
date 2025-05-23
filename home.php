@@ -1,4 +1,5 @@
 <?php
+    require_once 'topbar.php';
     require_once 'button.php';
     require_once 'popup.php';
 ?>
@@ -18,6 +19,15 @@
 </head>
 <body>
     <?php
+         echo createTopbar(
+            TopbarVariant::SEPERATED, 
+            array(
+                new MenuOption('./styles/images/suitcase_fill.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Apply', 'apply.php'),
+                new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
+            ), 
+            './styles/images/glow-logo.svg', 'Glow'
+        );
         echo createButton(variant: ButtonVariant::Danger, href: '#popup');
         echo createPopup('#popup', 'Popup', 'This is a popup', createButton(variant: ButtonVariant::Danger, href: 'index.php'));
     ?>
