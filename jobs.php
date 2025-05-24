@@ -3,13 +3,24 @@
     require_once 'button.php';
     require_once 'icon.php';
     require_once 'footer.php';
+    require_once 'settings.php';
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
-    // When the job description is retrived from the database this function gets called,
-    // which is used to split up and categorise the job description into various sections.
-    // This function returns an associative array (key-value pair) where the key is the heading,
-    // and the value is the text that beongs to that heading.
-    function processDescription() {
-        $description = [];
+    $jobs = [];
+    $result = mysqli_query($conn, "SELECT * FROM jobs");
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $jobs[] = [
+                'jobid' => $row['JobReferenceNumber'],
+                'title' => $row['JobTitle'],
+                'description' => $row['JobDescription'],
+                'icon' => $row['IconPath']
+                // Add other fields as needed
+            ];
+        }
     }
 ?>
 
@@ -62,22 +73,24 @@
                         <h3>Open Positions</h3>
                         <aside>Discover 2 job positions <br> that are currently open.</aside>
                     </div>
-    
-                    <div class="job-position">
-                        <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
-                        <div class="job-position-left">
-                            <?php echo createIcon('./styles/images/wifi_fill.svg', IconSize::Large) ?>
-                            <h5>Network Administrator</h5>
-                        </div>
-                        
-                        <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
-                        <div class="job-position-right">
-                            <p>NET01</p>
-                            <label for="jobs-toggle">
-                                <?php echo createButton(ButtonSize::Large, ButtonVariant::Filled, ButtonColor::Amber, '','Explore', 'submit', '#!') ?>
-                            </label>
-                        </div>
-                    </div>
+                    
+                    
+                    <?php
+                        foreach ($jobs as $job) {
+                            echo "<div class='job-position'>",
+                                "<div class='job-position-left'>",
+                                    createIcon('./styles/images/wifi_fill.svg', IconSize::Large),
+                                    "<h5>{$job['title']}</h5>",
+                                "</div>",
+                                "<div class='job-position-right'>",
+                                    "<p>{$job['jobid']}</p>",
+                                    "<label for='jobs-toggle'>",
+                                        createButton(ButtonSize::Large, ButtonVariant::Filled, ButtonColor::Amber, '', 'Explore', 'submit', '#!'),
+                                    "</label>",
+                                "</div>",
+                            "</div>";
+                        }
+                    ?>
                 </div>
             </section>
 

@@ -4,6 +4,18 @@
     require_once 'button.php';
     require_once 'checkbox.php';
     require_once 'radio.php';
+    require_once 'settings.php';
+
+    $jobs=[];
+    $query = "SELECT * FROM jobs";
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $jobs[] = [
+                'jobid' => $row['JobReferenceNumber']
+            ];
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -121,8 +133,11 @@
                         <label for="jobreference">Job Reference ID</label>
                         <select name="jobreference" id="jobreference" class="input">
                             <option value="" disabled selected>Select</option>
-                            <option value="net01">NET01</option> 
-                            <option value="mac01">MAC01</option>
+                            <?php
+                                foreach ($jobs as $job) {
+                                    echo "<option value=\"{$job['jobid']}\">{$job['jobid']}</option>";
+                                }
+                            ?>
                         </select>
                     </div>
 

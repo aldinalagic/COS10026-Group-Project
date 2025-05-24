@@ -483,6 +483,7 @@ body > *:not(.topbar) {
     padding: 32px;
     background-color: var(--color-blue-100);
     border-radius: var(--border-radius-full);
+    margin-bottom: 32px;
 }
 
 .job-position-left {
