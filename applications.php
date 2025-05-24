@@ -80,10 +80,14 @@
             }
             if (stripos($app['name'], $searchString) !== false || $searchString == '') {
                 echo "<div class='app-card'>",
-                "<div id='appid'><p>{$app['id']}</p></div>",
-                "<div id='appstatus'>" . createBadge(BadgeSize::Large, '', $BadgeColor, $app['status']) . "</div>",
-                "<h5 id='appname'>{$app['name']}</h5>",
-                "<div>" . createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Manage', 'button', 'manage.php') . "</div>",
+                    "<div id='appid'><p>{$app['id']}</p></div>",
+                    "<div id='appstatus'>" . createBadge(BadgeSize::Large, '', $BadgeColor, $app['status']) . "</div>",
+                    "<h5 id='appname'>{$app['name']}</h5>",
+                    // Button as a form to redirect with EOI ID
+                    "<form method='get' action='manage.php'>",
+                        "<input type='hidden' name='eoi' value='{$app['id']}'>",
+                        createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Manage', 'submit'),
+                    "</form>",
                 "</div>";
             }
         }
