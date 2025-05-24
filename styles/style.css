@@ -1242,15 +1242,38 @@ td {
 
 /* //////////////////////// End manage-header.inc //////////////////////// */
 
-/* //////////////////////// login.php //////////////////////// */
+/* //////////////////////// login.php/create-account.php //////////////////////// */
 
 #login-body {
     display: flex;
+    flex-direction: column;
+}
+#login-content {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+#login-body header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    margin: 0;
+    height: 60px;
+}
+
+#login-body header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    gap: 4px;
 }
 
 #login-graphic {
     width: 45vw;
-    margin-top: 4vw;
     margin-left: 1vw;
 }
 
@@ -1282,7 +1305,7 @@ td {
 }
 
 
-/* /////////////////////// End login.php //////////////////////// */
+/* /////////////////////// End login.php/create-account.php //////////////////////// */
 
 /* //////////////////////// applications.php //////////////////////// */
 
