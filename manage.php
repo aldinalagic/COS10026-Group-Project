@@ -1,22 +1,107 @@
 <?php
 require_once 'button.php';
-require_once 'avatar.php';
-require_once 'popup.php';
 require_once 'input.php';
 require_once 'settings.php';
-
 session_start();
+
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    $eoiNumber = trim($_GET['eoi']);
-    // Fetch the application details from the eoi table
+
+    // sanitise input 
+    function sanitize_input($data) {
+        return htmlspecialchars(stripslashes(trim($data)));
+    }
+
+    // form input
+    $action = $_POST['action'] ?? null;
+    $jobref = isset($_POST['jobref']) ? sanitize_input($_POST['jobref']) : '';
+    $firstname = isset($_POST['firstname']) ? sanitize_input($_POST['firstname']) : '';
+    $lastname = isset($_POST['lastname']) ? sanitize_input($_POST['lastname']) : '';
+    $eoi_id = isset($_POST['eoi_id']) ? (int)$_POST['eoi_id'] : 0;
+    $new_status = isset($_POST['new_status']) ? sanitize_input($_POST['new_status']) : '';
+    
+    if ($action) { 
+        switch ($action) {
+            case "view_all": //list all EOIS
+                $query = "SELECT * FROM eoi";
+                break;
+            case "view_job": // list all EOIS for job ref
+                if (!$jobref) { 
+                    echo "<p>Enter job reference number.</p>"; 
+                    exit; 
+                }
+                $query = "SELECT * FROM eoi WHERE JobReferenceNumber='$jobref'";
+                break;
+            case "view_name": // list all EOIS for applicant
+                $query = "SELECT * FROM eoi WHERE 1=1";
+                if ($firstname) $query .= " AND FirstName='$firstname'";
+                if ($lastname) $query .= " AND LastName='$lastname'";
+                break;
+            case "delete_job": // delete EOIS by job ref
+                if (!$jobref) { 
+                    echo "<p>Enter job reference.</p>"; 
+                exit; 
+                }
+                if (mysqli_query($conn, "DELETE FROM eoi WHERE JobReferenceNumber='$jobref'")) {
+                    echo "<p>Deleted EOIs with job reference '" . htmlspecialchars($jobref) . "'.</p>";
+                } else {
+                    echo "<p>Error deleting: " . mysqli_error($conn) . "</p>";
+                }
+                exit;
+            case "update_status": // change status for an EOI by ID
+                if (!$eoi_id || !$new_status) { 
+                    echo "<p>Enter EOI ID and status.<p>"; 
+                exit; 
+                }
+                if (mysqli_query($conn, "UPDATE eoi SET STATUS='$new_status' WHERE EOInumber=$eoi_id")) {
+                    echo "<p>Updated EOI #$eoi_id to '$new_status'.</p>";
+                } else {
+                    echo "<p>Error updating: " . mysqli_error($conn) . "</p>";
+                }
+                exit;
+            default;
+                echo "<p>Invalid action.</p>";
+                exit;
+        }
+
+        // display results after selecting
+        $result = mysqli_query($conn, $query);
+        if ($result && mysqli_num_rows($result) > 0) {
+            echo "<table border ='1'>";
+            echo "<tr>
+                    <th>EOI Number</th>
+                    <th>Job Reference</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                  </tr>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                    <td>{$row['EOInumber']}</td>
+                    <td>{$row['JobReferenceNumber']}</td>
+                    <td>{$row['FirstName']} {$row['LastName']}</td>
+                    <td>{$row['EmailAddress']}</td>
+                    <td>{$row['PhoneNumber']}</td>
+                    <td>{$row['STATUS']}</td>
+                    </tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<p>No results found.</p>";
+        }
+    } 
+    
+    // $eoiNumber = trim($_GET['eoi']); -> for single
+    // viewing full application by eoi
+    $eoiNumber = isset($_GET['eoi']) ? (int)$_GET['eoi'] : 0;
     $application = [];
-    $result = mysqli_query($conn, "SELECT * FROM eoi WHERE EOInumber = '$eoiNumber'");
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        if ($row) {
+    // Fetch the application details from the eoi table
+    if ($eoiNumber) {
+    $result = mysqli_query($conn, "SELECT * FROM eoi WHERE EOInumber = $eoiNumber");
+    if ($result && $row = mysqli_fetch_assoc($result)) {
             $application = [
                 'firstname' => $row['FirstName'],
                 'lastname' => $row['LastName'],
@@ -42,83 +127,76 @@ session_start();
         echo "Error fetching application: " . mysqli_error($conn);
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php
-        echo '<title>' . htmlspecialchars($application['firstname']) . ' ' . htmlspecialchars($application['lastname']) . "'s application" . '</title>';
-    ?>
+    <title>Manage EOIS</title>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body id="manage-body">
-<!-- This couldn't be a regular topbar component as there are too many custom stuff that the topbar component doesn't support yet -->
-    <div class="manage-topbar-wrapper">
-        <div class="topbar-left">
-            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/left_line.svg', 'Go back', 'button', 'applications.php') ?>
-        </div>
-    
-        
-        <div class="topbar-right">
-            <?php
-                echo createAvatar(AvatarSize::Normal, 'Name', true)
-            ?>            
-        </div>
-    </div>
-        
-    <div class="topbar-center">
-        <?php echo createAvatar(AvatarSize::Large, $application['firstname'] . ' ' . $application['lastname'], false) ?>
-        <div>
-            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/edit_2_fill.svg', 'Edit', 'submit', '') ?>
-            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'button', '#deleteApplication') ?>
-        </div>
-    </div>
-    
-    <?php echo createPopup('deleteApplication', '🔥 Delete Application?', 'Are you sure you want to delete ' . $application['firstname'] . ' ' . $application['lastname'] . '\'s application? 
-    <br>We cant bring it back to life if you decide to delete it!', createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'button', '#deleteApplication')) ?>
+    <h2>Manage EOIs</h2>
+
+    <form method="post" action="manage.php" class="manage-form">
+        <label for="action">Select Action:</label>
+        <select name="action" id="action">
+            <option value="view_all">List All EOIs</option>
+            <option value="view_job">List by Job Reference</option>
+            <option value="view_name">List by Applicant Name</option>
+            <option value="delete_job">Delete by Job Reference</option>
+            <option value="update_status">Update EOI Status</option>
+        </select>
+
+        <label>Job Ref:</label>
+            <input type="text" name="jobref">
+        <label>First Name:</label>
+            <input type="text" name="firstname">
+        <label>Last Name:</label>
+            <input type="text" name="lastname">
+        <label>EOI ID:</label>
+            <input type="text" name="eoi_id">
+        <label>New Status:</label>
+            <input type="text" name="new_status">
+
+        <button type="submit">Go</button>
+    </form>
 
     <?php
-
-    $sparklesIcon = createIcon('./styles/images/sparkles_2_fill.svg', IconSize::Large);
-    $signatureIcon = createIcon('./styles/images/signature_fill.svg', IconSize::Large);
-    $suitcaseIcon = createIcon('./styles/images/suitcase_fill.svg', IconSize::Large);
-
-    echo "<form id='manage-form'>",
-        '<div class="manage-section-header">' . $sparklesIcon . '<h5>Personal Information</h5>' . '</div>',
-        '<div id="personal-info-manage" class="manage-section">',
-            createInput('text', 'first-name', 0, InputSize::Normal, $application['firstname'], '', false, true, 'First Name'),
-            createInput('text', 'last-name', 0, InputSize::Normal, $application['lastname'], '', false, true, 'Last Name'),
-            createInput('text', 'street-address', 0, InputSize::Normal, $application['street'], '', false, true, 'Street Address'),
-            createInput('text', 'suburb', 0, InputSize::Normal, $application['suburb'], '', false, true, 'Suburb/Town'),
-            createInput('text', 'state', 0, InputSize::Normal, $application['state'], '', false, true, 'State'),
-            createInput('text', 'postcode', 0, InputSize::Normal, $application['postcode'], '', false, true, 'Postcode'),
-        '</div>',
-
-        '<div class="manage-section-header">' . $signatureIcon . '<h5>Contact Information</h5>' . '</div>',
-        '<div id="contact-info-manage" class="manage-section">',
-            createInput('email', 'email', 0, InputSize::Normal, $application['email'], '', false, true, 'Email Address'),
-            createInput('tel', 'phone-number', 0, InputSize::Normal, $application['phone'], '', false, true, 'Phone Number'),
-        '</div>',
-
-        '<div id="suitcase" class="manage-section-header">' . $suitcaseIcon . '<h5>Role Information</h5>' . '</div>',
-        '<div id="role-info-manage" class="manage-section">',
-            createInput('text', 'job-reference-number', 0, InputSize::Normal, $application['JobReferenceNumber'], '', false, true, 'Job Reference Number'),
-            createInput('text', 'technical', 0, InputSize::Normal, $application['technical']['skill1'], '', false, true, 'Technical Skill 1'),
-            createInput('text', 'technical', 1, InputSize::Normal, $application['technical']['skill2'], '', false, true, 'Technical Skill 2'),
-            createInput('text', 'technical', 2, InputSize::Normal, $application['technical']['skill3'], '', false, true, 'Technical Skill 3'),
-            createInput('textarea', 'other-skills', 0, InputSize::Normal, $application['OtherSkills'], '', false, true, 'Other Skills'),
-        '</div>',
-
-        '<input type="hidden" name="eoi" value="' . htmlspecialchars($eoiNumber) . '">',
-        '</form>',
-        '<div class="manage-control">',
-            createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/left_line.svg', 'Previous', 'submit', 'appleft.php'),
-            createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Blue, '', 'Accept', 'submit', 'update-application.php'),
-            createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/right_line.svg', 'Next', 'submit', 'appright.php', true),
-        '</div>'
-    ?>
-    
-
+    /*
+    echo "<form>",
+    '<h4>Personal Information</h4>',
+    '<div id="personal-info-manage" class="manage-section">',
+    createInput('text', 'first-name', 0, InputSize::Normal, $application['firstname'], '', false, true, 'First Name'),
+    createInput('text', 'last-name', 0, InputSize::Normal, $application['lastname'], '', false, true, 'Last Name'),
+    createInput('text', 'street-address', 0, InputSize::Normal, $application['street'], '', false, true, 'Street Address'),
+    createInput('text', 'suburb', 0, InputSize::Normal, $application['suburb'], '', false, true, 'Suburb/Town'),
+    createInput('text', 'state', 0, InputSize::Normal, $application['state'], '', false, true, 'State'),
+    createInput('text', 'postcode', 0, InputSize::Normal, $application['postcode'], '', false, true, 'Postcode'),
+    '</div>',
+    '<h4>Contact Information</h4>',
+    '<div id="contact-info-manage" class="manage-section">',
+    createInput('email', 'email', 0, InputSize::Normal, $application['email'], '', false, true, 'Email Address'),
+    createInput('tel', 'phone-number', 0, InputSize::Normal, $application['phone'], '', false, true, 'Phone Number'),
+    '</div>',
+    '<h4>Role Information</h4>',
+    '<div id="role-info-manage" class="manage-section">',
+    createInput('text', 'job-reference-number', 0, InputSize::Normal, $application['JobReferenceNumber'], '', false, true, 'Job Reference Number'),
+    createInput('text', 'technical', 0, InputSize::Normal, $application['technical']['skill1'], '', false, true, 'Technical Skill 1'),
+    createInput('text', 'technical', 1, InputSize::Normal, $application['technical']['skill2'], '', false, true, 'Technical Skill 2'),
+    createInput('text', 'technical', 2, InputSize::Normal, $application['technical']['skill3'], '', false, true, 'Technical Skill 3'),
+    createInput('text', 'other-skills', 0, InputSize::Normal, $application['OtherSkills'], '', false, true, 'Other Skills'),
+    '</div>',
+    '<input type="hidden" name="eoi" value="' . htmlspecialchars($eoiNumber) . '">',
+    '<div id="manage-control">',
+    createButton('submit', 'Cycle Left', ButtonSize::Normal, ButtonVariant::Primary, 'appleft.php'),
+    createButton('submit', 'Update Application', ButtonSize::Normal, ButtonVariant::Primary, 'update-application.php'),
+    createButton('submit', 'Cycle Right', ButtonSize::Normal, ButtonVariant::Danger, 'appright.php'),
+    '</div>',
+    '</form>';
+    */
+?>
 </body>
 </html>
