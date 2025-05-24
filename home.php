@@ -11,22 +11,24 @@
     $result = mysqli_query($conn, "SELECT FirstName FROM managers WHERE Email='$email'");
     $row = mysqli_fetch_assoc($result);
     $FirstName = $row ? $row['FirstName'] : '';
-?>
+    ?>
+
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <style>
-        .button {
-            width: fit-content;
-            height: fit-content;
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="./styles/style.css">
+        <style>
+            .button {
+                width: fit-content;
+                height: fit-content;
+            }
+            </style>
 </head>
 <body id="home-body">
+    <input type="checkbox" class="theme-toggle">
     <div>
     <?php
         //echo createButton(variant: ButtonVariant::Danger, href: '#popup');

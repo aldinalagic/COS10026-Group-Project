@@ -81,8 +81,8 @@
             if (stripos($app['name'], $searchString) !== false || $searchString == '') {
                 echo "<div class='app-card'>",
                 "<div id='appid'><p>{$app['id']}</p></div>",
-                "<div id='appstatus'>" . createBadge(BadgeSize::Normal, '', $BadgeColor, $app['status']) . "</div>",
-                "<h6 id='appname'>{$app['name']}</h6>",
+                "<div id='appstatus'>" . createBadge(BadgeSize::Large, '', $BadgeColor, $app['status']) . "</div>",
+                "<h5 id='appname'>{$app['name']}</h5>",
                 "<div>" . createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Manage', 'button', 'manage.php') . "</div>",
                 "</div>";
             }
