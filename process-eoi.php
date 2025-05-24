@@ -47,6 +47,12 @@ $dob_errors = DateTime::getLastErrors();
 if (!$date_obj || $dob_errors['warning_count'] > 0 || $dob_errors['error_count'] > 0) {
     $errors[] = "DOB must be a valid date in dd/mm/yyyy format. ";
 }
+
+$validGenders = ['Male', 'Female', 'Other'];
+if (!in_array($gender, $validGenders)) {
+    $errors[] = "Invalid gender selected.";
+}
+
 if (strlen($street) > 40) {
     $errors[]  = "Street address must be 40 characters or less.";
 }
@@ -103,7 +109,7 @@ if (!$conn) {
     die("❌ Sorry, we're experiencing technical issues. Please try again later." );
 }
 
-$createTablequery = "
+$createTableQuery = "
 CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT AUTO_INCREMENT PRIMARY KEY,
     JobReferenceNumber VARCHAR(50) NOT NULL,
@@ -152,7 +158,7 @@ if ($stmt->execute()) {
         $eoi_id = $conn->insert_id; //autogenerates eoi number 
         echo "<h3>✅ Application submitted successfully.</h3>";
         echo "<p>Your Expression of Interest has been recorded.</p>";
-        echo "<p>Your unique EOI number is <strong>$eoi_id</strong>.</p>";
+        echo "<p>Your unique EOI number is <strong>" . htmlspecialchars($eoi_id) . "</strong>.</p>";
         echo "<p><a href='html/apply.html'>Submit another EOI</a></p>";
     } else { 
         echo "❌ Database error: " . htmlspecialchars($stmt->error);
