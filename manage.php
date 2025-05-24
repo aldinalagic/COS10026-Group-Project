@@ -26,7 +26,11 @@ session_start();
         switch ($action) {
             case "view_all": //list all EOIS
                 $query = "SELECT * FROM eoi";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
                 break;
+                
             case "view_job": // list all EOIS for job ref
                 if (!$jobref) { 
                     echo "<p>Enter job reference number.</p>"; 
