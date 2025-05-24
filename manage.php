@@ -42,12 +42,29 @@ session_start();
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 break;
-                
+
             case "view_name": // list all EOIS for applicant
                 $query = "SELECT * FROM eoi WHERE 1=1";
-                if ($firstname) $query .= " AND FirstName='$firstname'";
-                if ($lastname) $query .= " AND LastName='$lastname'";
+                $params = [];
+                $types = '';
+                if ($firstname) {
+                    $query .= " AND FirstName='$firstname'";
+                    $types .= 's';
+                    $params[] = $firstname;
+                }
+                if ($lastname) {
+                    $query .= " AND LastName='$lastname'";
+                    $types .= 's';
+                    $params[] = $lastname;
+                }
+                $stmt = mysqli_prepare($conn, $query);
+                if ($params) {
+                    mysqli_stmt_bind_param($stmt, $types, ...$params);
+                }
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
                 break;
+                
             case "delete_job": // delete EOIS by job ref
                 if (!$jobref) { 
                     echo "<p>Enter job reference.</p>"; 
