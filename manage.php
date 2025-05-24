@@ -30,14 +30,19 @@ session_start();
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 break;
-                
+
             case "view_job": // list all EOIS for job ref
                 if (!$jobref) { 
                     echo "<p>Enter job reference number.</p>"; 
                     exit; 
                 }
-                $query = "SELECT * FROM eoi WHERE JobReferenceNumber='$jobref'";
+                $query = "SELECT * FROM eoi WHERE JobReferenceNumber= ?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "s", $jobref);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
                 break;
+                
             case "view_name": // list all EOIS for applicant
                 $query = "SELECT * FROM eoi WHERE 1=1";
                 if ($firstname) $query .= " AND FirstName='$firstname'";
