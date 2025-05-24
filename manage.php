@@ -64,18 +64,22 @@ session_start();
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 break;
-                
+
             case "delete_job": // delete EOIS by job ref
                 if (!$jobref) { 
                     echo "<p>Enter job reference.</p>"; 
-                exit; 
+                    exit; 
                 }
-                if (mysqli_query($conn, "DELETE FROM eoi WHERE JobReferenceNumber='$jobref'")) {
+                $query = "DELETE FROM eoi WHERE JobReferenceNumber = ?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, 's', $jobref);
+                if (mysqli_stmt_execute($stmt)) { 
                     echo "<p>Deleted EOIs with job reference '" . htmlspecialchars($jobref) . "'.</p>";
                 } else {
                     echo "<p>Error deleting: " . mysqli_error($conn) . "</p>";
                 }
                 exit;
+                
             case "update_status": // change status for an EOI by ID
                 if (!$eoi_id || !$new_status) { 
                     echo "<p>Enter EOI ID and status.<p>"; 
