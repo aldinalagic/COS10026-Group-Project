@@ -28,8 +28,6 @@
             </style>
 </head>
 <body id="home-body">
-    <input type="checkbox" class="theme-toggle">
-    <div>
     <?php
         //echo createButton(variant: ButtonVariant::Danger, href: '#popup');
         //echo createPopup('#popup', 'Popup', 'This is a popup', createButton(variant: ButtonVariant::Danger, href: 'index.php'));
@@ -41,8 +39,11 @@
             ), 
             './styles/images/glow-logo.svg', 'Glow'
         );
-        echo "<h1>👋 Welcome back " . $FirstName . "!</h1>";
     ?>
+    <div>
+        <?php
+            echo "<h1>👋 Welcome back " . $FirstName . "!</h1>";
+        ?>
     </div>
 </body>
 </html>

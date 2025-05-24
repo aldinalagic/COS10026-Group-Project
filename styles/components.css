@@ -138,8 +138,9 @@
 }
 
 .avatar-pulldown-menu {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 1);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 16px;
     border-radius: 24px;
     outline: 1px solid var(--color-border_primary);
@@ -149,42 +150,38 @@
     width: fit-content;
     visibility: hidden;
     opacity: 0;
+    pointer-events: none;
     position: absolute;
     top: 56px;
     right: 16px;
     transform: translateY(-8px) scale(0.96);
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform-origin: top right;
-    .avatar-wrapper {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 16px;
-    }
+    z-index: 10;
 }
 
-/* Only display cursor as pointer if their is a label (avatar) next to input*/
+.avatar-pulldown-menu .avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
 input[type='checkbox'] + label {
-  cursor: pointer;
+    cursor: pointer;
 }
 
-input[type='checkbox']:checked + label {
-  & + .avatar-pulldown-menu {
+input[type='checkbox']:checked + label + .avatar-pulldown-menu {
     visibility: visible;
     opacity: 1;
+    pointer-events: auto;
     transform: translateY(0px) scale(1);
+}
 
-  }
-
-  & p + .icon {
+input[type='checkbox']:checked + label p + .icon {
     transform: rotate(180deg);
-  }
 }
 
-input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
 /* //////////////////////// End Avatar //////////////////////// */
 
 /* //////////////////////// Badge //////////////////////// */
@@ -456,10 +453,9 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
       position: relative;
       opacity: 0;
       max-width: 0;
-      transition: 
-        all 0.6s ease-in-out;
+      transition: all 0.6s cubic-bezier(0.86, 0, 0.07, 1);
 
-      transform: translateX(0px);
+      transform: translateX(-16px);
       pointer-events: none; /* Without this line, span will enable the hover to occur, and we dont want that. */
       
     }
@@ -520,7 +516,6 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
     left: 0;
     right: 0;
     pointer-events: auto;
-    max-width: 100%;
     padding-left: 16px;
     padding-right: 16px;
 
@@ -624,14 +619,14 @@ input[type='checkbox']:not(:checked) + label + .avatar-pulldown-menu {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, visibility 0.3s ease-in-out;
   z-index:auto;
   pointer-events: none;
   overflow-y: scroll;
 
   .popup-content-wrapper {
     transform: scale(0.8);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     padding: 32px 64px;
     border-radius: var(--border-radius-32);
     background-color: white;
@@ -976,3 +971,12 @@ label.radio-wrapper:hover input:checked + span:after {
   transform: scale(0.4);
 }
 /* //////////////////////// End Radio //////////////////////// */
+
+/* //////////////////////// Text highlighting (selection) //////////////////////// */
+
+::selection {
+  background-color: var(--color-amber-200);
+  color: var(--color-amber-1000);
+}
+
+/* //////////////////////// End Text highlighting (selection) //////////////////////// */
