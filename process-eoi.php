@@ -47,12 +47,32 @@ $dob_errors = DateTime::getLastErrors();
 if (!$date_obj || $dob_errors['warning_count'] > 0 || $dob_errors['error_count'] > 0) {
     $errors[] = "DOB must be a valid date in dd/mm/yyyy format. ";
 }
+if (strlen($street) > 40) {
+    $errors[]  = "Street address must be 40 characters or less.";
+}
+if (strlen($suburb) > 40) {
+    $errors[] = "Suburb/Town must be 40 characters or less.";
+}
 if (!in_array($state, ['VIC','NSW','QLD','NT','WA','SA','TAS','ACT'])) {
     $errors[] = "Invalid state";
 }
+
+$statePostcodeMap = [
+    'VIC' => '/^3\d{3}$/',
+    'NSW' => '/^2\d{3}$/',
+    'QLD' => '/^4\d{3}$/',
+    'NT' => '/^0\d{3}$/',
+    'WA' => '/^6\d{3}$/',
+    'SA' => '/^5\d{3}$/',
+    'TAS' => '/^7\d{3}$/',
+    'ACT' => '/^0\d{3}$/',
+];
 if (!preg_match("/^\d{4}$/", $postcode)) {
     $errors[] = "Postcode must be 4 digits";
+} elseif (!preg_match($statePostcodeMap[$state], $postcode)) {
+    $errors[] = "Postcode does not match the selected state.";
 }
+
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = "Invalid email format";
 }
@@ -81,6 +101,31 @@ $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
     error_log("DB Connection failed: " . mysqli_connect_error());
     die("❌ Sorry, we're experiencing technical issues. Please try again later." );
+}
+
+$createTablequery = "
+CREATE TABLE IF NOT EXISTS eoi (
+    EOInumber INT AUTO_INCREMENT PRIMARY KEY,
+    JobReferenceNumber VARCHAR(50) NOT NULL,
+    FirstName VARCHAR(20) NOT NULL,
+    LastName VARCHAR(20) NOT NULL,
+    DOB DATE,
+    Gender VARCHAR(10),
+    StreetAddress VARCHAR(40),
+    SuburbTown VARCHAR(40),
+    State VARCHAR(3),
+    Postcode VARCHAR(4),
+    EmailAddress VARCHAR(100),
+    PhoneNumber VARCHAR(20),
+    Skill1 VARCHAR(100),
+    Skill2 VARCHAR(100),
+    Skill3 VARCHAR(100),
+    OtherSkills TEXT,
+    STATUS VARCHAR(20)
+)";
+
+if (!mysqli_query($conn,$createTableQuery)) {
+    die("❌ Failed to create table: " . mysqli_error($conn));
 }
 
 //skills string 
@@ -115,7 +160,6 @@ if ($stmt->execute()) {
 
     $stmt->close();
     $conn->close();
-
-
+?>
 
 
