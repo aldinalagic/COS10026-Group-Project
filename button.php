@@ -29,17 +29,16 @@
     }
     
 
-    function createButton($size = ButtonSize::Normal, $variant = ButtonVariant::Filled, $color = ButtonColor::Blue, $icon = '', $message = 'Button', $type = 'button', $href = '') {
+    function createButton($size = ButtonSize::Normal, $variant = ButtonVariant::Filled, $color = ButtonColor::Blue, $icon = '', $message = 'Button', $type = 'button', $href = '', $iconRight = false) {
         $sizeValue = $size->value;
         $variantValue = $variant->value;
         $colourValue = $variant == ButtonVariant::Plain ? 'transparent' : $color->value;
 
-        // Check to see if icon is empty, null, or has whitespace(s), if yes then don't display icon
         $displayIcon = ($icon == null || $icon == '' || ctype_space($icon)) ? null : createIcon($icon, getButtonIconSize($size));
+        $content = $iconRight ? "<span>$message</span>" . ($displayIcon ?? '') : ($displayIcon ?? '') . "<span>$message</span>";
 
-        return "<button class='button $sizeValue $colourValue $variantValue' type='$type'><a draggable='false' href='$href'>$displayIcon<span>$message</span></a></button>";
-    } 
-
+        return "<button class='button $sizeValue $colourValue $variantValue' type='$type'><a draggable='false' href='$href'>$content</a></button>";
+    }
     function getButtonIconSize($buttonSize) {
        return match($buttonSize) {
             ButtonSize::Small => IconSize::Small2,

@@ -944,14 +944,7 @@ form section {
     margin-bottom: 8px;
 }
 
-textarea {
-    resize: none;
-    min-height: 32px;
-    max-height: 92px;
-}
-
-select,
-textarea {
+select {
   border-radius: 12px;       /* Rounded corners */
   border: 1px solid var(--color-border_primary);    /* Light grey border */
   padding: 6px 12px 6px 12px;             /* Space inside input */
@@ -961,13 +954,11 @@ textarea {
   margin-bottom: 0px;
 }
 
-select:hover,
-textarea:hover {
+select:hover {
     border: 1px solid var(--color-border_hover);
 }
 
-select:focus,
-textarea:focus {
+select:focus {
     border: 1px solid var(--color-border_active);
     outline: none;
     color: var(--color-text_primary);
@@ -1243,38 +1234,15 @@ td {
 
 /* //////////////////////// End manage-header.inc //////////////////////// */
 
-/* //////////////////////// login.php/create-account.php //////////////////////// */
+/* //////////////////////// login.php //////////////////////// */
 
 #login-body {
     display: flex;
-    flex-direction: column;
-}
-#login-content {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-}
-
-#login-body header {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    width: 100vw;
-    margin: 0;
-    height: 60px;
-}
-
-#login-body header div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
-    gap: 4px;
 }
 
 #login-graphic {
     width: 45vw;
+    margin-top: 4vw;
     margin-left: 1vw;
 }
 
@@ -1306,7 +1274,7 @@ td {
 }
 
 
-/* /////////////////////// End login.php/create-account.php //////////////////////// */
+/* /////////////////////// End login.php //////////////////////// */
 
 /* //////////////////////// applications.php //////////////////////// */
 
@@ -1370,6 +1338,7 @@ td {
     min-width: 200px;
     margin-bottom: 32px;
 }
+
 #appid {
     grid-area: id;
     display: flex;
@@ -1386,15 +1355,18 @@ td {
     padding: 6px;
     border-radius: 32px;
 }
+
 #appid p {
     margin: 0;
     padding: 0;
 }
+
 #appstatus {
     grid-area: status;
     margin-top: 24px;
     margin-right: 0px;
 }
+
 #appname {
     grid-area: name;
     margin: 0;
@@ -1402,14 +1374,8 @@ td {
     padding: 0.2em 0.5em 0.2em 0.5em;
     border-radius: 32px;
 }
+
 .app-card div {
-    grid-area: button;
-    width:fit-content;
-    height:fit-content;
-    margin-left: auto;
-    margin-right: 24px;
-}
-.app-card form {
     grid-area: button;
     width:fit-content;
     height:fit-content;
@@ -1418,40 +1384,157 @@ td {
     margin-bottom: 24px;
 }
 /* //////////////////////// End applications.php //////////////////////// */
+
 /* //////////////////////// manage.php //////////////////////// */
 
-#manage-body {
+.manage-topbar-wrapper {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    width: 100vw;
-}
-#manage-body form {
-    display: flex;
-    text-align: left;
-    align-items: flex-start;
-    width: 50%;
-}
-#manage-body form h4 {
-    width: fit-content;
-
-}
-.manage-section {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 32px;
-    align-items: center;
-    justify-content: flex-start;
+    position: fixed;
+    justify-content: space-between;
+    top: 4px;
     width: 100%;
-    max-width: 1200px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    z-index: 999;
+}
+
+.topbar-left {
+    padding: 8px;
+    width: fit-content;
+    background-color: var(--color-background_primary);
+    border-radius: var(--border-radius-full);
+}
+
+.topbar-center {
+    position: sticky;
+    top: 0;
     margin: 0 auto;
-}
-
-#manage-control {
     display: flex;
+    justify-content: space-between;
+    max-width: 896px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 999;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
-/* // //////////////////////// End manage.php //////////////////////// */
+.topbar-right {
+    margin-left: auto;
+    margin-right: 32px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--color-background_primary);
+    border-radius: var(--border-radius-full);
+
+    .avatar-pulldown-menu {
+        margin-right: 32px;
+        margin-top: 16px;
+    }
+}
+
+.topbar-center div:last-child {
+    display: inline-flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* This is some weird CSS I have written, it looks so interesting... */
+#manage-form {
+    max-width: 896px;
+    margin: 0 auto;
+
+    & * {
+        align-self: self-start;
+    }
+
+    
+    > .manage-section-header {
+        margin-top: 96px;
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        
+        .icon {
+            align-self: center;
+        }
+        
+        h5 {
+            margin: 0;
+            padding: 0;
+        }
+        
+        &:nth-of-type(1) {
+            .icon {
+                color: var(--color-purple-500);
+            }
+        }
+    }
+
+    > .manage-section-header:first-child {
+        margin-top: 64px;
+    }
+}
+
+/* For some reason we need this to be able to colour the suitcase icon??!?!?!?! I actually don't know why it selects
+   the sparkles but not the suitcase :/
+*/
+#suitcase {
+    .icon {
+        color: var(--color-brown-500);
+    }
+}
+
+.manage-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(192px, 3fr));
+  gap: 32px;
+  column-gap: 72px;
+  width: 100%;
+
+  > * {
+    textarea,
+    input {
+        width: 100%;
+    }
+  }
+}
+
+
+#role-info-manage {
+    margin-bottom: 128px;
+}
+
+.manage-control {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(2px);
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0%) 0%, var(--color-background_primary) 100%);
+    max-height: 128px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    max-width: 896px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    pointer-events: none;
+
+    > * {
+        pointer-events: all;
+    }
+}
+
+/* //////////////////////// End manage.php //////////////////////// */

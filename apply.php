@@ -151,8 +151,9 @@
                     </div>
 
                     <div class="input-field">
-                        <label for="other-skills">Other skills</label>
-                        <textarea id="other-skills" name="other-skills" rows="7" cols="30" placeholder="Enter any additional skills"></textarea>
+                        <?php
+                            echo createInput('textarea', 'other-skills', 0, InputSize::Normal, 'Enter any additional skills', '', false, false, 'Other Skills');
+                        ?>
                     </div>
                 </div>
 

@@ -373,8 +373,12 @@ input[type='checkbox']:checked + label p + .icon {
 
     &:disabled {
       border-color: transparent;
-      background-color: var(--color-grey-100);
+      background-color: var(--color-background_secondary);
       color: var(--color-text_secondary);
+
+      &:hover {
+        cursor: not-allowed;
+      }
     }
   }
 
@@ -400,6 +404,91 @@ input[type='checkbox']:checked + label p + .icon {
 
     input { padding: 7px 12px; border-radius: var(--border-radius-12); }
     label { font-size: var(--font-size-header-6); }
+  }
+}
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+
+  textarea {
+    resize: vertical;
+    min-height: 32px;
+    max-height: 128px;
+    transition: border-color 200ms ease;
+    outline: none;
+    border: 1px solid var(--color-border_primary);
+
+    &::placeholder {
+      color: var(--color-text_secondary);
+    }
+
+    &:hover {
+      border-color: var(--color-border_hover);
+    }
+
+    &:active,
+    &:focus {
+      border-color: var(--color-border_active);
+    }
+
+    &:disabled {
+      border-color: transparent;
+      background-color: var(--color-background_secondary);
+      color: var(--color-text_secondary);
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &.small {
+    max-width: 192px;
+    min-height: 64px;
+    max-height: 96px;
+    gap: 4px;
+
+    textarea {
+      padding: 4px 8px;
+      border-radius: var(--border-radius-8);
+    }
+
+    label {
+      font-size: var(--font-size-small-1);
+    }
+  }
+
+  &.normal {
+    max-width: 256px;
+    min-height: 96px;
+    max-height: 128px;
+    gap: 4px;
+
+    textarea {
+      padding: 5.5px 12px;
+      border-radius: var(--border-radius-12);
+    }
+
+    label {
+      font-size: var(--font-size-paragraph);
+    }
+  }
+
+  &.large {
+    max-width: 320px;
+    min-height: 128px;
+    max-height: 192px;
+    gap: 8px;
+
+    textarea {
+      padding: 7px 12px;
+      border-radius: var(--border-radius-12);
+    }
+
+    label {
+      font-size: var(--font-size-header-6);
+    }
   }
 }
 /* //////////////////////// End Input //////////////////////// */
@@ -620,7 +709,7 @@ input[type='checkbox']:checked + label p + .icon {
   pointer-events: none;
   visibility: hidden;
   transition: opacity 0.2s ease-in-out, visibility 0.3s ease-in-out;
-  z-index:auto;
+  z-index: 99999;
   pointer-events: none;
   overflow-y: scroll;
 

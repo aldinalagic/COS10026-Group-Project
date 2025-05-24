@@ -1,7 +1,10 @@
 <?php
 require_once 'button.php';
+require_once 'avatar.php';
+require_once 'popup.php';
 require_once 'input.php';
 require_once 'settings.php';
+
 session_start();
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn) {
@@ -50,37 +53,72 @@ session_start();
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body id="manage-body">
+<!-- This couldn't be a regular topbar component as there are too many custom stuff that the topbar component doesn't support yet -->
+    <div class="manage-topbar-wrapper">
+        <div class="topbar-left">
+            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/left_line.svg', 'Go back', 'button', 'applications.php') ?>
+        </div>
+    
+        
+        <div class="topbar-right">
+            <?php
+                echo createAvatar(AvatarSize::Normal, 'Name', true)
+            ?>            
+        </div>
+    </div>
+        
+    <div class="topbar-center">
+        <?php echo createAvatar(AvatarSize::Large, $application['firstname'] . ' ' . $application['lastname'], false) ?>
+        <div>
+            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/edit_2_fill.svg', 'Edit', 'submit', '') ?>
+            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'button', '#deleteApplication') ?>
+        </div>
+    </div>
+    
+    <?php echo createPopup('deleteApplication', '🔥 Delete Application?', 'Are you sure you want to delete ' . $application['firstname'] . ' ' . $application['lastname'] . '\'s application? 
+    <br>We cant bring it back to life if you decide to delete it!', createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'button', '#deleteApplication')) ?>
+
     <?php
-    echo "<form>",
-    '<h4>Personal Information</h4>',
-    '<div id="personal-info-manage" class="manage-section">',
-    createInput('text', 'first-name', 0, InputSize::Normal, $application['firstname'], '', false, true, 'First Name'),
-    createInput('text', 'last-name', 0, InputSize::Normal, $application['lastname'], '', false, true, 'Last Name'),
-    createInput('text', 'street-address', 0, InputSize::Normal, $application['street'], '', false, true, 'Street Address'),
-    createInput('text', 'suburb', 0, InputSize::Normal, $application['suburb'], '', false, true, 'Suburb/Town'),
-    createInput('text', 'state', 0, InputSize::Normal, $application['state'], '', false, true, 'State'),
-    createInput('text', 'postcode', 0, InputSize::Normal, $application['postcode'], '', false, true, 'Postcode'),
-    '</div>',
-    '<h4>Contact Information</h4>',
-    '<div id="contact-info-manage" class="manage-section">',
-    createInput('email', 'email', 0, InputSize::Normal, $application['email'], '', false, true, 'Email Address'),
-    createInput('tel', 'phone-number', 0, InputSize::Normal, $application['phone'], '', false, true, 'Phone Number'),
-    '</div>',
-    '<h4>Role Information</h4>',
-    '<div id="role-info-manage" class="manage-section">',
-    createInput('text', 'job-reference-number', 0, InputSize::Normal, $application['JobReferenceNumber'], '', false, true, 'Job Reference Number'),
-    createInput('text', 'technical', 0, InputSize::Normal, $application['technical']['skill1'], '', false, true, 'Technical Skill 1'),
-    createInput('text', 'technical', 1, InputSize::Normal, $application['technical']['skill2'], '', false, true, 'Technical Skill 2'),
-    createInput('text', 'technical', 2, InputSize::Normal, $application['technical']['skill3'], '', false, true, 'Technical Skill 3'),
-    createInput('text', 'other-skills', 0, InputSize::Normal, $application['OtherSkills'], '', false, true, 'Other Skills'),
-    '</div>',
-    '<input type="hidden" name="eoi" value="' . htmlspecialchars($eoiNumber) . '">',
-    '<div id="manage-control">',
-    createButton('submit', 'Cycle Left', ButtonSize::Normal, ButtonVariant::Primary, 'appleft.php'),
-    createButton('submit', 'Update Application', ButtonSize::Normal, ButtonVariant::Primary, 'update-application.php'),
-    createButton('submit', 'Cycle Right', ButtonSize::Normal, ButtonVariant::Danger, 'appright.php'),
-    '</div>',
-    '</form>';
-?>
+
+    $sparklesIcon = createIcon('./styles/images/sparkles_2_fill.svg', IconSize::Large);
+    $signatureIcon = createIcon('./styles/images/signature_fill.svg', IconSize::Large);
+    $suitcaseIcon = createIcon('./styles/images/suitcase_fill.svg', IconSize::Large);
+
+    echo "<form id='manage-form'>",
+        '<div class="manage-section-header">' . $sparklesIcon . '<h5>Personal Information</h5>' . '</div>',
+        '<div id="personal-info-manage" class="manage-section">',
+            createInput('text', 'first-name', 0, InputSize::Normal, $application['firstname'], '', false, true, 'First Name'),
+            createInput('text', 'last-name', 0, InputSize::Normal, $application['lastname'], '', false, true, 'Last Name'),
+            createInput('text', 'street-address', 0, InputSize::Normal, $application['street'], '', false, true, 'Street Address'),
+            createInput('text', 'suburb', 0, InputSize::Normal, $application['suburb'], '', false, true, 'Suburb/Town'),
+            createInput('text', 'state', 0, InputSize::Normal, $application['state'], '', false, true, 'State'),
+            createInput('text', 'postcode', 0, InputSize::Normal, $application['postcode'], '', false, true, 'Postcode'),
+        '</div>',
+
+        '<div class="manage-section-header">' . $signatureIcon . '<h5>Contact Information</h5>' . '</div>',
+        '<div id="contact-info-manage" class="manage-section">',
+            createInput('email', 'email', 0, InputSize::Normal, $application['email'], '', false, true, 'Email Address'),
+            createInput('tel', 'phone-number', 0, InputSize::Normal, $application['phone'], '', false, true, 'Phone Number'),
+        '</div>',
+
+        '<div id="suitcase" class="manage-section-header">' . $suitcaseIcon . '<h5>Role Information</h5>' . '</div>',
+        '<div id="role-info-manage" class="manage-section">',
+            createInput('text', 'job-reference-number', 0, InputSize::Normal, $application['JobReferenceNumber'], '', false, true, 'Job Reference Number'),
+            createInput('text', 'technical', 0, InputSize::Normal, $application['technical']['skill1'], '', false, true, 'Technical Skill 1'),
+            createInput('text', 'technical', 1, InputSize::Normal, $application['technical']['skill2'], '', false, true, 'Technical Skill 2'),
+            createInput('text', 'technical', 2, InputSize::Normal, $application['technical']['skill3'], '', false, true, 'Technical Skill 3'),
+            createInput('textarea', 'other-skills', 0, InputSize::Normal, $application['OtherSkills'], '', false, true, 'Other Skills'),
+        '</div>',
+
+        '<input type="hidden" name="eoi" value="' . htmlspecialchars($eoiNumber) . '">',
+        '</form>',
+        '<div class="manage-control">',
+            createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/left_line.svg', 'Previous', 'submit', 'appleft.php'),
+            createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Blue, '', 'Accept', 'submit', 'update-application.php'),
+            createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/right_line.svg', 'Next', 'submit', 'appright.php', true),
+        '</div>'
+    ?>
+    
+
 </body>
 </html>
