@@ -21,20 +21,18 @@
         ?>
     </header>
     <div id="login-content">
-        <img src="images/login-graphic.png" alt="login-graphic" id="login-graphic">
+        <img src="./styles/images/login-graphic.svg" alt="login-graphic" id="login-graphic">
         <div id="login-form">
-            <h3>Create Account</h3>
+            <h4>Create Account</h4>
             <p>Register for a manager account</p>
             <form action="process-create-account.php" method="post">
-                <div class='input small'><label for=email>Email:</label><input type='text' id='email' name='email' maxlength='100' class='Small' placeholder='Email' required></input></div>
-                <br>
-                <div class='input small'><label for=password>Password:</label><input type='password' id='password' name='password' maxlength='100' class='Small' placeholder='Password' required></input></div>
-                <br>
-                <div class='input small'><label for=text>First Name:</label><input type='firstname' id='firstname' name='firstname' maxlength='100' class='Small' placeholder='First Name' required></input></div>
-                <br>
-                <div class='input small'><label for=text>Last Name:</label><input type='lastname' id='lastname' name='lastname' maxlength='100' class='Small' placeholder='Last Name' required></input></div>
-                <br>
-                <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Sign up', 'submit') ?>
+              <?php
+                    echo createInput('text', 'email', 100, InputSize::Normal, 'Email', '', true, false, 'Email');
+                    echo createInput('password', 'password', 100, InputSize::Normal, 'Password', '', true, false, 'Password');
+                    echo createInput('text', 'firstname', 100, InputSize::Normal, 'First Name', '', true, false, 'First Name');
+                    echo createInput('text', 'lastname', 100, InputSize::Normal, 'Last Name', '', true, false, 'Last Name');
+                    echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Sign up', 'submit')
+                ?>
             </form>
         </div>
     </div>

@@ -55,7 +55,7 @@
         <form method="post" action="process-eoi.php">
             <section id="personal-information">
                 <div class="apply-header">
-                    <img src="images/icons/person-run.svg" alt="Personal Information Icon">
+                    <?php echo createIcon('./styles/images/sparkles_2_fill.svg', IconSize::Large) ?>
                     <h4>Personal Information</h4>
                     <p>We need to know some stuff about you.</p>
                 </div>
@@ -102,7 +102,7 @@
 
             <section id="contact-details">
                 <div class="apply-header">
-                    <img src="images/icons/contact.svg" alt="Contact Details Icon">
+                    <?php echo createIcon('./styles/images/signature_fill.svg', IconSize::Large) ?>
                     <h4>Contact Details</h4>
                     <p>A bit of information about how we can contact you.</p>
                 </div>
@@ -123,7 +123,7 @@
 
             <section id="role-information">
                 <div class="apply-header">
-                    <img src="images/icons/jobs.svg" alt="Contact Details Icon">
+                    <?php echo createIcon('./styles/images/suitcase_fill.svg', IconSize::Large) ?>
                     <h4>Role Information</h4>
                     <p>Tell us what your dream job is at Glow.</p>
                 </div>

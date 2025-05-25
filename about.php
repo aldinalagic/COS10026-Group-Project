@@ -1,5 +1,6 @@
 <?php
-    require_once 'topbar.php'
+    require_once 'topbar.php';
+    require_once 'footer.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,28 +38,32 @@
 
         <div id = "team-lists">
         <div id= "team-roles">
-            <h5>Contributions</h5>
+        <h5>Contributions</h5>
         <p>The following is a list of contributions made to this project</p>
             <ul>
                 Aldin Alagic:
                 <ul>Project designer</ul>
-                <ul>Developer of jobs.html</ul>
-            
+                <ul>Developer of jobs.php</ul>
+                <ul>Developer of home.php</ul>
+                <ul>Developed the component library</ul>
             </ul>
 
             <ul>
                 Fletcher Bishop:
-                <ul>Developer of index.html</ul>
+                <ul>Developer of index.php</ul>
+                <ul>Developer of manage.php</ul>
+                <ul>Developer of applications.php</ul>
+                <ul>Developer of manager registration and login</ul>
             </ul>
 
             <ul>
                 Harry Clarke:
-                <ul>Developer of About.html</ul>
+                <ul>Developer of about.php</ul>
             </ul>
 
             <ul>
                 Nadine David
-                <ul>Developer of apply.html</ul>
+                <ul>Developer of apply.php</ul>
             </ul>
         </div>
 
@@ -72,7 +77,7 @@
             <li>Harry ID: <span class = "detail">105912375</span></li>
             <li>Nadine ID: <span class = "detail">105864793</span></li>
         
-        <img src="images/group-photo.png" alt="group-image">
+        <img src="./styles/images/group-photo.png" alt="group-image">
     </div>
 </div>
     </section>
@@ -123,32 +128,14 @@
     <section id = "sponsor">
         <h3><span class = "circle">Sponsor </span> <span class = "detail">(Tutor)</span></h3>
         <div class id = "tutor">
-              <img src = "images/nick-avatar.png" alt = "tutor-image">  <p>Nick</p>
+              <img src = "./styles/images/nick.png" alt = "tutor-image">  <p>Nick</p>
         </div>
 
     </section>
 
-
-    <footer>
-        <!-- Menu options (Jobs and about) -->
-        <div id="footer-menu">
-            <a href="jobs.html" class="menu-button">
-                <button><img src="images/icons/jobs.svg" alt="Jobs icon">Jobs</button>
-            </a>
-            <a href="about.html" class="menu-button">
-                <button><img src="images/icons/about.svg" alt="About icon">About</button>
-            </a>
-        </div>
-
-        <a href="index.html" id="glow-logo-footer">
-            <img src="images/glow-outlined-footer.svg" alt="">
-        </a>
-
-        <!-- Jira button to the jira board -->
-        <a href="https://fletcher06.atlassian.net/jira/software/projects/CGAP1/summary" target="_blank">
-            <button id="jira-button">Jira board<img src="images/icons/link-out.svg" alt="About icon"></button>
-        </a>
-    </footer>
+    <?php
+        echo createFooter();
+    ?>
 
 </body>
 </html>
