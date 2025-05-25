@@ -9,7 +9,7 @@
             new MenuOption('./styles/images/emoji_fill.svg', IconSize::Normal, 'About', 'about.php')
         ));
 
-        $linkButton = createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/external_link_line.svg', 'jira board', 'button', 'https://fletcher06.atlassian.net/jira/software/projects/CGAP1/summary');
+        $linkButton = createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, './styles/images/glow-logo.svg', 'manager access', 'button', 'login.php');
         
         return "<footer>$footerMenuOptions <a id='glow-logo-footer' href='index.php'><img src='./styles/images/glow-outlined-footer.svg'></a>$linkButton</footer>";
     }

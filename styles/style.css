@@ -1439,8 +1439,9 @@ td {
 
 #appstatus {
     grid-area: status;
+    margin-left: auto;
     margin-top: 24px;
-    margin-right: 0px;
+    margin-right: 24px;
 }
 
 #appname {
@@ -1451,13 +1452,13 @@ td {
     border-radius: 32px;
 }
 
-.app-card div {
+.app-card form {
     grid-area: button;
     width:fit-content;
     height:fit-content;
     margin-left: auto;
-    margin-right: 24px;
     margin-bottom: 24px;
+    margin-right: 24px;
 }
 /* //////////////////////// End applications.php //////////////////////// */
 
