@@ -12,7 +12,7 @@
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
             $jobs[] = [
-                'jobid' => $row['JobReferenceNumber']
+                'reference' => $row['JobReferenceNumber']
             ];
         }
     }
@@ -135,7 +135,7 @@
                             <option value="" disabled selected>Select</option>
                             <?php
                                 foreach ($jobs as $job) {
-                                    echo "<option value=\"{$job['jobid']}\">{$job['jobid']}</option>";
+                                    echo "<option value=\"{$job['reference']}\">{$job['reference']}</option>";
                                 }
                             ?>
                         </select>

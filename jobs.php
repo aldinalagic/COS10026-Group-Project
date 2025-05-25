@@ -4,6 +4,9 @@
     require_once 'icon.php';
     require_once 'footer.php';
     require_once 'settings.php';
+    
+    session_start(); 
+
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -14,11 +17,16 @@
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
             $jobs[] = [
-                'jobid' => $row['JobReferenceNumber'],
+                'reference' => $row['JobReferenceNumber'],
                 'title' => $row['JobTitle'],
-                'description' => $row['JobDescription'],
-                'icon' => $row['IconPath']
-                // Add other fields as needed
+                'overview' => $row['JobDescriptionOverview'],
+                'benefits' => $row['JobDescriptionBenefits'],
+                'structure' => $row['JobDescriptionStructure'],
+                'responsibilities' => $row['JobDescriptionResponsibilities'],
+                'requirements' => $row['JobDescriptionRequirements'],
+                'icon' => $row['IconPath'],
+                'color' => $row['Color'],
+                'background' => $row['BackgroundSVG']
             ];
         }
     }
@@ -71,27 +79,39 @@
 
                     <div id="open-positions-header">
                         <h3>Open Positions</h3>
-                        <aside>Discover 2 job positions <br> that are currently open.</aside>
+                        <?php
+                            $jobPositionCount = mysqli_num_rows($result);
+                            echo "<aside>Discover $jobPositionCount job positions <br> that we are offering.</aside>"
+                        ?>
                     </div>
                     
                     
-                    <?php
-                        foreach ($jobs as $job) {
-                            echo "<div class='job-position'>",
-                                "<div class='job-position-left'>",
-                                    createIcon('./styles/images/wifi_fill.svg', IconSize::Large),
-                                    "<h5>{$job['title']}</h5>",
-                                "</div>",
-                                "<div class='job-position-right'>",
-                                    "<p>{$job['jobid']}</p>",
-                                    "<label for='jobs-toggle'>",
-                                        createButton(ButtonSize::Large, ButtonVariant::Filled, ButtonColor::Amber, '', 'Explore', 'submit', '#!'),
-                                    "</label>",
-                                "</div>",
-                            "</div>";
-                        }
+                  <?php
+                    foreach ($jobs as $job) {
+                        $color = trim(strtolower($job['color']));
+                        $jobIcon = $job['icon'];
+                        echo $jobIcon;
+                        echo "<form action='update-jobs.php' method='post'>", 
+                            "<div class='job-position $color'>",
+                            "<div class='job-position-left $color'>",
+                                createIcon("$jobIcon", IconSize::Large),
+                                "<h5>{$job['title']}</h5>",
+                            "</div>",
+                            "<div class='job-position-right'>",
+                                "<p>{$job['reference']}</p>",
+                                
+                                // We need a hidden input in order to keep track of the job reference :)
+                                "<input type='hidden' name='reference' value='{$job['reference']}'>",
+
+                                "<label for='jobs-toggle'>",
+                                    createButton(ButtonSize::Large, ButtonVariant::Filled, ButtonColor::Amber, '', 'Explore', 'submit', ''),
+                                "</label>",
+                            "</div>",
+                            "</div>",
+                            "</form>";
+                    }
                     ?>
-                </div>
+
             </section>
 
             <?php echo createFooter() ?>
@@ -102,26 +122,36 @@
         <section id="overview-page">
             <label for="jobs-toggle">
                 <div class="topbar-go-back">
-                    <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/left_line.svg', 'Go back', 'button', '#!') ?>
+                    <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/left_line.svg', 'Go back', 'button', '#jobs-page') ?>
                 </div>
             </label>
             <div id="overview-header-wrapper">
     
                 <!-- Make sure the img does not go outside where it shouldn't (that's why there is a wrapper here) -->
                 <div id="job-background-wrapper">
-                    <img src="./styles/images/network-administrator-backround.svg">
+                    <?php
+                        $jobBackground = $_SESSION['job']['background'];
+                        echo "<img src='$jobBackground'>";
+                        ?>
+                        <?php
+                            $jobIcon = $_SESSION['job']['background'];
+                            echo createIcon("$jobIcon", IconSize::Large)
+                        ?>
                 </div>
-    
-                <?php
-                    echo createIcon('./styles/images/sparkles_2_fill.svg', IconSize::Large)
-                ?>
             </div>
     
             <div id="overview-topbar">
-                <h5>Network Administrator</h5> <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
+                <?php
+                    $jobTitle = $_SESSION['job']['title'];
+                    echo "<h5>$jobTitle</h5>";
+                ?>
                 <div>
-                    <p>NET01</p> <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
-                    <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Apply', 'button', 'apply.php'); ?> <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
+                    <?php
+                        $jobRef = $_SESSION['job']['reference'];
+                        echo "<p>$jobRef</p>";
+                        
+                        echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Apply', 'button', 'apply.php');
+                    ?> 
                 </div>
             </div>
             
@@ -131,8 +161,11 @@
                         <?php echo createIcon('./styles/images/eye_fill.svg', IconSize::Large); ?> 
                         <h5>Overview</h5>
                     </div>
-    
-                    <p>A Network Administrator is responsible for managing Glow’s computer networks, including local area networks (LANs), wide area networks (WANs), intranets, and internet systems. They ensure that network infrastructure is robust and operates without disruption.</p> <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
+
+                    <?php
+                        $jobOverview = $_SESSION['job']['overview'];
+                        echo "<p>$jobOverview</p>";
+                    ?>
                 </div>
     
                 <div>
@@ -140,8 +173,11 @@
                         <?php echo createIcon('./styles/images/sparkles_2_fill.svg', IconSize::Large); ?> 
                         <h5>Salary and Benefits</h5>
                     </div>
-    
-                    <p>$231K - $340K annually, with the possibility of additional equity-based incentives.</p> <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
+
+                    <?php
+                        $jobBenefits = $_SESSION['job']['benefits'];
+                        echo "<p>$jobBenefits</p>";
+                    ?>
                 </div>
     
                 <div>
@@ -150,7 +186,10 @@
                         <h5>Reporting Structure</h5>
                     </div>
     
-                    <p>The Network Administrator will report to the IT Manager.</p> <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
+                    <?php
+                        $jobStructure = $_SESSION['job']['structure'];
+                        echo "<p>$jobStructure</p>";
+                    ?>
                 </div>
     
                 <div>
@@ -159,31 +198,42 @@
                         <h5>Responsibilities</h5>
                     </div>
     
-                    <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
-                    <ul> 
-                        <li>Maintain and monitor LANs, WANs, and intranet systems.</li>
-                        <li>Apply security measures including firewall rules, patches, and encryption protocols.</li>
-                        <li>Upgrade systems and network infrastructure as needed.</li>
-                        <li>Provide end-user technical support and network troubleshooting.</li>
-                        <li>Implement and manage backup and disaster recovery plans.</li>
-                        <li>Document network policies, architecture, and configurations.</li>
-                    </ul>
+                <?php
+                    $stringList = explode('•', $_SESSION['job']['responsibilities']);
+
+                    echo "<ul>";
+                    
+                    foreach ($stringList as $str) {
+                        $trimmedString = trim($str);
+                        if ($trimmedString !== '') {
+                            echo "<li>$trimmedString</li>";
+                        }
+                    }
+
+                    echo "</ul>";
+                ?>
                 </div>
     
                 <div>
                     <div class="overview-icon-header">
                         <?php echo createIcon('./styles/images/check_circle_fill.svg', IconSize::Large); ?> 
-                        <h5>Responsibilities</h5>
+                        <h5>Requirements</h5>
                     </div>
     
-                    <!-- TO BE REPLACED WITH ACTUAL DB DATA -->
-                    <ol>
-                        <li>Bachelor’s degree in IT, Computer Science, or related field.</li>
-                        <li>CCNA or CompTIA Network+ certification.</li>
-                        <li>Strong command of networking protocols (TCP/IP, DNS, DHCP).</li>
-                        <li>Experience with AWS, Azure, or Google Cloud networking services.</li>
-                        <li>Excellent problem-solving and analytical skills.</li>
-                    </ol>
+                    <?php
+                        $stringList = explode('•', $_SESSION['job']['requirements']);
+
+                        echo "<ol>";
+                        
+                        foreach ($stringList as $str) {
+                            $trimmedString = trim($str);
+                            if ($trimmedString !== '') {
+                                echo "<li>$trimmedString</li>";
+                            }
+                        }
+
+                        echo "</ol>";
+                    ?>
                 </div>
     
                 <div id="overview-bottom">

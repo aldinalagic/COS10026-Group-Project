@@ -3,16 +3,29 @@
     require_once 'button.php';
     require_once 'popup.php';
     require_once 'settings.php';
-    session_start();
-    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
-    // Get the first name from the database
+    ini_set('session.gc_maxlifetime', 10);
+    session_start();
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > ini_get('session.gc_maxlifetime'))) {
+        setcookie('PHPSESSID', '', time() - 3600, '/');
+        header('Location: logout.php');
+        exit();
+    }
+
+    if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) {
+        header('Location: 403-forbidden.php');
+        exit();
+    }
+
+    $_SESSION['LAST_ACTIVITY'] = time();
+
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     $email = $_SESSION['email'];
     $result = mysqli_query($conn, "SELECT FirstName, LastName FROM managers WHERE Email='$email'");
     $row = mysqli_fetch_assoc($result);
     $FirstName = $row ? $row['FirstName'] : '';
     $LastName = $row ? $row['LastName'] : '';
-    ?>
+?>
 
 
 <html lang="en">

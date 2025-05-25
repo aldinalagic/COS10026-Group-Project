@@ -482,10 +482,21 @@ body > *:not(.topbar) {
     height: fit-content;
     justify-content: space-between;
     padding: 32px;
-    background-color: var(--color-blue-100);
     border-radius: var(--border-radius-full);
     margin-bottom: 32px;
+    width: 100%;
 }
+
+.job-position.blue { background-color: var(--color-blue-100); }
+.job-position.grey { background-color: var(--color-grey-100); }
+.job-position.red { background-color: var(--color-red-100); }
+.job-position.green { background-color: var(--color-green-100); }
+.job-position.amber { background-color: var(--color-amber-100); }
+.job-position.purple { background-color: var(--color-purple-100); }
+.job-position.pink { background-color: var(--color-pink-100); }
+.job-position.teal { background-color: var(--color-teal-100); }
+.job-position.brown { background-color: var(--color-brown-100); }
+.job-position.orange { background-color: var(--color-orange-100); }
 
 .job-position-left {
     display: inline-flex;
@@ -493,14 +504,34 @@ body > *:not(.topbar) {
     gap: 24px;
     align-items: center;
     justify-content: center;
-    color: var(--color-blue-500);
 }
+
+.job-position-left.blue { color: var(--color-blue-500); }
+.job-position-left.grey { color: var(--color-grey-500); }
+.job-position-left.red { color: var(--color-red-500); }
+.job-position-left.green { color: var(--color-green-500); }
+.job-position-left.amber { color: var(--color-amber-500); }
+.job-position-left.purple { color: var(--color-purple-500); }
+.job-position-left.pink { color: var(--color-pink-500); }
+.job-position-left.teal { color: var(--color-teal-500); }
+.job-position-left.brown { color: var(--color-brown-500); }
+.job-position-left.orange { color: var(--color-orange-500); }
 
 .job-position-left .icon {
     padding: 12px;
-    background-color: var(--color-blue-200);
     border-radius: var(--border-radius-full);
 }
+
+.job-position-left.blue .icon { background-color: var(--color-blue-200); }
+.job-position-left.grey .icon { background-color: var(--color-grey-200); }
+.job-position-left.red .icon { background-color: var(--color-red-200); }
+.job-position-left.green .icon { background-color: var(--color-green-200); }
+.job-position-left.amber .icon { background-color: var(--color-amber-200); }
+.job-position-left.purple .icon { background-color: var(--color-purple-200); }
+.job-position-left.pink .icon { background-color: var(--color-pink-200); }
+.job-position-left.teal .icon { background-color: var(--color-teal-200); }
+.job-position-left.brown .icon { background-color: var(--color-brown-200); }
+.job-position-left.orange .icon { background-color: var(--color-orange-200); }
 
 .job-position-left h5 {
     margin: 0;
@@ -521,18 +552,11 @@ body > *:not(.topbar) {
 #jobs-toggle:checked ~ #jobs-wrapper #jobs-page {
     overflow: hidden;
     transform: translateX(-100%);
-    opacity: 0;
 }
 
 #jobs-toggle:checked ~ #jobs-wrapper #overview-page {
     transform: translateX(-100%);
     z-index: 2;
-}
-
-label[for="jobs-toggle"] button,
-label[for="jobs-toggle"] .button {
-    pointer-events: none;
-    cursor: pointer;
 }
 
 @keyframes glow-fancy-write {
@@ -775,7 +799,7 @@ label[for="jobs-toggle"] .button {
 #jobs-page,
 #overview-page {
   overflow: scroll;
-  transition: transform 1s cubic-bezier(0.23, 1, 0.320, 1), opacity 1s cubic-bezier(0.23, 1, 0.320, 1);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 #jobs-toggle:not(:checked) ~ #jobs-wrapper #jobs-page {

@@ -13,6 +13,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     echo "❌ Connection failed: " . mysqli_connect_error();
 }
+
 $email = trim($_POST['email']);
 $pass = trim($_POST['password']);
 if (empty($email) || empty($pass)) {

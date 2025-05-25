@@ -5,6 +5,11 @@
     require_once 'settings.php';
     require_once 'topbar.php';
     session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: 403-forbidden.php');
+        exit();
+    }
+
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
