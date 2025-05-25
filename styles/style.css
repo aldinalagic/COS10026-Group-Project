@@ -1551,7 +1551,7 @@ td {
     grid-template-areas:
         "id status"
         "name name"
-        ". button";
+        "jobref button";
     grid-template-rows: auto auto 1fr;
     grid-template-columns: min-content auto;
     border: 1px solid #E1E4E8;
@@ -1597,6 +1597,14 @@ td {
 
 #appname {
     grid-area: name;
+    margin: 0;
+    margin-left: 24px;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border-radius: 32px;
+}
+
+#appjobref {
+    grid-area: jobref;
     margin: 0;
     margin-left: 24px;
     padding: 0.2em 0.5em 0.2em 0.5em;
