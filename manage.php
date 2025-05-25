@@ -27,6 +27,9 @@ session_start();
             case "view_all": //list all EOIS
                 $query = "SELECT * FROM eoi";
                 $stmt = mysqli_prepare($conn, $query);
+                if (!$stmt) {
+                    die("Prepare failed: " . mysqli_error($conn));
+                }
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 break;
@@ -95,9 +98,10 @@ session_start();
                 }
                 exit;
 
-            default;
+            default:
                 echo "<p>Invalid action.</p>";
-                exit;
+            exit;
+            
         }
 
         // display results after selecting
@@ -113,12 +117,12 @@ session_start();
                   </tr>";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>
-                    <td>{$row['EOInumber']}</td>
-                    <td>{$row['JobReferenceNumber']}</td>
-                    <td>{$row['FirstName']} {$row['LastName']}</td>
-                    <td>{$row['EmailAddress']}</td>
-                    <td>{$row['PhoneNumber']}</td>
-                    <td>{$row['STATUS']}</td>
+                    <td>" . htmlspecialchars($row['EOInumber']) . "</td>
+                    <td>" . htmlspecialchars($row['JobReferenceNumber']) . "</td>
+                    <td>" . htmlspecialchars($row['FirstName']) . " " . htmlspecialchars($row['LastName']) . "</td>
+                    <td>" . htmlspecialchars($row['EmailAddress']) . "</td>
+                    <td>" . htmlspecialchars($row['PhoneNumber']) . "</td>
+                    <td>" . htmlspecialchars($row['STATUS']) . "</td>
                     </tr>";
             }
             echo "</table>";
@@ -133,7 +137,12 @@ session_start();
     $application = [];
     // Fetch the application details from the eoi table
     if ($eoiNumber) {
-    $result = mysqli_query($conn, "SELECT * FROM eoi WHERE EOInumber = $eoiNumber");
+        $query = "SELECT * FROM eoi WHERE EOInumber = ?";
+        $stmt = mysqli_prepare($conn, $query);
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, 'i', $eoiNumber);
+        mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
     if ($result && $row = mysqli_fetch_assoc($result)) {
             $application = [
                 'firstname' => $row['FirstName'],
@@ -154,11 +163,12 @@ session_start();
                 'status' => $row['STATUS'],
             ];
         } else {
-            echo "No application found with EOInumber: " . htmlspecialchars($eoiNumber);
+            echo "<p>No application found with EOInumber: " . htmlspecialchars($eoiNumber) . "</p>";
         }
     } else {
-        echo "Error fetching application: " . mysqli_error($conn);
+        echo "<p>Error fetching application: " . mysqli_error($conn) . "</p>";
     }
+}
 ?>
 
 <!DOCTYPE html>
