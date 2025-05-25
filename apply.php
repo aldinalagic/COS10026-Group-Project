@@ -64,7 +64,7 @@
                     <?php
                         echo createInput('text', 'first-name', 20, InputSize::Normal, 'Enter your first name', '', true, false, 'First name');
                         echo createInput('text', 'last-name', 20, InputSize::Normal, 'Enter your last name', '', true, false, 'Last name');
-                        echo createInput('text', 'date-of-birth', 0, InputSize::Normal, 'dd/mm/yyyy', '\d{2}/\d{2}/\d{4}', true, false, 'Date of birth');
+                        echo createInput('date', 'dob', 0, InputSize::Normal, 'dd/mm/yyyy', '\d{2}/\d{2}/\d{4}', true, false, 'Date of birth');
                         echo createInput('text', 'street-address', 40, InputSize::Normal, 'Enter your street address', '', true, false, 'Street address');
                         echo createInput('text', 'suburb', 40, InputSize::Normal, 'Enter your suburb', '', true, false, 'Suburb');
                     ?>
@@ -89,9 +89,9 @@
                         <legend>Gender</legend>
 
                         <?php
-                            echo createRadio('male', 'gender', 'male', 'Male', true);
-                            echo createRadio('female', 'gender', 'female', 'Female');
-                            echo createRadio('other', 'gender', 'other', 'Other');
+                            echo createRadio('male', 'gender', 'Male', 'male', true);
+                            echo createRadio('female', 'gender', 'Female', 'female');
+                            echo createRadio('other', 'gender', 'Other', 'other');
                         ?>
                     </fieldset>
                 </div>
