@@ -79,18 +79,23 @@ session_start();
                     echo "<p>Error deleting: " . mysqli_error($conn) . "</p>";
                 }
                 exit;
-                
+
             case "update_status": // change status for an EOI by ID
                 if (!$eoi_id || !$new_status) { 
                     echo "<p>Enter EOI ID and status.<p>"; 
                 exit; 
                 }
-                if (mysqli_query($conn, "UPDATE eoi SET STATUS='$new_status' WHERE EOInumber=$eoi_id")) {
-                    echo "<p>Updated EOI #$eoi_id to '$new_status'.</p>";
+                $query = "UPDATE eoi SET STATUS = ? WHERE EOInumber =?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "si", $new_status, $eoi_id);
+                if (mysqli_stmt_execute($stmt)) {
+                    echo "<p>Updated EOI #$eoi_id to '" . htmlspecialchars($new_status) . "'.</p>";
                 } else {
                     echo "<p>Error updating: " . mysqli_error($conn) . "</p>";
                 }
                 exit;
+
+
             default;
                 echo "<p>Invalid action.</p>";
                 exit;
