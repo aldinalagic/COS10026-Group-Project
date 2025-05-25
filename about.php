@@ -126,7 +126,7 @@
 
     <!--Sponsor section!-->
     <section id = "sponsor">
-        <h3><span class = "circle">Sponsor </span> <span class = "detail">(Tutor)</span></h3>
+        <h5><span class = "circle">Sponsor </span> <span class = "detail">(Tutor)</span></h4>
         <div class id = "tutor">
               <img src = "./styles/images/nick.png" alt = "tutor-image">  <p>Nick</p>
         </div>
