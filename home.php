@@ -8,9 +8,10 @@
 
     // Get the first name from the database
     $email = $_SESSION['email'];
-    $result = mysqli_query($conn, "SELECT FirstName FROM managers WHERE Email='$email'");
+    $result = mysqli_query($conn, "SELECT FirstName, LastName FROM managers WHERE Email='$email'");
     $row = mysqli_fetch_assoc($result);
     $FirstName = $row ? $row['FirstName'] : '';
+    $LastName = $row ? $row['LastName'] : '';
     ?>
 
 
@@ -37,7 +38,7 @@
                 new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php', true),
                 new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Applications', 'applications.php'),
             ), 
-            './styles/images/glow-logo.svg', 'Glow'
+            './styles/images/glow-logo.svg', 'Glow', "$FirstName $LastName"
         );
     ?>
     <div>
