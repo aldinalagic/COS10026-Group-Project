@@ -268,7 +268,7 @@ foreach ($filteredApps as $app) {
         "<div id='appid'><p>{$app['id']}</p></div>",
         "<div id='appstatus'>" . createBadge(BadgeSize::Large, '', $BadgeColor, $app['status']) . "</div>",
         "<h5 id='appname'>{$app['name']}</h5>",
-        "<form method='get' action='manage.php'>",
+        "<form method='get' action='view-application.php'>",
             "<input type='hidden' name='eoi' value='{$app['id']}'>",
             createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'View', 'submit'),
         "</form>",
