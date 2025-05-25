@@ -1352,7 +1352,151 @@ td {
 
 /* /////////////////////// End login.php //////////////////////// */
 
-/* //////////////////////// applications.php //////////////////////// */
+/* //////////////////////// manage.php //////////////////////// */
+
+#manage-apps {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20%;
+    width: 60%;
+    height: 100%;
+}
+
+#manage-apps form {
+    width: 100%;
+}
+
+#manage-apps h5 {
+    margin:0;
+    text-align: left;
+    width: 100%;
+}
+
+.manage-apps-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 64px;
+    height: fit-content;
+    padding: 0px;
+}
+
+.manage-apps-header > * {
+    margin: 0;
+    padding: 0;
+}
+
+.manage-apps-subtext{
+    color: var(--color-text_secondary);
+    width: 100%;
+    text-align: left;
+}
+
+.manage-apps-header button {
+    margin-left: auto;
+}
+
+#manage-apps-sorting {
+    display: grid;
+    grid-template-areas: 
+        "action firstname lastname"
+        "jobref eoi-id new-status";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    width: 100%;
+    column-gap: 72px;
+    row-gap: 32px;
+}
+
+#manage-apps-sorting > * {
+}
+
+#action-inputs {
+    grid-area: action;
+}
+
+#jobref-input {
+    grid-area: jobref;
+}
+
+#firstname-input {
+    grid-area: firstname;
+}
+
+#lastname-input {
+    grid-area: lastname;
+}
+
+#eoi-id-input {
+    grid-area: eoi-id;
+}
+
+#new-status-input {
+    grid-area: new-status;
+}
+
+#action-inputs,
+#jobref-input,
+#firstname-input,
+#lastname-input,
+#eoi-id-input,
+#new-status-input {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Apply select-like styling to the input child of these IDs */
+#action-inputs select,
+#jobref-input input,
+#firstname-input input,
+#lastname-input input,
+#eoi-id-input input,
+#new-status-input select {
+  border-radius: 12px;
+  border: 1px solid var(--color-border_primary);
+  padding: 6px 12px 6px 12px;
+  font-size: 12px;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 0px;
+  color: var(--color-text_secondary);
+  background: white;
+  transition: border 0.2s;
+  margin-top: 0;
+  width: 100%;
+}
+
+#jobref-input input:hover,
+#firstname-input input:hover,
+#lastname-input input:hover,
+#eoi-id-input input:hover,
+#new-status-input input:hover {
+  border: 1px solid var(--color-border_hover);
+  cursor: pointer;
+}
+
+#jobref-input input:focus,
+#firstname-input input:focus,
+#lastname-input input:focus,
+#eoi-id-input input:focus,
+#new-status-input input:focus {
+  border: 1px solid var(--color-border_active);
+  outline: none;
+  color: var(--color-text_primary);
+}
+
+#jobref-input input:valid,
+#firstname-input input:valid,
+#lastname-input input:valid,
+#eoi-id-input input:valid,
+#new-status-input input:valid {
+  color: var(--color-text_primary);
+  padding-right: 16px;
+}
 
 #app-search form {
     display: flex;
@@ -1391,28 +1535,32 @@ td {
 #app-grid {
   margin: 32px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
-  gap: 32px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
   justify-content: start;
   align-content: start;
   justify-items: start;
   align-items: start;
 }
 
+
+
 .app-card {
     display: grid;
     grid-template-areas:
         "id status"
         "name name"
-        "button button";
+        ". button";
+    grid-template-rows: auto auto 1fr;
     grid-template-columns: min-content auto;
-    grid-template-rows: 1fr 1fr;
     border: 1px solid #E1E4E8;
     border-radius: 32px;
     width: 100%;
     height: 100%;
     min-width: 200px;
     margin-bottom: 32px;
+    
 }
 
 #appid {
@@ -1439,9 +1587,12 @@ td {
 
 #appstatus {
     grid-area: status;
+    justify-self: end;
+    margin: 0;
     margin-left: auto;
-    margin-top: 24px;
     margin-right: 24px;
+    align-self: center;
+    justify-self: end;
 }
 
 #appname {
@@ -1454,15 +1605,24 @@ td {
 
 .app-card form {
     grid-area: button;
-    width:fit-content;
-    height:fit-content;
+    width: min-content;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    justify-self: end;
+    align-self: end;
     margin-left: auto;
-    margin-bottom: 24px;
-    margin-right: 24px;
 }
-/* //////////////////////// End applications.php //////////////////////// */
 
-/* //////////////////////// manage.php //////////////////////// */
+.app-card form button {
+    margin-left: auto;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+
+/* //////////////////////// End manage.php //////////////////////// */
+
+/* //////////////////////// view-application.php //////////////////////// */
 
 .manage-topbar-wrapper {
     display: flex;
@@ -1614,4 +1774,4 @@ td {
     }
 }
 
-/* //////////////////////// End manage.php //////////////////////// */
+/* //////////////////////// End view-application.php //////////////////////// */

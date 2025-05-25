@@ -49,7 +49,7 @@
             TopbarVariant::SEPERATED, 
             array(
                 new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php', true),
-                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Applications', 'applications.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php'),
             ), 
             './styles/images/glow-logo.svg', 'Glow', "$FirstName $LastName"
         );
