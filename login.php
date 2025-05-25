@@ -21,15 +21,13 @@
         ?>
     </header>
     <div id=login-content>
-        <img src="images/login-graphic.png" alt="login-graphic" id="login-graphic">
+        <img src="./styles/images/login-graphic.svg" alt="login-graphic" id="login-graphic">
         <div id="login-form">
-            <h3>Manager login</h3>
+            <h4>Manager login</h4>
             <p>Login as a manager</p>
             <form action="process-login.php" method="post">
-                <div class='input small'><label for=email>Email:</label><input type='text' id='email' name='email' maxlength='100' class='Small' placeholder='Email' required></input></div>
-                <br>
-                <div class='input small'><label for=password>Password:</label><input type='password' id='password' name='password' maxlength='100' class='Small' placeholder='Password' required></input></div>
-                <br>
+                <?php echo createInput('email', 'email', 100, InputSize::Normal, 'email@example.com', '', true, false, 'Email', '') ?>
+                <?php echo createInput('password', 'password', 100, InputSize::Normal, 'Enter password', '', true, false, 'Password', '') ?>
                 <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Sign in', 'submit') ?>
             </form>
         </div>

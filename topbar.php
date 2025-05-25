@@ -14,7 +14,7 @@
         new MenuOption('jobs.svg', IconSize::Normal, 'Jobs', 'jobs.php'),
         new MenuOption('apply.svg', IconSize::Normal, 'Apply', 'apply.php', true),
         new MenuOption('about.svg', IconSize::Normal, 'About', 'about.php'),
-    ), $logo = 'jobs.svg', $logoText = 'Glow') {
+    ), $logo = 'jobs.svg', $logoText = 'Glow', $avatarName = '') {
         $variantValue = $variant->value;
         $topbar = "<header class='topbar $variantValue'>";
         $menuOptionsContainer = createMenuOptionsContainer('topbar-container', $variantValue, $menuOptions);
@@ -22,7 +22,7 @@
         // When a topbar is seperated, the width of the topbar will be 100%,
         // And what we do is create 2 more extra divs, one for the logo (left-side), and one for the avatar (right-side)
         if($variant == TopbarVariant::SEPERATED) {
-            $topbar .= "<div class='topbar-container'><a href='index.php'><img src='$logo'></a></div>" . $menuOptionsContainer . "<div class='topbar-container'>" . createAvatar(AvatarSize::Normal, 'Name', true) . "</div>";
+            $topbar .= "<div class='topbar-container'><a href='index.php'><img src='$logo'></a></div>" . $menuOptionsContainer . "<div class='topbar-container'>" . createAvatar(AvatarSize::Normal, $avatarName, true) . "</div>";
         } else {
             # YOU HAVE TO DO THIS BECAUSE PHP IS A TRASH LANGUAGE. I am actually losing brain cells writing php.
             # For some reason you cant create a class then call a function RIGHT after the class is created. For example: new MenuOption(...)->createMenuOption(...) This does not work for some reason :/

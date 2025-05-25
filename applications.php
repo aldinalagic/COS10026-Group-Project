@@ -19,10 +19,16 @@
                 'id' => $row['EOInumber'],
                 'status' => $row['STATUS'],
                 'name' => $row['FirstName'] . ' ' . $row['LastName'],
-                // Add other fields as needed
             ];
         }
     }
+
+    $email = $_SESSION['email'];
+    $avatarNameResult = mysqli_query($conn, "SELECT FirstName, LastName FROM managers WHERE Email='$email'");
+    $row = mysqli_fetch_assoc($avatarNameResult);
+    $FirstName = $row ? $row['FirstName'] : '';
+    $LastName = $row ? $row['LastName'] : '';
+
 ?>
 <html lang="en">
 <head>
@@ -43,7 +49,7 @@
                 new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php'),
                 new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Applications', 'applications.php', true),
             ), 
-            './styles/images/glow-logo.svg', 'Glow'
+            './styles/images/glow-logo.svg', 'Glow', "$FirstName $LastName"
         );
     ?>
     <div id="app-search">
