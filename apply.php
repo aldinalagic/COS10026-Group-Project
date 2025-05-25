@@ -96,7 +96,7 @@
                     </fieldset>
                 </div>
 
-                <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Next', 'button', '#contact-details') ?>
+                <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Next', 'submit', '#contact-details') ?>
             </section>
 
 
@@ -117,7 +117,7 @@
                 <div class="button-group">
                      <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/left_line.svg', 'Go back', 'button', '#personal-information') ?>
 
-                    <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Next', 'button', '#role-information') ?>
+                    <?php echo createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'Next', 'submit', '#role-information') ?>
                 </div>
             </section>
 
