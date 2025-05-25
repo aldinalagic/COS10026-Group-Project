@@ -48,12 +48,12 @@ session_start();
                 $params = [];
                 $types = '';
                 if ($firstname) {
-                    $query .= " AND FirstName='$firstname'";
+                    $query .= " AND FirstName= ?";
                     $types .= 's';
                     $params[] = $firstname;
                 }
                 if ($lastname) {
-                    $query .= " AND LastName='$lastname'";
+                    $query .= " AND LastName= ?";
                     $types .= 's';
                     $params[] = $lastname;
                 }
@@ -95,15 +95,13 @@ session_start();
                 }
                 exit;
 
-
             default;
                 echo "<p>Invalid action.</p>";
                 exit;
         }
 
         // display results after selecting
-        $result = mysqli_query($conn, $query);
-        if ($result && mysqli_num_rows($result) > 0) {
+        if (isset($result) && $result && mysqli_num_rows($result) > 0) {
             echo "<table border ='1'>";
             echo "<tr>
                     <th>EOI Number</th>
