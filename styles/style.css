@@ -1355,7 +1355,7 @@ td {
 /* //////////////////////// manage.php //////////////////////// */
 
 #manage-apps {
-    margin-top: 48px;
+    margin-top: 64px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1381,8 +1381,14 @@ td {
     align-items: center;
     width: 100%;
     margin-top: 64px;
+    gap: 8px;
     height: fit-content;
-    padding: 0px;
+    padding: 8px 0px;
+}
+
+/* Only apply new margin-top to any header that isn't the first one */
+#manage-apps > .manage-apps-header:not(:first-child) {
+    margin-top: 96px;
 }
 
 .manage-apps-header > * {
@@ -1394,6 +1400,8 @@ td {
     color: var(--color-text_secondary);
     width: 100%;
     text-align: left;
+    margin-top: 8px;
+    margin-bottom: 64px;
 }
 
 .manage-apps-header button {

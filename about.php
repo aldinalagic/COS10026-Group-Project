@@ -44,7 +44,6 @@
                 Aldin Alagic:
                 <ul>Project designer</ul>
                 <ul>Developer of jobs.php</ul>
-                <ul>Developer of home.php</ul>
                 <ul>Developed the component library</ul>
             </ul>
 
@@ -64,6 +63,7 @@
             <ul>
                 Nadine David
                 <ul>Developer of apply.php</ul>
+                <ul>Developer of manage.php</ul>
             </ul>
         </div>
 

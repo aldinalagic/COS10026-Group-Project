@@ -54,6 +54,7 @@
             array(
                 new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php'),
                 new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php', true),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'view-jobs.php', false),
             ), 
             './styles/images/glow-logo.svg', 'Glow', "$FirstName $LastName"
         );
@@ -77,7 +78,7 @@
             echo '<h5>Manage</h5>';
             echo '<div class="manage-apps-header">';
             echo    '<img src="styles/images/actions.svg" alt="actions" id="actions-icon">';
-            echo    '<h6>Actions</h6>';
+            echo    '<h5>Actions</h5>';
             echo    createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, "styles/images/execute.svg", "Execute", "submit");
             echo '</div>';
             echo '<p class="manage-apps-subtext">Actions allow you to filter and sort applications.</p>';
