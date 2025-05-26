@@ -4,6 +4,8 @@
     require_once 'badge.php';
     require_once 'settings.php';
     require_once 'topbar.php';
+    require_once 'alert.php';
+
     session_start();
     if (!isset($_SESSION['email'])) {
         header('Location: 403-forbidden.php');
@@ -45,7 +47,11 @@
     <title>Manage</title>
 </head>
 <body id="app-body">
-    
+    <?php
+        if (isset($_GET['deleted']) && $_GET['deleted'] == 1) {
+            echo createAlert("Application deleted successfully.", AlertVarient::Danger);
+        }
+    ?>
 
     <?php
         
@@ -53,7 +59,7 @@
             TopbarVariant::SEPERATED, 
             array(
                 new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php'),
-                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php', true),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php', true)
             ), 
             './styles/images/glow-logo.svg', 'Glow', "$FirstName $LastName"
         );
@@ -77,7 +83,7 @@
             echo '<h5>Manage</h5>';
             echo '<div class="manage-apps-header">';
             echo    '<img src="styles/images/actions.svg" alt="actions" id="actions-icon">';
-            echo    '<h6>Actions</h6>';
+            echo    '<h5>Actions</h5>';
             echo    createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, "styles/images/execute.svg", "Execute", "submit");
             echo '</div>';
             echo '<p class="manage-apps-subtext">Actions allow you to filter and sort applications.</p>';
@@ -267,8 +273,7 @@ foreach ($filteredApps as $app) {
     echo "<div class='app-card'>",
         "<div id='appid'><p>{$app['id']}</p></div>",
         "<div id='appstatus'>" . createBadge(BadgeSize::Large, '', $BadgeColor, $app['status']) . "</div>",
-        "<h5 id='appname'>{$app['name']}</h5>",
-        "<p id='appjobref'>{$app['jobReferenceNumber']}</p>",
+        "<h6 id='appname'>{$app['name']}</h6>",
         "<form method='get' action='view-application.php'>",
             "<input type='hidden' name='eoi' value='{$app['id']}'>",
             createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'View', 'submit'),

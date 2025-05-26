@@ -6,66 +6,72 @@ require_once 'input.php';
 require_once 'settings.php';
 
 session_start();
-    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    
-    $eoiNumber = trim($_GET['eoi']);
-    // Fetch the application details from the eoi table
-    $application = [];
-    $result = mysqli_query($conn, "SELECT * FROM eoi WHERE EOInumber = '$eoiNumber'");
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        if ($row) {
-            $application = [
-                'firstname' => $row['FirstName'],
-                'lastname' => $row['LastName'],
-                'street' => $row['StreetAddress'],
-                'suburb' => $row['SuburbTown'],
-                'state' => $row['State'],
-                'postcode' => $row['Postcode'],
-                'email' => $row['EmailAddress'],
-                'phone' => $row['PhoneNumber'],
-                'JobReferenceNumber' => $row['JobReferenceNumber'],
-                'technical' => [
-                    'skill1' => $row['Skill1'],
-                    'skill2' => $row['Skill2'],
-                    'skill3' => $row['Skill3'],
-                ],
-                'OtherSkills' => $row['OtherSkills'],
-                'status' => $row['STATUS'],
-            ];
-        } else {
-            echo "No application found with EOInumber: " . htmlspecialchars($eoiNumber);
-        }
-    } else {
-        echo "Error fetching application: " . mysqli_error($conn);
-    }
-    $action = isset($_GET['action']) ? $_GET['action'] : '';
-    if ($action === 'delete') {
-        // Delete the application from the eoi table
-        $deleteQuery = "DELETE FROM eoi WHERE EOInumber = '$eoiNumber'";
-        
-        if (mysqli_query($conn, $deleteQuery)) {
-            header("Location: manage.php?message=Application+deleted+successfully");
-            exit();
-        } else {
-            echo "Error deleting application: " . mysqli_error($conn);
-        }
-    }
-    if ($action === 'accept') {
-        // Update the application status to 'Accepted'
-        $updateQuery = "UPDATE eoi SET STATUS = 'Accepted' WHERE EOInumber = '$eoiNumber'";
-        
-        if (mysqli_query($conn, $updateQuery)) {
-            header("Location: manage.php?message=Application+accepted+successfully");
-            exit();
-        } else {
-            echo "Error updating application status: " . mysqli_error($conn);
-        }
-    }
+if (!isset($_SESSION['email'])) {
+    header('Location: 403-forbidden.php');
+    exit();
+}
 
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Handle delete POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_eoi'])) {
+    $deleteEoi = intval($_POST['delete_eoi']);
+    $deleteQuery = "DELETE FROM eoi WHERE EOInumber = $deleteEoi";
+    mysqli_query($conn, $deleteQuery);
+    // Redirect to manage page after deletion
+    header("Location: manage.php?deleted=1");
+    exit();
+}
+
+$eoiNumber = trim($_GET['eoi']);
+// Fetch the application details from the eoi table
+$application = [];
+$result = mysqli_query($conn, "SELECT * FROM eoi WHERE EOInumber = '$eoiNumber'");
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    if ($row) {
+        $application = [
+            'firstname' => $row['FirstName'],
+            'lastname' => $row['LastName'],
+            'street' => $row['StreetAddress'],
+            'suburb' => $row['SuburbTown'],
+            'state' => $row['State'],
+            'postcode' => $row['Postcode'],
+            'email' => $row['EmailAddress'],
+            'phone' => $row['PhoneNumber'],
+            'JobReferenceNumber' => $row['JobReferenceNumber'],
+            'technical' => [
+                'skill1' => $row['Skill1'],
+                'skill2' => $row['Skill2'],
+                'skill3' => $row['Skill3'],
+            ],
+            'OtherSkills' => $row['OtherSkills'],
+            'status' => $row['STATUS'],
+        ];
+    }
+} else {
+    echo "Error fetching application: " . mysqli_error($conn);
+}
+
+$email = $_SESSION['email'];
+$avatarNameResult = mysqli_query($conn, "SELECT FirstName, LastName FROM managers WHERE Email='$email'");
+$row = mysqli_fetch_assoc($avatarNameResult);
+$FirstName = $row ? $row['FirstName'] : '';
+$LastName = $row ? $row['LastName'] : '';
+
+$eoiNumbers = [];
+$resultAll = mysqli_query($conn, "SELECT EOInumber FROM eoi ORDER BY EOInumber ASC");
+while ($rowAll = mysqli_fetch_assoc($resultAll)) {
+    $eoiNumbers[] = $rowAll['EOInumber'];
+}
+$currentIndex = array_search($eoiNumber, $eoiNumbers);
+
+// Find previous and next EOInumber
+$prevEoi = $currentIndex > 0 ? $eoiNumbers[$currentIndex - 1] : null;
+$nextEoi = $currentIndex < count($eoiNumbers) - 1 ? $eoiNumbers[$currentIndex + 1] : null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,8 +84,6 @@ session_start();
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body id="manage-body">
-    
-<!-- This couldn't be a regular topbar component as there are too many custom stuff that the topbar component doesn't support yet -->
     <div class="manage-topbar-wrapper">
         <div class="topbar-left">
             <?php echo createButton(ButtonSize::Normal, ButtonVariant::Shaded, ButtonColor::Grey, './styles/images/left_line.svg', 'Go back', 'button', 'manage.php') ?>
@@ -88,7 +92,7 @@ session_start();
         
         <div class="topbar-right">
             <?php
-                echo createAvatar(AvatarSize::Normal, 'Name', true)
+                echo createAvatar(AvatarSize::Normal, "$FirstName $LastName", true)
             ?>            
         </div>
     </div>
@@ -96,18 +100,26 @@ session_start();
     <div class="topbar-center">
         <?php echo createAvatar(AvatarSize::Large, $application['firstname'] . ' ' . $application['lastname'], false) ?>
         <div>
-            
-            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'button', '#deleteApplication') ?>
+            <?php echo createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Blue, '', 'Delete', 'button', '#deleteApplication') ?>
         </div>
     </div>
-    <form method="get" action="">
-        <input type='hidden' name='eoi' value='<?php echo htmlspecialchars($eoiNumber); ?>'>
-        <input type='hidden' name='action' value='delete'>
-        <?php echo createPopup('deleteApplication', '🔥 Delete Application?', 'Are you sure you want to delete ' . $application['firstname'] . ' ' . $application['lastname'] . '\'s application? 
-        <br>We cant bring it back to life if you decide to delete it!', createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'submit', '#deleteApplication')) ?>
-    </form>
-    <?php
     
+    <?php 
+        $deleteButton = createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'submit');
+        echo createPopup(
+            'deleteApplication',
+            '🔥 Delete Application?',
+            'Are you sure you want to delete ' . $application['firstname'] . ' ' . $application['lastname'] . '\'s application? 
+            <br>We cant bring it back to life if you decide to delete it!',
+            "<form method='post' action='view-application.php?eoi=" . htmlspecialchars($eoiNumber) . "'>
+                <input type='hidden' name='delete_eoi' value='" . htmlspecialchars($eoiNumber) . "'>
+                $deleteButton
+            </form>"
+        );
+    ?>
+
+    <?php
+
     $sparklesIcon = createIcon('./styles/images/sparkles_2_fill.svg', IconSize::Large);
     $signatureIcon = createIcon('./styles/images/signature_fill.svg', IconSize::Large);
     $suitcaseIcon = createIcon('./styles/images/suitcase_fill.svg', IconSize::Large);
@@ -139,15 +151,22 @@ session_start();
         '</div>',
 
         '<input type="hidden" name="eoi" value="' . htmlspecialchars($eoiNumber) . '">',
-        '</form>',
-        '<div class="manage-control">',
-            '<form method="get" action="">',
-                '<input type="hidden" name="eoi" value="' . htmlspecialchars($eoiNumber) . '">',
-                '<input type="hidden" name="action" value="accept">',
-                createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Blue, '', 'Accept', 'submit'),
-            '</form>',
-        '</div>'
+        '</form>'
     ?>
 
+    <?php 
+       echo '<div class="manage-control">';
+        if ($prevEoi !== null) {
+            echo createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/left_line.svg', 'Previous', 'button', 'view-application.php?eoi=' . urlencode($prevEoi));
+        } else {
+            echo createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/left_line.svg', 'Previous', 'button', '', false, true);
+        }
+        if ($nextEoi !== null) {
+            echo createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/right_line.svg', 'Next', 'button', 'view-application.php?eoi=' . urlencode($nextEoi), true);
+        } else {
+            echo createButton(ButtonSize::Normal, ButtonVariant::Plain, ButtonColor::Blue, './styles/images/right_line.svg', 'Next', 'button', '', true, true);
+        }
+        echo '</div>';
+    ?>
 </body>
 </html>
