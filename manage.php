@@ -4,6 +4,8 @@
     require_once 'badge.php';
     require_once 'settings.php';
     require_once 'topbar.php';
+    require_once 'alert.php';
+
     session_start();
     if (!isset($_SESSION['email'])) {
         header('Location: 403-forbidden.php');
@@ -45,7 +47,11 @@
     <title>Manage</title>
 </head>
 <body id="app-body">
-    
+    <?php
+        if (isset($_GET['deleted']) && $_GET['deleted'] == 1) {
+            echo createAlert("Application deleted successfully.", AlertVarient::Danger);
+        }
+    ?>
 
     <?php
         

@@ -5,62 +5,73 @@ require_once 'popup.php';
 require_once 'input.php';
 require_once 'settings.php';
 
-    session_start();
-     if (!isset($_SESSION['email'])) {
-        header('Location: 403-forbidden.php');
-        exit();
-    }
+session_start();
+if (!isset($_SESSION['email'])) {
+    header('Location: 403-forbidden.php');
+    exit();
+}
 
-    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    $eoiNumber = trim($_GET['eoi']);
-    // Fetch the application details from the eoi table
-    $application = [];
-    $result = mysqli_query($conn, "SELECT * FROM eoi WHERE EOInumber = '$eoiNumber'");
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        if ($row) {
-            $application = [
-                'firstname' => $row['FirstName'],
-                'lastname' => $row['LastName'],
-                'street' => $row['StreetAddress'],
-                'suburb' => $row['SuburbTown'],
-                'state' => $row['State'],
-                'postcode' => $row['Postcode'],
-                'email' => $row['EmailAddress'],
-                'phone' => $row['PhoneNumber'],
-                'JobReferenceNumber' => $row['JobReferenceNumber'],
-                'technical' => [
-                    'skill1' => $row['Skill1'],
-                    'skill2' => $row['Skill2'],
-                    'skill3' => $row['Skill3'],
-                ],
-                'OtherSkills' => $row['OtherSkills'],
-                'status' => $row['STATUS'],
-            ];
-        }
-    } else {
-        echo "Error fetching application: " . mysqli_error($conn);
-    }
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-    $email = $_SESSION['email'];
-    $avatarNameResult = mysqli_query($conn, "SELECT FirstName, LastName FROM managers WHERE Email='$email'");
-    $row = mysqli_fetch_assoc($avatarNameResult);
-    $FirstName = $row ? $row['FirstName'] : '';
-    $LastName = $row ? $row['LastName'] : '';
+// Handle delete POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_eoi'])) {
+    $deleteEoi = intval($_POST['delete_eoi']);
+    $deleteQuery = "DELETE FROM eoi WHERE EOInumber = $deleteEoi";
+    mysqli_query($conn, $deleteQuery);
+    // Redirect to manage page after deletion
+    header("Location: manage.php?deleted=1");
+    exit();
+}
 
-    $eoiNumbers = [];
-    $resultAll = mysqli_query($conn, "SELECT EOInumber FROM eoi ORDER BY EOInumber ASC");
-    while ($rowAll = mysqli_fetch_assoc($resultAll)) {
-        $eoiNumbers[] = $rowAll['EOInumber'];
+$eoiNumber = trim($_GET['eoi']);
+// Fetch the application details from the eoi table
+$application = [];
+$result = mysqli_query($conn, "SELECT * FROM eoi WHERE EOInumber = '$eoiNumber'");
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    if ($row) {
+        $application = [
+            'firstname' => $row['FirstName'],
+            'lastname' => $row['LastName'],
+            'street' => $row['StreetAddress'],
+            'suburb' => $row['SuburbTown'],
+            'state' => $row['State'],
+            'postcode' => $row['Postcode'],
+            'email' => $row['EmailAddress'],
+            'phone' => $row['PhoneNumber'],
+            'JobReferenceNumber' => $row['JobReferenceNumber'],
+            'technical' => [
+                'skill1' => $row['Skill1'],
+                'skill2' => $row['Skill2'],
+                'skill3' => $row['Skill3'],
+            ],
+            'OtherSkills' => $row['OtherSkills'],
+            'status' => $row['STATUS'],
+        ];
     }
-    $currentIndex = array_search($eoiNumber, $eoiNumbers);
+} else {
+    echo "Error fetching application: " . mysqli_error($conn);
+}
 
-    // Find previous and next EOInumber
-    $prevEoi = $currentIndex > 0 ? $eoiNumbers[$currentIndex - 1] : null;
-    $nextEoi = $currentIndex < count($eoiNumbers) - 1 ? $eoiNumbers[$currentIndex + 1] : null;
+$email = $_SESSION['email'];
+$avatarNameResult = mysqli_query($conn, "SELECT FirstName, LastName FROM managers WHERE Email='$email'");
+$row = mysqli_fetch_assoc($avatarNameResult);
+$FirstName = $row ? $row['FirstName'] : '';
+$LastName = $row ? $row['LastName'] : '';
+
+$eoiNumbers = [];
+$resultAll = mysqli_query($conn, "SELECT EOInumber FROM eoi ORDER BY EOInumber ASC");
+while ($rowAll = mysqli_fetch_assoc($resultAll)) {
+    $eoiNumbers[] = $rowAll['EOInumber'];
+}
+$currentIndex = array_search($eoiNumber, $eoiNumbers);
+
+// Find previous and next EOInumber
+$prevEoi = $currentIndex > 0 ? $eoiNumbers[$currentIndex - 1] : null;
+$nextEoi = $currentIndex < count($eoiNumbers) - 1 ? $eoiNumbers[$currentIndex + 1] : null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,8 +104,19 @@ require_once 'settings.php';
         </div>
     </div>
     
-    <?php echo createPopup('deleteApplication', '🔥 Delete Application?', 'Are you sure you want to delete ' . $application['firstname'] . ' ' . $application['lastname'] . '\'s application? 
-    <br>We cant bring it back to life if you decide to delete it!', createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'button', '#deleteApplication')) ?>
+    <?php 
+        $deleteButton = createButton(ButtonSize::Normal, ButtonVariant::Danger, ButtonColor::Grey, '', 'Delete', 'submit');
+        echo createPopup(
+            'deleteApplication',
+            '🔥 Delete Application?',
+            'Are you sure you want to delete ' . $application['firstname'] . ' ' . $application['lastname'] . '\'s application? 
+            <br>We cant bring it back to life if you decide to delete it!',
+            "<form method='post' action='view-application.php?eoi=" . htmlspecialchars($eoiNumber) . "'>
+                <input type='hidden' name='delete_eoi' value='" . htmlspecialchars($eoiNumber) . "'>
+                $deleteButton
+            </form>"
+        );
+    ?>
 
     <?php
 
