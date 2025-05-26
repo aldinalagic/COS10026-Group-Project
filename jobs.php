@@ -90,7 +90,6 @@
                     foreach ($jobs as $job) {
                         $color = trim(strtolower($job['color']));
                         $jobIcon = $job['icon'];
-                        echo $jobIcon;
                         echo "<form action='update-jobs.php' method='post'>", 
                             "<div class='job-position $color'>",
                             "<div class='job-position-left $color'>",
