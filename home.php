@@ -2,22 +2,14 @@
     require_once 'topbar.php';
     require_once 'button.php';
     require_once 'popup.php';
+    require_once 'icon.php';
     require_once 'settings.php';
 
-    ini_set('session.gc_maxlifetime', 10);
     session_start();
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > ini_get('session.gc_maxlifetime'))) {
-        setcookie('PHPSESSID', '', time() - 3600, '/');
-        header('Location: logout.php');
-        exit();
-    }
-
     if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) {
         header('Location: 403-forbidden.php');
         exit();
     }
-
-    $_SESSION['LAST_ACTIVITY'] = time();
 
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
     $email = $_SESSION['email'];
@@ -43,20 +35,18 @@
 </head>
 <body id="home-body">
     <?php
-        //echo createButton(variant: ButtonVariant::Danger, href: '#popup');
-        //echo createPopup('#popup', 'Popup', 'This is a popup', createButton(variant: ButtonVariant::Danger, href: 'index.php'));
          echo createTopbar(
             TopbarVariant::SEPERATED, 
             array(
                 new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php', true),
-                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php'),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php')
             ), 
             './styles/images/glow-logo.svg', 'Glow', "$FirstName $LastName"
         );
     ?>
-    <div>
+    <div class="submenu">
         <?php
-            echo "<h1>👋 Welcome back " . $FirstName . "!</h1>";
+            echo "<h5>👋 Welcome back " . $FirstName . "!</h5>";
         ?>
     </div>
 </body>

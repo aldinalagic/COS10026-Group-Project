@@ -53,8 +53,7 @@
             TopbarVariant::SEPERATED, 
             array(
                 new MenuOption('./styles/images/home_4_fill.svg', IconSize::Normal, 'Home', 'home.php'),
-                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php', true),
-                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'view-jobs.php', false),
+                new MenuOption('./styles/images/folder_open_fill.svg', IconSize::Normal, 'Manage', 'manage.php', true)
             ), 
             './styles/images/glow-logo.svg', 'Glow', "$FirstName $LastName"
         );
@@ -268,7 +267,7 @@ foreach ($filteredApps as $app) {
     echo "<div class='app-card'>",
         "<div id='appid'><p>{$app['id']}</p></div>",
         "<div id='appstatus'>" . createBadge(BadgeSize::Large, '', $BadgeColor, $app['status']) . "</div>",
-        "<h5 id='appname'>{$app['name']}</h5>",
+        "<h6 id='appname'>{$app['name']}</h6>",
         "<form method='get' action='view-application.php'>",
             "<input type='hidden' name='eoi' value='{$app['id']}'>",
             createButton(ButtonSize::Normal, ButtonVariant::Filled, ButtonColor::Amber, '', 'View', 'submit'),

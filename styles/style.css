@@ -1401,7 +1401,7 @@ td {
     width: 100%;
     text-align: left;
     margin-top: 8px;
-    margin-bottom: 64px;
+    margin-bottom: 32px;
 }
 
 .manage-apps-header button {
@@ -1542,6 +1542,7 @@ td {
 
 #app-grid {
   margin: 32px;
+  margin-top: 0;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1606,7 +1607,8 @@ td {
 #appname {
     grid-area: name;
     margin: 0;
-    margin-left: 24px;
+    margin-top: 16px;
+    margin-left: 16px;
     padding: 0.2em 0.5em 0.2em 0.5em;
     border-radius: 32px;
 }
@@ -1783,3 +1785,23 @@ td {
 }
 
 /* //////////////////////// End view-application.php //////////////////////// */
+
+/* //////////////////////// home.php //////////////////////// */
+
+.submenu {
+    max-width: 896px;
+    width: 100%;
+    padding: 8px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 56px;
+
+    h5 {
+        margin: 0;
+    }
+}
+
+/* //////////////////////// End home.php //////////////////////// */
