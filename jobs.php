@@ -132,9 +132,10 @@
                         $jobBackground = $_SESSION['job']['background'];
                         echo "<img src='$jobBackground'>";
                         ?>
+                        
                         <?php
-                            $jobIcon = $_SESSION['job']['background'];
-                            echo createIcon("$jobIcon", IconSize::Large)
+                        $jobIcon = createIcon($_SESSION['job']['icon'], IconSize::Large);
+                        echo $jobIcon;
                         ?>
                 </div>
             </div>

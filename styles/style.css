@@ -675,7 +675,6 @@ body > *:not(.topbar) {
     max-height: 256px;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
     border-radius: var(--border-radius-40);
 }
 
@@ -695,6 +694,17 @@ body > *:not(.topbar) {
     outline: 8px solid white;
     color: var(--color-blue-500);
 }
+
+#overview-header-wrapper.blue { background-color: var(--color-blue-100); color: var(--color-blue-500);}
+#overview-header-wrapper.grey { background-color: var(--color-grey-100); color: var(--color-grey-500);}
+#overview-header-wrapper.red { background-color: var(--color-red-100); color: var(--color-red-500);}
+#overview-header-wrapper.green { background-color: var(--color-green-100); color: var(--color-green-500);}
+#overview-header-wrapper.amber { background-color: var(--color-amber-100); color: var(--color-amber-500);}
+#overview-header-wrapper.purple { background-color: var(--color-purple-100); color: var(--color-purple-500);}
+#overview-header-wrapper.pink { background-color: var(--color-pink-100); color: var(--color-pink-500);}
+#overview-header-wrapper.teal { background-color: var(--color-teal-100); color: var(--color-teal-500);}
+#overview-header-wrapper.brown { background-color: var(--color-brown-100); color: var(--color-brown-500);}
+#overview-header-wrapper.orange { background-color: var(--color-orange-100); color: var(--color-orange-500);}
 
 #overview-topbar {
     display: flex;
