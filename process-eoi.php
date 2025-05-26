@@ -17,19 +17,19 @@ function sanitize_input($data) {
 
 
 // sanitizing covers trim, striplashes, and htmlspecialchars. 
-$jobID = sanitize_input($_POST['jobreference']); 
-$FirstName = sanitize_input($_POST['first-name']);
-$LastName = sanitize_input($_POST['last-name']);
-$DOB = sanitize_input($_POST['date-of-birth']);
-$gender = sanitize_input($_POST['gender']);
-$street = sanitize_input($_POST['street-address']);
-$suburb = sanitize_input($_POST['suburb']);
-$state = sanitize_input($_POST['state']);
-$postcode = sanitize_input($_POST['postcode']);
-$email = sanitize_input($_POST['email']);
-$phone = sanitize_input($_POST['phone-number']);
-$skills = isset($_POST['technical']) ? array_map('sanitize_input', $_POST['technical']) : []; // all skills in array sanitized.
-$otherSkills = sanitize_input($_POST['other-skills']);
+$jobID    = isset($_POST['jobreference'])    ? sanitize_input($_POST['jobreference'])    : '';
+$FirstName= isset($_POST['first-name'])      ? sanitize_input($_POST['first-name'])      : '';
+$LastName = isset($_POST['last-name'])       ? sanitize_input($_POST['last-name'])       : '';
+$DOB      = isset($_POST['dob'])             ? sanitize_input($_POST['dob'])             : '';
+$gender   = isset($_POST['gender'])          ? sanitize_input($_POST['gender'])          : '';
+$street   = isset($_POST['street-address'])  ? sanitize_input($_POST['street-address'])  : '';
+$suburb   = isset($_POST['suburb'])          ? sanitize_input($_POST['suburb'])          : '';
+$state    = isset($_POST['state'])           ? strtoupper(sanitize_input($_POST['state'])): '';
+$postcode = isset($_POST['postcode'])        ? sanitize_input($_POST['postcode'])        : '';
+$email    = isset($_POST['email'])           ? sanitize_input($_POST['email'])           : '';
+$phone    = isset($_POST['phone-number'])    ? sanitize_input($_POST['phone-number'])    : '';
+$skills   = isset($_POST['technical'])       ? array_map('sanitize_input', $_POST['technical']) : [];
+$otherSkills = isset($_POST['other-skills']) ? sanitize_input($_POST['other-skills'])    : '';
 
 //validating the user input and showing errors (if)
 $errors = [];
@@ -48,10 +48,10 @@ if (preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $DOB)) {
 }
 $date_obj = DateTime::createFromFormat('Y-m-d', $DOB);
 
-$dob_errors = DateTime::getLastErrors();
-if (!$date_obj || $dob_errors['warning_count'] > 0 || $dob_errors['error_count'] > 0) {
-    $errors[] = "DOB must be a valid date in yyyy/mm/dd format.";
-}
+//$dob_errors = DateTime::getLastErrors();
+//if (!$date_obj || $dob_errors['warning_count'] > 0 || $dob_errors['error_count'] > 0) {
+//    $errors[] = "DOB must be a valid date in yyyy/mm/dd format.";
+//}
 
 $validGenders = ['Male', 'Female', 'Other'];
 if (!in_array($gender, $validGenders)) {
@@ -172,5 +172,3 @@ if ($stmt->execute()) {
     $stmt->close();
     $conn->close();
 ?>
-
-
